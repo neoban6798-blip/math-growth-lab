@@ -1,1 +1,462 @@
+/* =====================================================
+   생각의힘 수학학원 - 공통 스타일시트
+   파일명: assets/css/style.css
+   
+   [구조]
+   1. RESET        - 브라우저 기본값 초기화
+   2. VARIABLES    - 색상, 폰트 등 공통 변수
+   3. BASE         - 기본 태그 스타일
+   4. HEADER       - 헤더, 네비게이션
+   5. HERO         - 히어로 섹션
+   6. VALUES       - 핵심 가치 카드
+   7. PROGRAMS     - 프로그램 소개
+   8. LOCATION     - 위치 안내
+   9. FOOTER       - 푸터
+   10. RESPONSIVE  - 모바일 대응
+   ===================================================== */
 
+
+/* =====================================================
+   1. RESET - 브라우저마다 다른 기본값을 통일
+   ===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   2. VARIABLES - 전체에서 반복 사용하는 값을 변수로 관리
+   색상 변경 시 여기서만 수정하면 전체 반영됨
+   ===================================================== */
+:root {
+  /* 메인 색상 */
+  --color-primary: #2563eb;      /* 버튼, 링크 등 포인트 색상 */
+  --color-primary-dark: #1d4ed8; /* 버튼 hover 시 색상 */
+
+  /* 텍스트 색상 */
+  --color-text-main: #1a1a1a;    /* 본문 기본 색상 */
+  --color-text-sub: #555555;     /* 보조 텍스트 색상 */
+  --color-text-light: #888888;   /* 힌트, 캡션 등 */
+
+  /* 배경 색상 */
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f8f9fa;     /* 섹션 배경 교차용 */
+  --color-bg-dark: #1a1a2e;      /* 푸터 배경 */
+
+  /* 테두리 */
+  --color-border: #e5e7eb;
+
+  /* 폰트 */
+  --font-main: 'Noto Sans KR', sans-serif;
+
+  /* 레이아웃 */
+  --max-width: 1100px;           /* 전체 최대 너비 */
+  --section-padding: 80px 24px;  /* 섹션 상하 여백 */
+}
+
+
+/* =====================================================
+   3. BASE - 기본 태그 스타일
+   ===================================================== */
+body {
+  font-family: var(--font-main);
+  color: var(--color-text-main);
+  line-height: 1.7;
+  background: var(--color-bg-white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 섹션 내부 최대 너비 제한 - 모든 섹션에서 공통 사용 */
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* 섹션 제목 공통 스타일 */
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* 버튼 공통 스타일 */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text-main);
+  border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-light);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   4. HEADER - 상단 고정 헤더
+   ===================================================== */
+#main-header {
+  position: sticky;       /* 스크롤해도 상단에 고정 */
+  top: 0;
+  z-index: 100;           /* 다른 요소 위에 표시 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 70px;
+  background: var(--color-bg-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* 로고 */
+.logo-main {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.logo-sub {
+  font-size: 14px;
+  color: var(--color-text-sub);
+  margin-left: 4px;
+}
+
+/* 네비게이션 */
+#main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+#main-nav a {
+  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--color-text-sub);
+  transition: color 0.2s;
+}
+
+#main-nav a:hover {
+  color: var(--color-primary);
+  background: var(--color-bg-light);
+}
+
+/* 헤더 전화번호 */
+.header-phone a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* 모바일 햄버거 버튼 - 기본은 숨김 */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   5. HERO - 메인 히어로 섹션
+   ===================================================== */
+#hero {
+  padding: 100px 24px;
+  text-align: center;
+  background: var(--color-bg-light);
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--color-text-sub);
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* =====================================================
+   6. VALUES - 핵심 가치 카드 섹션
+   ===================================================== */
+#values {
+  padding: var(--section-padding);
+  background: var(--color-bg-white);
+}
+
+/* 카드 4개를 균등 배치 */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.value-card {
+  padding: 32px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.value-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.value-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.value-card p {
+  font-size: 14px;
+  color: var(--color-text-sub);
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   7. PROGRAMS - 프로그램 소개 섹션
+   ===================================================== */
+#programs {
+  padding: var(--section-padding);
+  background: var(--color-bg-light);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.program-card {
+  padding: 40px 32px;
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.program-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.program-card p {
+  font-size: 15px;
+  color: var(--color-text-sub);
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   8. LOCATION - 위치 안내 섹션
+   ===================================================== */
+#location {
+  padding: var(--section-padding);
+  background: var(--color-bg-white);
+}
+
+.location-info {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.location-info a {
+  color: var(--color-primary);
+}
+
+/* 약도 이미지 컨테이너 */
+.map-container {
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+
+/* =====================================================
+   9. FOOTER - 하단 푸터
+   ===================================================== */
+#main-footer {
+  background: var(--color-bg-dark);
+  color: #ffffff;
+  padding: 48px 24px;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footer-info p {
+  font-size: 14px;
+  color: #aaaaaa;
+  line-height: 1.9;
+}
+
+.footer-info a {
+  color: #aaaaaa;
+}
+
+.footer-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  font-size: 14px;
+  color: #aaaaaa;
+}
+
+.footer-nav a:hover {
+  color: #ffffff;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: #666666;
+}
+
+
+/* =====================================================
+   10. RESPONSIVE - 모바일 대응
+   화면 너비 768px 이하일 때 적용
+   ===================================================== */
+@media (max-width: 768px) {
+
+  /* 헤더: 햄버거 메뉴 표시 */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* 네비게이션: 기본 숨김 → 버튼 클릭 시 표시 */
+  #main-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: var(--color-bg-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 0;
+  }
+
+  #main-nav.nav-open {
+    display: block;
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #main-nav a {
+    display: block;
+    padding: 12px 24px;
+  }
+
+  /* 헤더 전화번호 숨김 (공간 부족) */
+  .header-phone {
+    display: none;
+  }
+
+  /* 히어로 텍스트 크기 축소 */
+  .hero-title {
+    font-size: 26px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  /* 카드 4개 → 2개씩 배치 */
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 프로그램 카드 1개씩 배치 */
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 섹션 제목 크기 축소 */
+  .section-title {
+    font-size: 22px;
+  }
+}
