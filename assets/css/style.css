@@ -319,26 +319,35 @@ img {
   background: var(--color-bg-white);
 }
 
+/* 좌우 2단 레이아웃 */
+.location-wrap {
+  display: grid;
+  grid-template-columns: 1fr 2fr;  /* 좌측 1 : 우측 2 비율 */
+  gap: 48px;
+  align-items: center;
+}
+
 .location-info {
-  text-align: center;
-  margin-bottom: 32px;
   font-size: 16px;
-  line-height: 2;
+  line-height: 1.9;
+}
+
+.location-info strong {
+  color: var(--color-text-sub);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .location-info a {
   color: var(--color-primary);
 }
 
-/* 약도 이미지 컨테이너 */
 .map-container {
-  max-width: 700px;
-  margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--color-border);
 }
-
 
 /* =====================================================
    9. FOOTER - 하단 푸터
