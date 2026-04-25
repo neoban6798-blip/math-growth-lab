@@ -222,22 +222,18 @@
         <p><strong>전화</strong> <a href="tel:031-272-8209">031-272-8209</a></p>
       </div>
 
-      <!-- 지도 영역 -->
-      <!-- 
-        TODO: 아래 iframe을 카카오맵 실제 embed 코드로 교체 필요
-        카카오맵 → 학원 위치 검색 → 공유 → 지도 퍼가기 → 코드 복사
-      -->
-      <div class="map-container">
-        <iframe
-          src="https://map.kakao.com/"
-          width="100%"
-          height="400"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          title="생각의힘 수학학원 위치">
-        </iframe>
-      </div>
+      <!-- 약도 이미지 영역 -->
+<!-- 
+  약도 이미지 파일 위치: assets/images/content/map.png
+  이미지 준비 전까지는 빈 영역으로 표시됨
+  이미지 준비되면 assets/images/content/ 폴더에 map.png 파일 업로드
+-->
+<div class="map-container">
+  <img 
+    src="assets/images/content/map.png" 
+    alt="생각의힘 수학학원 약도 - 수지 신봉종합상가 4층"
+    style="width:100%; border-radius:8px;">
+</div>
 
     </div><!-- /section-inner -->
 
