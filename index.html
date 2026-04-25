@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
 
+<!--
+  =====================================================
+  생각의힘 수학학원 - 메인 홈페이지
+  파일명: index.html
+  위치: 저장소 루트
+  작성일: 2025
+  
+  [페이지 구조]
+  1. HEAD          - 메타정보, CSS 연결
+  2. HEADER        - 로고, 네비게이션, 전화번호
+  3. HERO          - 메인 모토, 상담 버튼
+  4. VALUES        - 핵심 가치 카드 4개
+  5. PROGRAMS      - 프로그램 요약
+  6. LOCATION      - 학원 위치 안내
+  7. FOOTER        - 학원 기본 정보
+  8. SCRIPT        - 모바일 메뉴 동작
+  =====================================================
+-->
+
+<head>
+  <!-- 문자 인코딩: 한글 깨짐 방지 -->
+  <meta charset="UTF-8">
+  
+  <!-- 모바일 화면 대응: 스마트폰에서도 정상 표시 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 검색엔진 최적화(SEO): 검색 시 표시되는 제목과 설명 -->
+  <meta name="description" content="용인 수지구 신봉동 원장직강 소수정예 수학학원. 중학교 수학의 완성을 책임집니다.">
+  
+  <!-- 브라우저 탭에 표시되는 제목 -->
+  <title>생각의힘 수학학원 | 수지 신봉동 원장직강 소수정예</title>
+  
+  <!-- 공통 스타일시트 연결 (assets/css/style.css) -->
+  <!-- 주의: 이 파일은 별도로 생성 필요 -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+    SECTION 1: 헤더
+    - 학원 로고/이름 (좌측)
+    - 네비게이션 메뉴 (우측)
+    - 모바일에서는 햄버거 메뉴로 전환
+  ====================================================== -->
+  <header id="main-header">
+    
+    <!-- 로고 영역 -->
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-main">생각의힘</span>
+        <span class="logo-sub">수학학원</span>
+      </a>
+    </div>
+
+    <!-- 모바일 햄버거 버튼 (작은 화면에서만 표시) -->
+    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
+      &#9776;
+    </button>
+
+    <!-- 네비게이션 메뉴 -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="about/index.html">학원소개</a></li>
+        <li><a href="admission/index.html">입학안내</a></li>
+        <li><a href="curriculum/index.html">커리큘럼</a></li>
+        <li><a href="schedule/index.html">시간표</a></li>
+        <li><a href="news/index.html">학원소식</a></li>
+      </ul>
+    </nav>
+
+    <!-- 전화번호 (클릭 시 바로 전화 연결) -->
+    <div class="header-phone">
+      <a href="tel:031-272-8209">031-272-8209</a>
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+    SECTION 2: 히어로 (Hero)
+    - 학원의 첫인상을 결정하는 가장 중요한 섹션
+    - 메인 모토 + 서브 문구 + 상담 버튼
+    - 배경 이미지/색상은 style.css에서 지정
+  ====================================================== -->
+  <section id="hero">
+    
+    <div class="hero-content">
+      
+      <!-- 메인 모토 -->
+      <h1 class="hero-title">
+        수학과 함께하는<br>
+        필드 코칭 기반 성장 컨설팅
+      </h1>
+      
+      <!-- 서브 문구 -->
+      <p class="hero-subtitle">
+        수학을 인생의 걸림돌이 아닌 디딤돌로 만들어드립니다
+      </p>
+      
+      <!-- 행동 유도 버튼 (CTA: Call To Action) -->
+      <div class="hero-buttons">
+        <!-- 전화 상담 버튼: 클릭 시 전화 연결 -->
+        <a href="tel:031-272-8209" class="btn btn-primary">
+          전화 상담하기
+        </a>
+        <!-- 학원 소개 보기 버튼 -->
+        <a href="about/index.html" class="btn btn-secondary">
+          학원 소개 보기
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+    SECTION 3: 핵심 가치 (Values)
+    - 학원의 차별점을 카드 형태로 표시
+    - 카드 4개: 원장직강 / 소수정예 / 10년 경력 / 필드코칭
+    - 나중에 카드 추가/삭제 시 <div class="value-card"> 블록 단위로 수정
+  ====================================================== -->
+  <section id="values">
+    
+    <div class="section-inner">
+      
+      <!-- 섹션 제목 -->
+      <h2 class="section-title">생각의힘이 다른 이유</h2>
+      
+      <!-- 카드 컨테이너 -->
+      <div class="values-grid">
+
+        <!-- 카드 1: 원장직강 -->
+        <div class="value-card">
+          <div class="card-icon">👨‍🏫</div>
+          <h3>원장직강</h3>
+          <p>모든 수업을 원장이 직접 진행합니다. 수업 질의 일관성을 보장합니다.</p>
+        </div>
+
+        <!-- 카드 2: 소수정예 -->
+        <div class="value-card">
+          <div class="card-icon">👥</div>
+          <h3>소수정예</h3>
+          <p>한 명 한 명에게 집중할 수 있는 소수 인원으로만 운영합니다.</p>
+        </div>
+
+        <!-- 카드 3: 10년 경력 -->
+        <div class="value-card">
+          <div class="card-icon">📅</div>
+          <h3>10년 경력</h3>
+          <p>10년간 수지 신봉동에서 쌓아온 지역 밀착형 교육 노하우.</p>
+        </div>
+
+        <!-- 카드 4: 필드코칭 -->
+        <div class="value-card">
+          <div class="card-icon">🎯</div>
+          <h3>필드코칭 방식</h3>
+          <p>직접 손으로 하는 학습 경험으로 자기효능감과 실력을 함께 키웁니다.</p>
+        </div>
+
+      </div><!-- /values-grid -->
+      
+    </div><!-- /section-inner -->
+
+  </section>
+
+
+  <!-- =====================================================
+    SECTION 4: 프로그램 소개 요약 (Programs)
+    - 두 가지 반 소개: 개별진도반 / 하이브리드반
+    - 각 카드에서 커리큘럼 상세 페이지로 연결
+  ====================================================== -->
+  <section id="programs">
+    
+    <div class="section-inner">
+      
+      <h2 class="section-title">수업 프로그램</h2>
+      
+      <div class="programs-grid">
+
+        <!-- 프로그램 1: 개별진도반 -->
+        <div class="program-card">
+          <h3>개별진도반</h3>
+          <p>학생 개인의 수준과 진도에 맞춰 1:1에 가까운 맞춤형 수업을 진행합니다.</p>
+          <a href="curriculum/individual.html" class="btn btn-outline">자세히 보기</a>
+        </div>
+
+        <!-- 프로그램 2: 하이브리드반 -->
+        <div class="program-card">
+          <h3>하이브리드반</h3>
+          <p>개념 이해와 문제 풀이를 균형 있게 다루는 통합형 수업입니다.</p>
+          <a href="curriculum/hybrid.html" class="btn btn-outline">자세히 보기</a>
+        </div>
+
+      </div><!-- /programs-grid -->
+      
+    </div><!-- /section-inner -->
+
+  </section>
+
+
+  <!-- =====================================================
+    SECTION 5: 학원 위치 안내 (Location)
+    - 주소 텍스트
+    - 지도 embed (카카오맵)
+    - 지도 코드는 추후 카카오맵에서 직접 발급 필요
+      발급 방법: map.kakao.com → 해당 위치 검색 → 공유 → 지도 퍼가기
+  ====================================================== -->
+  <section id="location">
+    
+    <div class="section-inner">
+      
+      <h2 class="section-title">오시는 길</h2>
+      
+      <!-- 주소 및 연락처 -->
+      <div class="location-info">
+        <p><strong>주소</strong> 경기도 용인시 수지구 신봉동 수지 신봉종합상가 4층</p>
+        <p><strong>전화</strong> <a href="tel:031-272-8209">031-272-8209</a></p>
+      </div>
+
+      <!-- 지도 영역 -->
+      <!-- 
+        TODO: 아래 iframe을 카카오맵 실제 embed 코드로 교체 필요
+        카카오맵 → 학원 위치 검색 → 공유 → 지도 퍼가기 → 코드 복사
+      -->
+      <div class="map-container">
+        <iframe
+          src="https://map.kakao.com/"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          title="생각의힘 수학학원 위치">
+        </iframe>
+      </div>
+
+    </div><!-- /section-inner -->
+
+  </section>
+
+
+  <!-- =====================================================
+    SECTION 6: 푸터 (Footer)
+    - 학원 기본 정보 반복 표시
+    - 저작권 표시
+    - 모든 페이지에서 동일하게 사용
+    - 나중에 푸터 내용 수정 시 모든 html 파일에서 동일하게 수정 필요
+      (공통 컴포넌트화는 JS include 방식으로 추후 개선 가능)
+  ====================================================== -->
+  <footer id="main-footer">
+    
+    <div class="footer-inner">
+      
+      <!-- 학원 기본 정보 -->
+      <div class="footer-info">
+        <p class="footer-name">생각의힘 수학학원</p>
+        <p>경기도 용인시 수지구 신봉동 수지 신봉종합상가 4층</p>
+        <p>Tel: <a href="tel:031-272-8209">031-272-8209</a></p>
+      </div>
+
+      <!-- 푸터 네비게이션 -->
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="about/index.html">학원소개</a></li>
+          <li><a href="admission/index.html">입학안내</a></li>
+          <li><a href="curriculum/index.html">커리큘럼</a></li>
+          <li><a href="schedule/index.html">시간표</a></li>
+          <li><a href="news/index.html">학원소식</a></li>
+        </ul>
+      </nav>
+
+      <!-- 저작권 -->
+      <p class="footer-copy">
+        © 2025 생각의힘 수학학원. All rights reserved.
+      </p>
+      
+    </div><!-- /footer-inner -->
+
+  </footer>
+
+
+  <!-- =====================================================
+    SCRIPT: 모바일 햄버거 메뉴 동작
+    - 작은 화면에서 메뉴 버튼 클릭 시 네비게이션 열기/닫기
+    - style.css의 .nav-open 클래스와 연동
+  ====================================================== -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', function() {
+      mainNav.classList.toggle('nav-open');
+    });
+  </script>
+
+</body>
+</html>
