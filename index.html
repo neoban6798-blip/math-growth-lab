@@ -39,47 +39,8 @@
 </head>
 
 <body>
-
-  <!-- =====================================================
-    SECTION 1: 헤더
-    - 학원 로고/이름 (좌측)
-    - 네비게이션 메뉴 (우측)
-    - 모바일에서는 햄버거 메뉴로 전환
-  ====================================================== -->
-  <header id="main-header">
-    
-    <!-- 로고 영역 -->
-    <div class="logo">
-      <a href="index.html">
-        <span class="logo-main">생각의힘</span>
-        <span class="logo-sub">수학학원</span>
-      </a>
-    </div>
-
-    <!-- 모바일 햄버거 버튼 (작은 화면에서만 표시) -->
-    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기">
-      &#9776;
-    </button>
-
-    <!-- 네비게이션 메뉴 -->
-    <nav id="main-nav">
-      <ul>
-        <li><a href="about/index.html">학원소개</a></li>
-        <li><a href="admission/index.html">입학안내</a></li>
-        <li><a href="curriculum/index.html">커리큘럼</a></li>
-        <li><a href="schedule/index.html">시간표</a></li>
-        <li><a href="news/index.html">학원소식</a></li>
-      </ul>
-    </nav>
-
-    <!-- 전화번호 (클릭 시 바로 전화 연결) -->
-    <div class="header-phone">
-      <a href="tel:031-272-8209">031-272-8209</a>
-    </div>
-
-  </header>
-
-
+<div id="site-header"></div>
+  
   <!-- =====================================================
     SECTION 2: 히어로 (Hero)
     - 학원의 첫인상을 결정하는 가장 중요한 섹션
@@ -241,60 +202,8 @@
     </div><!-- /section-inner -->
 
   </section>
-
-  <!-- =====================================================
-    SECTION 6: 푸터 (Footer)
-    - 학원 기본 정보 반복 표시
-    - 저작권 표시
-    - 모든 페이지에서 동일하게 사용
-    - 나중에 푸터 내용 수정 시 모든 html 파일에서 동일하게 수정 필요
-      (공통 컴포넌트화는 JS include 방식으로 추후 개선 가능)
-  ====================================================== -->
-  <footer id="main-footer">
-    
-    <div class="footer-inner">
-      
-      <!-- 학원 기본 정보 -->
-      <div class="footer-info">
-        <p class="footer-name">생각의힘 수학학원</p>
-        <p>경기도 용인시 수지구 신봉동 수지 신봉종합상가 4층</p>
-        <p>Tel: <a href="tel:031-272-8209">031-272-8209</a></p>
-      </div>
-
-      <!-- 푸터 네비게이션 -->
-      <nav class="footer-nav">
-        <ul>
-          <li><a href="about/index.html">학원소개</a></li>
-          <li><a href="admission/index.html">입학안내</a></li>
-          <li><a href="curriculum/index.html">커리큘럼</a></li>
-          <li><a href="schedule/index.html">시간표</a></li>
-          <li><a href="news/index.html">학원소식</a></li>
-        </ul>
-      </nav>
-
-      <!-- 저작권 -->
-      <p class="footer-copy">
-        © 2025 생각의힘 수학학원. All rights reserved.
-      </p>
-      
-    </div><!-- /footer-inner -->
-
-  </footer>
-
-
-  <!-- =====================================================
-    SCRIPT: 모바일 햄버거 메뉴 동작
-    - 작은 화면에서 메뉴 버튼 클릭 시 네비게이션 열기/닫기
-    - style.css의 .nav-open 클래스와 연동
-  ====================================================== -->
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('main-nav');
-
-    menuToggle.addEventListener('click', function() {
-      mainNav.classList.toggle('nav-open');
-    });
-  </script>
-
+   
+  <div id="site-footer"></div>
+  <script src="assets/js/components.js"></script>
 </body>
 </html>
