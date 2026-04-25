@@ -34,7 +34,7 @@
   <title>생각의힘 수학학원 | 수지 신봉동 원장직강 소수정예</title>
   
   <!-- 공통 스타일시트 연결 (assets/css/style.css) -->
-  <!-- 주의: 이 파일은 별도로 생성 필요 -->
+  <!-- 주의: 이 파일은 별도로 생성 필요 --><!-- 학원 위치 안내 (Location) --> 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -205,10 +205,9 @@
 
   <!-- =====================================================
     SECTION 5: 학원 위치 안내 (Location)
-    - 주소 텍스트
-    - 지도 embed (카카오맵)
-    - 지도 코드는 추후 카카오맵에서 직접 발급 필요
-      발급 방법: map.kakao.com → 해당 위치 검색 → 공유 → 지도 퍼가기
+    - 좌측: 주소 및 연락처
+    - 우측: 약도 이미지
+    - 이미지 파일 위치: assets/images/content/map.png
   ====================================================== -->
   <section id="location">
     
@@ -216,29 +215,32 @@
       
       <h2 class="section-title">오시는 길</h2>
       
-      <!-- 주소 및 연락처 -->
-      <div class="location-info">
-        <p><strong>주소</strong> 경기도 용인시 수지구 신봉동 수지 신봉종합상가 4층</p>
-        <p><strong>전화</strong> <a href="tel:031-272-8209">031-272-8209</a></p>
-      </div>
+      <!-- 좌우 2단 레이아웃 -->
+      <div class="location-wrap">
 
-      <!-- 약도 이미지 영역 -->
-<!-- 
-  약도 이미지 파일 위치: assets/images/content/map.png
-  이미지 준비 전까지는 빈 영역으로 표시됨
-  이미지 준비되면 assets/images/content/ 폴더에 map.png 파일 업로드
--->
-<div class="map-container">
-  <img 
-    src="assets/images/content/map.png" 
-    alt="생각의힘 수학학원 약도 - 수지 신봉종합상가 4층"
-    style="width:100%; border-radius:8px;">
-</div>
+        <!-- 좌측: 주소 및 연락처 -->
+        <div class="location-info">
+          <p><strong>주소</strong></p>
+          <p>경기도 용인시 수지구 신봉동<br>수지 신봉종합상가 4층</p>
+          <br>
+          <p><strong>전화</strong></p>
+          <p><a href="tel:031-272-8209">031-272-8209</a></p>
+        </div>
 
+        <!-- 우측: 약도 이미지 -->
+        <!-- 이미지 준비되면 assets/images/content/map.png 에 업로드 -->
+        <div class="map-container">
+          <img
+            src="assets/images/content/map.png"
+            alt="생각의힘 수학학원 약도 - 수지 신봉종합상가 4층"
+            style="width:100%; border-radius:8px;">
+        </div>
+
+      </div><!-- /location-wrap -->
+      
     </div><!-- /section-inner -->
 
   </section>
-
 
   <!-- =====================================================
     SECTION 6: 푸터 (Footer)
