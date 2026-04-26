@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="용인 수지구 신봉동 원장직강 소수정예 수학학원. 중학교 수학의 완성을 책임집니다.">
+  <title>생각의힘 수학학원 | 수지 신봉동 원장직강 소수정예</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+
+    /* ═══════════════════════════════
+       HERO — 비대칭 레이아웃
+    ═══════════════════════════════ */
+    #hero {
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: #fffde7;
+    }
+
+    .hero-bg {
+      position: absolute;
+      left: 0; top: 0;
+      width: 62%;
+      height: 100%;
+      background: url('assets/image/content/creativity-2375170_1280.jpg') center/cover no-repeat;
+    }
+
+    /* 이미지 → 파스텔 노랑으로 페이드 */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, #fffde7);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      margin-left: auto;
+      width: 44%;
+      padding-right: 60px;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #b08800;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text-main);
+      margin-bottom: 16px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: #c47f00;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--color-text-sub);
+      line-height: 1.8;
+    }
+
+
+    /* ═══════════════════════════════
+       VALUES — 원형 순환 레이아웃
+    ═══════════════════════════════ */
+    #values {
+      padding: var(--section-padding);
+      background: var(--color-bg-white);
+    }
+
+    .values-orbit-wrap {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+    }
+
+    /* 회전하는 점선 궤도 */
+    .orbit-ring {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1.5px dashed #fde047;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbitSpin 16s linear infinite;
+    }
+
+    @keyframes orbitSpin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* 중앙 로고 원형 */
+    .value-center {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid #fde047;
+      box-shadow: 0 0 24px rgba(253,224,71,0.35);
+      z-index: 2;
+    }
+
+    .value-center img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 4개 노드 공통 */
+     .value-node {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      transition: box-shadow 0.25s;
+    }
+
+    .value-node h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+
+    .value-node p {
+      font-size: 12px;
+      color: var(--color-text-sub);
+      line-height: 1.7;
+    }
+
+
+    .value-node .vn-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .vn-top    .vn-icon { color: #f97316; }
+    .vn-right  .vn-icon { color: #22c55e; }
+    .vn-bottom .vn-icon { color: #3b82f6; }
+    .vn-left   .vn-icon { color: #a855f7; }
+
+    /* 위치: 상/우/하/좌 */
+    
+    .vn-top    { top: 10px;  left: 50%; transform: translateX(-50%);
+             background: #fff7ed; border: 2px solid #fed7aa; }
+.vn-right  { right: 10px; top: 50%; transform: translateY(-50%);
+             background: #f0fdf4; border: 2px solid #bbf7d0; }
+.vn-bottom { bottom: 10px; left: 50%; transform: translateX(-50%);
+             background: #eff6ff; border: 2px solid #bfdbfe; }
+.vn-left   { left: 10px; top: 50%; transform: translateY(-50%);
+             background: #fdf4ff; border: 2px solid #e9d5ff; }
+
+    /* 순차 팝 애니메이션 (시계 방향: 상→우→하→좌) */
+    @keyframes popTop {
+      0%,100% { transform: translateX(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateX(-50%) translateY(-8px) scale(1.06); box-shadow: 0 12px 28px rgba(253,224,71,0.45); }
+    }
+    @keyframes popRight {
+      0%,100% { transform: translateY(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateY(-50%) translateX(8px) scale(1.06); box-shadow: 0 8px 28px rgba(253,224,71,0.45); }
+    }
+    @keyframes popBottom {
+      0%,100% { transform: translateX(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateX(-50%) translateY(8px) scale(1.06); box-shadow: 0 -4px 28px rgba(253,224,71,0.45); }
+    }
+    @keyframes popLeft {
+      0%,100% { transform: translateY(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateY(-50%) translateX(-8px) scale(1.06); box-shadow: 0 8px 28px rgba(253,224,71,0.45); }
+    }
+
+    .vn-top    { animation: popTop    6s ease-in-out 0s   infinite; }
+    .vn-right  { animation: popRight  6s ease-in-out 1.5s infinite; }
+    .vn-bottom { animation: popBottom 6s ease-in-out 3s   infinite; }
+    .vn-left   { animation: popLeft   6s ease-in-out 4.5s infinite; }
+
+
+    /* ═══════════════════════════════
+       LOCATION — 폭 축소
+    ═══════════════════════════════ */
+    #location {
+      padding: 48px 24px;
+      background: var(--color-bg-white);
+    }
+
+
+    /* ═══════════════════════════════
+       반응형
+    ═══════════════════════════════ */
+    @media (max-width: 768px) {
+
+      #hero {
+        height: auto;
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .hero-bg {
+        position: relative;
+        width: 100%;
+        height: 240px;
+      }
+
+      .hero-bg::after {
+        background: linear-gradient(to bottom, transparent, #fffde7);
+        width: 100%;
+        height: 50%;
+        top: auto;
+        bottom: 0;
+      }
+
+      .hero-content {
+        width: 100%;
+        padding: 32px 24px 48px;
+        margin-left: 0;
+      }
+
+      .values-orbit-wrap {
+        width: 340px;
+        height: 340px;
+      }
+
+      .orbit-ring {
+        width: 200px;
+        height: 200px;
+      }
+
+      .value-center {
+        width: 96px;
+        height: 96px;
+      }
+
+      .value-node {
+        width: 100px;
+        padding: 12px 10px;
+      }
+
+      .value-node h3  { font-size: 12px; }
+      .value-node p   { display: none; }
+
+    }
+
+  </style>
+</head>
+
+<body>
+<div id="site-header"></div>
+
+  <!-- HERO: 비대칭 -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-label">수지 신봉동 원장직강 소수정예</p>
+      <h1 class="hero-title">
+        스스로 해내는<br>
+        <em>아이를 만듭니다</em>
+      </h1>
+      <p class="hero-subtitle">
+        수학이 걸림돌이 아닌<br>
+        디딤돌이 되는 경험,<br>
+        생각의힘이 함께합니다.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- VALUES: 원형 순환 -->
+  <section id="values">
+    <div class="section-inner">
+
+      <h2 class="section-title">생각의힘이 다른 이유</h2>
+
+      <div class="values-orbit-wrap">
+
+        <!-- 회전 궤도 -->
+        <div class="orbit-ring"></div>
+
+        <!-- 중앙 로고 -->
+        <div class="value-center">
+          <img src="assets/image/content/brain-logic.jpg.png"
+               alt="생각의힘 수학학원 로고">
+        </div>
+
+        <!-- 상: 원장직강 -->
+        <div class="value-node vn-top">
+          <div class="vn-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h3>원장직강</h3>
+          <p>모든 수업을 원장이 직접 진행합니다</p>
+        </div>
+
+        <!-- 우: 소수정예 -->
+        <div class="value-node vn-right">
+          <div class="vn-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>소수정예</h3>
+          <p>한 명 한 명에게 집중하는 운영</p>
+        </div>
+
+        <!-- 하: 10년 경력 -->
+        <div class="value-node vn-bottom">
+          <div class="vn-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>10년 경력</h3>
+          <p>신봉동 지역 밀착형 교육 노하우</p>
+        </div>
+
+        <!-- 좌: 필드코칭 -->
+        <div class="value-node vn-left">
+          <div class="vn-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>필드코칭</h3>
+          <p>직접 하는 학습으로 자기효능감 형성</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  
+  <div id="site-footer"></div>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

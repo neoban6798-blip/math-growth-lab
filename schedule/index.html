@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="생각의힘 수학학원 시간표 안내. 주 3회반과 주 2회반 중 학생 상황에 맞게 선택 가능합니다.">
+  <title>시간표 | 생각의힘 수학학원</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+
+    /* ── 히어로 ── */
+    .page-hero {
+      padding: 0;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      background: #fffde7;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 62%;
+      height: 100%;
+      background: url('../assets/image/content/hero-alt.jpg') center/cover no-repeat;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 62%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, #fffde7);
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 44%;
+      padding-right: 60px;
+      text-align: left;
+    }
+
+    .page-hero-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #b08800;
+      margin-bottom: 16px;
+    }
+
+    .page-hero-title {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--color-text-main);
+      margin-bottom: 16px;
+    }
+
+    .page-hero-title em {
+      font-style: normal;
+      color: #c47f00;
+    }
+
+    .page-hero-sub {
+      font-size: 15px;
+      color: var(--color-text-sub);
+      line-height: 1.9;
+    }
+
+    /* ── 수업 일정 섹션 ── */
+    #schedule-main {
+      padding: var(--section-padding);
+      background: var(--color-bg-white);
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .schedule-card {
+      border-radius: 20px;
+      padding: 48px 36px;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transform: perspective(800px) translateZ(0);
+    }
+
+    .schedule-card:hover {
+      transform: perspective(800px) translateZ(24px) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+    }
+
+    .sc-three {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+    }
+
+    .sc-two {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+    }
+
+    .schedule-card i {
+      font-size: 36px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .sc-three i { color: #f97316; }
+    .sc-two   i { color: #0ea5e9; }
+
+    .schedule-card-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .sc-three .schedule-card-badge {
+      background: #fed7aa;
+      color: #c2410c;
+    }
+
+    .sc-two .schedule-card-badge {
+      background: #bae6fd;
+      color: #0369a1;
+    }
+
+    .schedule-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+
+    .schedule-card-days {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .sc-three .schedule-card-days { color: #f97316; }
+    .sc-two   .schedule-card-days { color: #0ea5e9; }
+
+    .schedule-card p {
+      font-size: 14px;
+      color: var(--color-text-sub);
+      line-height: 1.8;
+    }
+
+    /* ── 공통 안내 섹션 ── */
+    #schedule-notice {
+      padding: var(--section-padding);
+      background: #fffde7;
+    }
+
+    .notice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .notice-card {
+      background: #ffffff;
+      border: 1px solid #f5e49a;
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .notice-card i {
+      font-size: 24px;
+      color: #c47f00;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .notice-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 10px;
+    }
+
+    .notice-card p {
+      font-size: 13px;
+      color: var(--color-text-sub);
+      line-height: 1.8;
+    }
+
+    /* ── 반응형 ── */
+    @media (max-width: 768px) {
+      .page-hero-title { font-size: 24px; }
+      .schedule-grid   { grid-template-columns: 1fr; }
+      .notice-grid     { grid-template-columns: 1fr; }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- SECTION 1: 히어로 -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="page-hero-label">Schedule</p>
+        <h1 class="page-hero-title">
+          학생 상황에 맞게<br>
+          <em>선택하시면 됩니다</em>
+        </h1>
+        <p class="page-hero-sub">
+          주 3회 또는 주 2회 중<br>
+          아이의 생활 패턴에 맞는 수업을 선택하세요.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- SECTION 2: 수업 일정 -->
+    <section id="schedule-main">
+      <div class="section-inner">
+
+        <h2 class="section-title">수업 일정</h2>
+
+        <div class="schedule-grid">
+
+          <div class="schedule-card sc-three">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span class="schedule-card-badge">주 3회</span>
+            <h3>월 · 수 · 금반</h3>
+            <p class="schedule-card-days">Monday · Wednesday · Friday</p>
+            <p>
+              주 3회 수업으로 학습 리듬을 일정하게 유지합니다.
+              꾸준한 반복과 빠른 피드백이 필요한 학생에게 권장합니다.
+            </p>
+          </div>
+
+          <div class="schedule-card sc-two">
+            <i class="fa-solid fa-calendar-week"></i>
+            <span class="schedule-card-badge">주 2회</span>
+            <h3>화 · 목반</h3>
+            <p class="schedule-card-days">Tuesday · Thursday</p>
+            <p>
+              주 2회 수업으로 학교 일정과 병행하기 좋습니다.
+              다른 과목과의 균형을 고려하는 학생에게 적합합니다.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 3: 공통 안내 -->
+    <section id="schedule-notice">
+      <div class="section-inner">
+
+        <h2 class="section-title">수업 안내</h2>
+
+        <div class="notice-grid">
+
+          <div class="notice-card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>수업 시간</h3>
+            <p>
+              수업 시작 및 종료 시간은
+              학생 상황에 맞게 조정 가능합니다.
+              상담 시 협의해 드립니다.
+            </p>
+          </div>
+
+          <div class="notice-card">
+            <i class="fa-solid fa-sun"></i>
+            <h3>방학 중 수업</h3>
+            <p>
+              방학 기간에는 수업 시간이
+              앞당겨질 수 있습니다.
+              일정은 방학 전 미리 안내드립니다.
+            </p>
+          </div>
+
+          <div class="notice-card">
+            <i class="fa-solid fa-won-sign"></i>
+            <h3>수강료 기준</h3>
+            <p>
+              수강료는 <strong>월 단위</strong> 기준입니다.
+              횟수 기준이 아닙니다.
+              자세한 금액은 상담 시 안내드립니다.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>

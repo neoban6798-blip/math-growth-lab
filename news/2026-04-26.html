@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시험이 끝났습니다 | 생각의힘 수학학원</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --cream: #FAF8F3;
+      --ink: #1C1A17;
+      --ink-mid: #4A4740;
+      --ink-light: #8A8780;
+      --accent: #C85A30;
+      --accent-light: #F5C4B3;
+      --accent-bg: #FAECE7;
+      --border: #E2DFD6;
+      --card-bg: #FFFFFF;
+      --teal: #0F6E56;
+      --teal-bg: #E1F5EE;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .post-hero {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 80px 40px 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .post-hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .post-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+
+    .post-back:hover { color: #ffffff; }
+
+    .post-tag {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      border: 1px solid rgba(200,90,48,0.4);
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .post-hero h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .post-hero h1 em {
+      font-style: normal;
+      color: var(--accent-light);
+    }
+
+    .post-hero-sub {
+      font-size: 14px;
+      color: rgba(250,248,243,0.55);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .lead-section {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lead-text {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--ink-mid);
+    }
+
+    .lead-text strong { color: var(--ink); font-weight: 600; }
+
+    .section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    .section-number {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .section p {
+      font-size: 15.5px;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .pattern-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 32px 0;
+    }
+
+    @media (max-width: 540px) {
+      .pattern-grid { grid-template-columns: 1fr; }
+    }
+
+    .pattern-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .pattern-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--accent);
+      border-radius: 8px 0 0 8px;
+    }
+
+    .pattern-card p {
+      font-size: 14.5px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .highlight-box {
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-light);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+
+    .highlight-box p {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 16px;
+      color: #7A3520;
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .tools-list {
+      margin: 32px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .tool-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+
+    .tool-number {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .tool-content h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .tool-content p {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .timing-banner {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: 10px;
+      padding: 36px 40px;
+      margin: 32px 0;
+    }
+
+    .timing-banner h3 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--accent-light);
+      margin-bottom: 12px;
+    }
+
+    .timing-banner p {
+      font-size: 14.5px;
+      color: rgba(250,248,243,0.75);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .usp-strip {
+      display: flex;
+      gap: 12px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+
+    .usp-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-bg);
+      border: 1px solid #9FE1CB;
+      border-radius: 24px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: var(--teal);
+      font-weight: 500;
+    }
+
+    .usp-chip .dot {
+      width: 6px; height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .flow-viz {
+      display: flex;
+      align-items: center;
+      margin: 36px 0;
+      overflow-x: auto;
+    }
+
+    .flow-step {
+      flex: 1;
+      min-width: 110px;
+      text-align: center;
+      padding: 16px 8px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .flow-step.active {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .flow-step .step-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-mid);
+      line-height: 1.4;
+    }
+
+    .flow-step.active .step-label { color: #fff; }
+
+    .flow-step .step-sub {
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-top: 4px;
+    }
+
+    .flow-step.active .step-sub { color: rgba(255,255,255,0.75); }
+
+    .flow-arrow {
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--ink-light);
+    }
+
+    .cta-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px 40px;
+      margin: 64px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .cta-section p {
+      font-size: 15px;
+      color: var(--ink-light);
+      margin-bottom: 32px;
+      line-height: 1.75;
+    }
+
+    .cta-info {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-info-item { text-align: center; }
+
+    .cta-info-item .label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 4px;
+    }
+
+    .cta-info-item .value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- 히어로 -->
+    <div class="post-hero">
+      <div class="post-hero-inner">
+        <a href="index.html" class="post-back">
+          <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+        </a>
+        <div class="post-tag">생각의힘 수학학원 · 학부모 안내</div>
+        <h1>시험이 끝났습니다<br><em>결과가 기대에 못 미쳤다면</em><br>지금이 가장 중요한 시점입니다</h1>
+        <p class="post-hero-sub">수지 신봉동 · 원장직강 소수정예 수학 전문</p>
+      </div>
+    </div>
+
+    <!-- 본문 -->
+    <div class="container">
+
+      <div class="lead-section">
+        <p class="lead-text">
+          중간고사가 끝났습니다.<br>
+          결과를 받아든 학부모님의 반응은 대개 두 가지로 나뉩니다.<br>
+          예상했던 것보다 잘 나왔거나, 아니면 <strong>기대에 못 미쳤거나.</strong><br><br>
+          오늘은 후자에 해당하시는 분들께 드리고 싶은 이야기입니다.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">01 · 원인 진단</div>
+        <h2>점수보다 먼저 봐야 할 것</h2>
+        <p>결과가 나쁠 때 가장 흔한 반응은 "공부를 더 해야 한다"는 결론입니다. 그런데 저희가 10년간 학생들을 지도하면서 반복적으로 확인한 것은, 대부분의 경우 <strong>문제는 공부량이 아니라</strong>는 점입니다.</p>
+        <p>나름대로 공부했는데 점수가 안 나오는 학생들에게는 공통된 패턴이 있습니다.</p>
+        <div class="pattern-grid">
+          <div class="pattern-card"><p>개념을 이해했다고 생각하지만, 막상 문제를 풀면 적용이 안 됩니다</p></div>
+          <div class="pattern-card"><p>풀이 과정 없이 답만 쓰는 습관이 자리잡혀 있습니다</p></div>
+          <div class="pattern-card"><p>틀린 문제를 확인하고 넘어가지만, 왜 틀렸는지는 모릅니다</p></div>
+          <div class="pattern-card"><p>시험장에서 알던 내용이 갑자기 떠오르지 않습니다</p></div>
+        </div>
+        <div class="highlight-box">
+          <p>이 중 하나라도 해당된다면, 공부 시간을 늘리는 것만으로는 결과가 바뀌지 않습니다. <strong>방법 자체가 바뀌어야 합니다.</strong></p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-number">02 · 왜 지금인가</div>
+        <h2>중학교 수학에서 습관이 중요한 이유</h2>
+        <p>수학은 계통 학습 구조입니다. 앞에서 제대로 익히지 못한 개념이 뒤에서 계속 발목을 잡습니다. 중학교 과정에서 이 구멍을 그냥 두면, 고등학교 올라가서 갑자기 수학이 무너지는 경우가 생깁니다.</p>
+        <div class="flow-viz">
+          <div class="flow-step"><div class="step-label">중학 개념<br>구멍 방치</div><div class="step-sub">지금</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step"><div class="step-label">누적 결손<br>심화</div><div class="step-sub">2학기</div></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step active"><div class="step-label">고등 수학<br>붕괴</div><div class="step-sub">고1</div></div>
+        </div>
+        <p>반대로 말하면, 지금 중학교 과정에서 공부하는 방법 자체를 바로잡으면 그 효과가 고등까지 이어집니다. 성적이 아니라 <strong>공부하는 방법을 만드는 것</strong> — 저희가 중학생 지도에서 가장 중요하게 생각하는 부분입니다.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">03 · 저희가 하는 것</div>
+        <h2>생각의힘이 집중하는 세 가지</h2>
+        <p>저희 학원은 원장직강 소수정예로 운영됩니다. 학생 한 명 한 명이 어떤 방식으로 문제를 접근하는지, 어디서 막히는지를 원장이 직접 파악하고 수업에 반영합니다.</p>
+        <div class="tools-list">
+          <div class="tool-item">
+            <div class="tool-number">1</div>
+            <div class="tool-content">
+              <h3>개념노트</h3>
+              <p>배운 개념을 자기 언어로 직접 정리합니다. 선생님의 설명을 듣는 것과 스스로 재구성하는 것은 전혀 다른 수준의 이해입니다.</p>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-number">2</div>
+            <div class="tool-content">
+              <h3>수학 전용 연습장</h3>
+              <p>모든 문제풀이는 서술 방식으로 기록합니다. 풀이 과정에서 아이가 어디서 막히는지가 드러나고, 그것이 가장 정확한 진단 자료가 됩니다.</p>
+            </div>
+          </div>
+          <div class="tool-item">
+            <div class="tool-number">3</div>
+            <div class="tool-content">
+              <h3>오답관리</h3>
+              <p>틀린 문제를 확인하는 데서 그치지 않습니다. 왜 틀렸는지를 추적하고, 같은 유형에서 다시 막히지 않도록 구조화합니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="usp-strip">
+          <div class="usp-chip"><span class="dot"></span>원장직강</div>
+          <div class="usp-chip"><span class="dot"></span>소수정예</div>
+          <div class="usp-chip"><span class="dot"></span>10년 운영</div>
+          <div class="usp-chip"><span class="dot"></span>중등 수학 완성</div>
+          <div class="usp-chip"><span class="dot"></span>신봉동 · 수지구</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-number">04 · 타이밍</div>
+        <h2>왜 지금 바로 시작해야 하는가</h2>
+        <div class="timing-banner">
+          <h3>시험 직후가 가장 좋은 타이밍입니다</h3>
+          <p>이번 시험 결과가 기대에 못 미쳤다면, 지금이 방법을 바꾸기에 가장 적절한 시점입니다. 시험 직후라 아이도 학부모님도 문제의식이 가장 선명한 때이기 때문입니다.<br><br>시간이 지나면 그 문제의식이 흐려지고, 다음 시험 전에 또 같은 패턴이 반복됩니다.</p>
+        </div>
+        <p>저희가 할 수 있는 것과 할 수 없는 것에 대해서는 솔직하게 말씀드리겠습니다. 문의 주시면 현재 상황을 듣고 맞는 방향을 함께 생각해보겠습니다.</p>
+      </div>
+
+      <div class="cta-section">
+        <h2>편하게 문의해 주세요</h2>
+        <p>현재 상황을 말씀해 주시면<br>솔직하게 방향을 함께 이야기 나누겠습니다</p>
+        <div class="cta-info">
+          <div class="cta-info-item">
+            <div class="label">위치</div>
+            <div class="value">수지 신봉종합상가 4층</div>
+          </div>
+          <div class="divider"></div>
+          <div class="cta-info-item">
+            <div class="label">전화 상담</div>
+            <div class="value">031-272-8209</div>
+          </div>
+          <div class="divider"></div>
+          <div class="cta-info-item">
+            <div class="label">대상</div>
+            <div class="value">초5 ~ 고2</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
