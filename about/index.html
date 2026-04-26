@@ -150,8 +150,8 @@
     }
 
     /* ── 강사진 섹션 ── */
-    #about-teachers {
-      padding: var(--section-padding);
+    ##about-teachers {
+      padding: 80px 24px 32px;
       background: var(--color-bg-white);
     }
 
@@ -201,14 +201,18 @@
     .tc-male .teacher-card-label   { color: #3b82f6; }
     .tc-female .teacher-card-label { color: #ec4899; }
 
-    .teacher-card p {
-      font-size: 13px;
-      color: var(--color-text-light);
+    .teacher-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transform: perspective(800px) translateZ(0);
+    }
+    .teacher-card:hover {
+      transform: perspective(800px) translateZ(24px) translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.10);
     }
 
     /* ── CTA 섹션 ── */
     #about-cta {
-      padding: 80px 24px;
+      padding: 36px 24px;
       background: #0f2744;
       text-align: center;
       color: #ffffff;
@@ -478,7 +482,8 @@
       </div>
     </section>
 
-
+   <div style="height: 48px;"></div>
+    
     <!-- SECTION 5: CTA -->
     <section id="about-cta">
       <p class="about-cta-label">Consultation</p>
