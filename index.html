@@ -1,185 +1,342 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<!--
-  =====================================================
-  생각의힘 수학학원 - 메인 홈페이지
-  파일명: index.html
-  위치: 저장소 루트
-  작성일: 2025
-  
-  [페이지 구조]
-  1. HEAD          - 메타정보, CSS 연결
-  2. HEADER        - 로고, 네비게이션, 전화번호
-  3. HERO          - 메인 모토, 상담 버튼
-  4. VALUES        - 핵심 가치 카드 4개
-  5. PROGRAMS      - 프로그램 요약
-  6. LOCATION      - 학원 위치 안내
-  7. FOOTER        - 학원 기본 정보
-  8. SCRIPT        - 모바일 메뉴 동작
-  =====================================================
--->
-
 <head>
-  <!-- 문자 인코딩: 한글 깨짐 방지 -->
   <meta charset="UTF-8">
-  
-  <!-- 모바일 화면 대응: 스마트폰에서도 정상 표시 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- 검색엔진 최적화(SEO): 검색 시 표시되는 제목과 설명 -->
   <meta name="description" content="용인 수지구 신봉동 원장직강 소수정예 수학학원. 중학교 수학의 완성을 책임집니다.">
-  
-  <!-- 브라우저 탭에 표시되는 제목 -->
   <title>생각의힘 수학학원 | 수지 신봉동 원장직강 소수정예</title>
-  
-  <!-- 공통 스타일시트 연결 (assets/css/style.css) -->
-  <!-- 주의: 이 파일은 별도로 생성 필요 --><!-- 학원 위치 안내 (Location) --> 
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+
+    /* ═══════════════════════════════
+       HERO — 비대칭 레이아웃
+    ═══════════════════════════════ */
+    #hero {
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: #fffde7;
+    }
+
+    .hero-bg {
+      position: absolute;
+      left: 0; top: 0;
+      width: 62%;
+      height: 100%;
+      background: url('assets/image/content/creativity-2375170_1280.jpg') center/cover no-repeat;
+    }
+
+    /* 이미지 → 파스텔 노랑으로 페이드 */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, #fffde7);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      margin-left: auto;
+      width: 44%;
+      padding-right: 60px;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #b08800;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--color-text-main);
+      margin-bottom: 16px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: #c47f00;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--color-text-sub);
+      line-height: 1.8;
+    }
+
+
+    /* ═══════════════════════════════
+       VALUES — 원형 순환 레이아웃
+    ═══════════════════════════════ */
+    #values {
+      padding: var(--section-padding);
+      background: var(--color-bg-white);
+    }
+
+    .values-orbit-wrap {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+    }
+
+    /* 회전하는 점선 궤도 */
+    .orbit-ring {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1.5px dashed #fde047;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbitSpin 16s linear infinite;
+    }
+
+    @keyframes orbitSpin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* 중앙 로고 원형 */
+    .value-center {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid #fde047;
+      box-shadow: 0 0 24px rgba(253,224,71,0.35);
+      z-index: 2;
+    }
+
+    .value-center img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 4개 노드 공통 */
+    .value-node {
+      position: absolute;
+      width: 148px;
+      background: var(--color-bg-white);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: box-shadow 0.25s;
+    }
+
+    .value-node h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+
+    .value-node p {
+      font-size: 12px;
+      color: var(--color-text-sub);
+      line-height: 1.7;
+    }
+
+    .value-node .vn-icon {
+      font-size: 22px;
+      color: #c47f00;
+      margin-bottom: 10px;
+    }
+
+    /* 위치: 상/우/하/좌 */
+    .vn-top    { top: 10px;  left: 50%; transform: translateX(-50%); }
+    .vn-right  { right: 10px; top: 50%; transform: translateY(-50%); }
+    .vn-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+    .vn-left   { left: 10px; top: 50%; transform: translateY(-50%); }
+
+    /* 순차 팝 애니메이션 (시계 방향: 상→우→하→좌) */
+    @keyframes popTop {
+      0%,100% { transform: translateX(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateX(-50%) translateY(-8px) scale(1.06); box-shadow: 0 12px 28px rgba(253,224,71,0.45); }
+    }
+    @keyframes popRight {
+      0%,100% { transform: translateY(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateY(-50%) translateX(8px) scale(1.06); box-shadow: 0 8px 28px rgba(253,224,71,0.45); }
+    }
+    @keyframes popBottom {
+      0%,100% { transform: translateX(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateX(-50%) translateY(8px) scale(1.06); box-shadow: 0 -4px 28px rgba(253,224,71,0.45); }
+    }
+    @keyframes popLeft {
+      0%,100% { transform: translateY(-50%) scale(1);        box-shadow: none; }
+      50%      { transform: translateY(-50%) translateX(-8px) scale(1.06); box-shadow: 0 8px 28px rgba(253,224,71,0.45); }
+    }
+
+    .vn-top    { animation: popTop    6s ease-in-out 0s   infinite; }
+    .vn-right  { animation: popRight  6s ease-in-out 1.5s infinite; }
+    .vn-bottom { animation: popBottom 6s ease-in-out 3s   infinite; }
+    .vn-left   { animation: popLeft   6s ease-in-out 4.5s infinite; }
+
+
+    /* ═══════════════════════════════
+       LOCATION — 폭 축소
+    ═══════════════════════════════ */
+    #location {
+      padding: 48px 24px;
+      background: var(--color-bg-white);
+    }
+
+
+    /* ═══════════════════════════════
+       반응형
+    ═══════════════════════════════ */
+    @media (max-width: 768px) {
+
+      #hero {
+        height: auto;
+        flex-direction: column;
+        padding: 0;
+      }
+
+      .hero-bg {
+        position: relative;
+        width: 100%;
+        height: 240px;
+      }
+
+      .hero-bg::after {
+        background: linear-gradient(to bottom, transparent, #fffde7);
+        width: 100%;
+        height: 50%;
+        top: auto;
+        bottom: 0;
+      }
+
+      .hero-content {
+        width: 100%;
+        padding: 32px 24px 48px;
+        margin-left: 0;
+      }
+
+      .values-orbit-wrap {
+        width: 340px;
+        height: 340px;
+      }
+
+      .orbit-ring {
+        width: 200px;
+        height: 200px;
+      }
+
+      .value-center {
+        width: 96px;
+        height: 96px;
+      }
+
+      .value-node {
+        width: 100px;
+        padding: 12px 10px;
+      }
+
+      .value-node h3  { font-size: 12px; }
+      .value-node p   { display: none; }
+
+    }
+
+  </style>
 </head>
 
 <body>
 <div id="site-header"></div>
-  
-  <!-- =====================================================
-    SECTION 2: 히어로 (Hero)
-    - 학원의 첫인상을 결정하는 가장 중요한 섹션
-    - 메인 모토 + 서브 문구 + 상담 버튼
-    - 배경 이미지/색상은 style.css에서 지정
-  ====================================================== -->
+
+  <!-- HERO: 비대칭 -->
   <section id="hero">
-    
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      
-      <!-- 메인 모토 -->
+      <p class="hero-label">수지 신봉동 원장직강 소수정예</p>
       <h1 class="hero-title">
-        수학과 함께하는<br>
-        필드 코칭 기반 성장 컨설팅
+        스스로 해내는<br>
+        <em>아이를 만듭니다</em>
       </h1>
-      
-      <!-- 서브 문구 -->
       <p class="hero-subtitle">
-        수학을 인생의 걸림돌이 아닌 디딤돌로 만들어드립니다
+        수학이 걸림돌이 아닌<br>
+        디딤돌이 되는 경험,<br>
+        생각의힘이 함께합니다.
       </p>
-      
-      <!-- 행동 유도 버튼 (CTA: Call To Action) -->
-      <div class="hero-buttons">
-        <!-- 전화 상담 버튼: 클릭 시 전화 연결 -->
-        <a href="tel:031-272-8209" class="btn btn-primary">
-          전화 상담하기
-        </a>
-        <!-- 학원 소개 보기 버튼 -->
-        <a href="about/index.html" class="btn btn-secondary">
-          학원 소개 보기
-        </a>
-      </div>
-
     </div>
-
   </section>
 
 
-  <!-- =====================================================
-    SECTION 3: 핵심 가치 (Values)
-    - 학원의 차별점을 카드 형태로 표시
-    - 카드 4개: 원장직강 / 소수정예 / 10년 경력 / 필드코칭
-    - 나중에 카드 추가/삭제 시 <div class="value-card"> 블록 단위로 수정
-  ====================================================== -->
+  <!-- VALUES: 원형 순환 -->
   <section id="values">
-    
     <div class="section-inner">
-      
-      <!-- 섹션 제목 -->
+
       <h2 class="section-title">생각의힘이 다른 이유</h2>
-      
-      <!-- 카드 컨테이너 -->
-      <div class="values-grid">
 
-        <!-- 카드 1: 원장직강 -->
-        <div class="value-card">
-          <div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+      <div class="values-orbit-wrap">
+
+        <!-- 회전 궤도 -->
+        <div class="orbit-ring"></div>
+
+        <!-- 중앙 로고 -->
+        <div class="value-center">
+          <img src="assets/image/content/brain-logic.jpg.png"
+               alt="생각의힘 수학학원 로고">
+        </div>
+
+        <!-- 상: 원장직강 -->
+        <div class="value-node vn-top">
+          <div class="vn-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
           <h3>원장직강</h3>
-          <p>모든 수업을 원장이 직접 진행합니다. 수업 질의 일관성을 보장합니다.</p>
+          <p>모든 수업을 원장이 직접 진행합니다</p>
         </div>
 
-        <!-- 카드 2: 소수정예 -->
-        <div class="value-card">
-          <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+        <!-- 우: 소수정예 -->
+        <div class="value-node vn-right">
+          <div class="vn-icon"><i class="fa-solid fa-users"></i></div>
           <h3>소수정예</h3>
-          <p>한 명 한 명에게 집중할 수 있는 소수 인원으로만 운영합니다.</p>
+          <p>한 명 한 명에게 집중하는 운영</p>
         </div>
 
-        <!-- 카드 3: 10년 경력 -->
-        <div class="value-card">
-          <div class="card-icon"><i class="fa-solid fa-calendar-check"></i></div>
+        <!-- 하: 10년 경력 -->
+        <div class="value-node vn-bottom">
+          <div class="vn-icon"><i class="fa-solid fa-calendar-check"></i></div>
           <h3>10년 경력</h3>
-          <p>10년간 수지 신봉동에서 쌓아온 지역 밀착형 교육 노하우.</p>
+          <p>신봉동 지역 밀착형 교육 노하우</p>
         </div>
 
-        <!-- 카드 4: 필드코칭 -->
-        <div class="value-card">
-          <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>필드코칭 방식</h3>
-          <p>직접 손으로 하는 학습 경험으로 자기효능감과 실력을 함께 키웁니다.</p>
+        <!-- 좌: 필드코칭 -->
+        <div class="value-node vn-left">
+          <div class="vn-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>필드코칭</h3>
+          <p>직접 하는 학습으로 자기효능감 형성</p>
         </div>
 
-      </div><!-- /values-grid -->
-      
-    </div><!-- /section-inner -->
-
+      </div>
+    </div>
   </section>
 
 
-  <!-- =====================================================
-    SECTION 4: 프로그램 소개 요약 (Programs)
-    - 두 가지 반 소개: 개별진도반 / 하이브리드반
-    - 각 카드에서 커리큘럼 상세 페이지로 연결
-  ====================================================== -->
-  <section id="programs">
-    
-    <div class="section-inner">
-      
-      <h2 class="section-title">수업 프로그램</h2>
-      
-      <div class="programs-grid">
-
-        <!-- 프로그램 1: 개별진도반 -->
-        <div class="program-card">
-          <h3>개별진도반</h3>
-          <p>학생 개인의 수준과 진도에 맞춰 1:1에 가까운 맞춤형 수업을 진행합니다.</p>
-          <a href="curriculum/individual.html" class="btn btn-outline">자세히 보기</a>
-        </div>
-
-        <!-- 프로그램 2: 하이브리드반 -->
-        <div class="program-card">
-          <h3>하이브리드반</h3>
-          <p>개념 이해와 문제 풀이를 균형 있게 다루는 통합형 수업입니다.</p>
-          <a href="curriculum/hybrid.html" class="btn btn-outline">자세히 보기</a>
-        </div>
-
-      </div><!-- /programs-grid -->
-      
-    </div><!-- /section-inner -->
-
-  </section>
-
-
-  <!-- =====================================================
-    SECTION 5: 학원 위치 안내 (Location)
-    - 좌측: 주소 및 연락처
-    - 우측: 약도 이미지
-    - 이미지 파일 위치: assets/images/content/map.png
-  ====================================================== -->
+  <!-- LOCATION: 폭 축소 -->
   <section id="location">
-    
     <div class="section-inner">
-      
-      <h2 class="section-title">오시는 길</h2>
-      
-      <!-- 좌우 2단 레이아웃 -->
-      <div class="location-wrap">
 
-        <!-- 좌측: 주소 및 연락처 -->
+      <h2 class="section-title">오시는 길</h2>
+
+      <div class="location-wrap">
         <div class="location-info">
           <p><strong>주소</strong></p>
           <p>경기도 용인시 수지구 신봉동<br>수지 신봉종합상가 4층</p>
@@ -187,22 +344,16 @@
           <p><strong>전화</strong></p>
           <p><a href="tel:031-272-8209">031-272-8209</a></p>
         </div>
-
-        <!-- 우측: 약도 이미지 -->
-        <!-- 이미지 준비되면 assets/images/content/map.png 에 업로드 -->
         <div class="map-container">
-          <img
-            src="assets/images/content/map.png"
-            alt="생각의힘 수학학원 약도 - 수지 신봉종합상가 4층"
-            style="width:100%; border-radius:8px;">
+          <img src="assets/images/content/map.png"
+               alt="생각의힘 수학학원 약도 - 수지 신봉종합상가 4층"
+               style="width:100%; border-radius:8px;">
         </div>
+      </div>
 
-      </div><!-- /location-wrap -->
-      
-    </div><!-- /section-inner -->
-
+    </div>
   </section>
-   
+
   <div id="site-footer"></div>
   <script src="assets/js/components.js"></script>
 </body>
