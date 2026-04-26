@@ -21,14 +21,10 @@
      루트: index.html → base = ""
      하위: about/index.html → base = "../"
   --------------------------------------------------- */
-  const depth = location.pathname
-    .replace(/\/[^/]*$/, '')  // 파일명 제거
-    .split('/')
-    .filter(Boolean).length;
-
-  // GitHub Pages 환경에서는 저장소명이 경로에 포함되므로 1 이상이면 하위
-  const base = depth <= 1 ? '' : '../';
-
+  const path = location.pathname;
+  const isRoot = path === '/' || path.endsWith('index.html') && path.split('/').length <= 2;
+  const depth = path.replace(/\/[^/]*$/, '').split('/').filter(Boolean).length;
+  const base = depth === 0 ? '' : '../';
   /* ---------------------------------------------------
      헤더 HTML
      - 로고, 네비게이션 메뉴, 전화번호 포함
