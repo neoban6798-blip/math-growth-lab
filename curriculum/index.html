@@ -202,18 +202,22 @@
     }
 
     .curriculum-card-footer a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--color-primary);
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--color-primary);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
 
-    .curriculum-card-footer a i {
-      transition: transform 0.2s;
-    }
-
+  .curriculum-card-footer a:hover {
+  background: var(--color-bg-white);
+}
     .curriculum-card-footer a:hover i {
       transform: translateX(4px);
     }
