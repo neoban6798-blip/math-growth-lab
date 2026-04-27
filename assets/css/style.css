@@ -157,7 +157,10 @@ img {
   font-weight: 700;
   color: var(--color-primary);
 }
-
+.logo a {
+  display: flex;
+  align-items: center;
+}
 .logo-sub {
   font-size: 14px;
   color: var(--color-text-sub);
