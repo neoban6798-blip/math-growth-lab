@@ -211,7 +211,72 @@
       background: var(--color-bg-white);
     }
 
+  /* ═══════════════════════════════
+       FEATURES — 핵심 강점 카드
+    ═══════════════════════════════ */
+    #features {
+      padding: var(--section-padding);
+      background: #fffde7;
+      overflow: hidden;
+    }
 
+    .features-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scrollbar-width: none;
+    }
+
+    .features-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .feature-card {
+      flex-shrink: 0;
+      width: 200px;
+      background: #ffffff;
+      border: 1px solid #f5e49a;
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease,
+                  box-shadow 0.25s ease;
+    }
+
+    .feature-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 12px 32px rgba(253,224,71,0.4);
+      transform: translateY(-6px);
+      border-color: #fde047;
+    }
+
+    .feature-card i {
+      font-size: 28px;
+      color: #c47f00;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .feature-card p {
+      font-size: 12px;
+      color: var(--color-text-sub);
+      line-height: 1.7;
+    }
     /* ═══════════════════════════════
        반응형
     ═══════════════════════════════ */
@@ -293,6 +358,72 @@
 
 
   <!-- VALUES: 원형 순환 -->
+<!-- FEATURES: 핵심 강점 -->
+  <section id="features">
+    <div class="section-inner">
+
+      <h2 class="section-title">생각의힘이 하는 것들</h2>
+
+      <div class="features-track">
+
+        <div class="feature-card">
+          <i class="fa-solid fa-pen-nib"></i>
+          <h3>개념노트 작성</h3>
+          <p>배운 개념을 자기 언어로 직접 정리합니다</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-book-open"></i>
+          <h3>수학 전용 연습장</h3>
+          <p>풀이 과정을 전수 검사하고 확인 도장을 찍습니다</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-rotate-left"></i>
+          <h3>오답 재현</h3>
+          <p>왜 틀렸는지 끝까지 추적하고 구조화합니다</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <h3>매일 테스트</h3>
+          <p>매 수업 짧은 테스트로 학습 정착도를 확인합니다</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-comment-dots"></i>
+          <h3>학생별 맞춤 피드백</h3>
+          <p>아이의 오류 패턴을 찾아 근본 원인부터 잡습니다</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-flask"></i>
+          <h3>무료 진단평가</h3>
+          <p>전국 단위 표본 기반 4개 영역 정밀 분석</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-sliders"></i>
+          <h3>수준별 맞춤학습</h3>
+          <p>학년이 아닌 아이의 현재 상태가 기준입니다</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <h3>원장직강</h3>
+          <p>모든 수업을 원장이 직접 진행합니다</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-map-pin"></i>
+          <h3>신봉동에서만 10년</h3>
+          <p>지역 밀착형 교육으로 쌓아온 10년의 노하우</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- LOCATION: 폭 축소 -->
   <section id="values">
     <div class="section-inner">
 
@@ -345,5 +476,18 @@
   
   <div id="site-footer"></div>
   <script src="assets/js/components.js"></script>
+  <script>
+    const cards = document.querySelectorAll('.feature-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 100);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
