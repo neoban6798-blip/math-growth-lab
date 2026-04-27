@@ -229,10 +229,7 @@
       border-radius: 16px;
       padding: 28px 20px;
       text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease,
-                  box-shadow 0.25s ease;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
 
     .feature-card.visible {
@@ -462,18 +459,7 @@
   <div id="site-footer"></div>
   <script src="assets/js/components.js"></script>
   <script>
-    // 페이드인 애니메이션
-    const cards = document.querySelectorAll('.feature-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, i * 100);
-        }
-      });
-    }, { threshold: 0.1 });
-    cards.forEach(card => observer.observe(card));
+    
 
     // 드래그 스크롤
     const track = document.querySelector('.features-track');
