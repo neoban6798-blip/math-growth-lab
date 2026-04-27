@@ -202,23 +202,24 @@
     #features {
       padding: var(--section-padding);
       background: #fffde7;
+      overflow-x: hidden;
     }
 
     .features-track {
       display: flex;
       gap: 20px;
-      overflow-x: auto;
       padding-bottom: 12px;
-      scrollbar-width: none;
-      cursor: grab;
+      width: max-content;
+      animation: autoScroll 25s linear infinite;
     }
 
-    .features-track:active {
-      cursor: grabbing;
+    .features-track:hover {
+      animation-play-state: paused;
     }
 
-    .features-track::-webkit-scrollbar {
-      display: none;
+    @keyframes autoScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 10px)); }
     }
 
     .feature-card {
@@ -461,21 +462,9 @@
   <script>
     
 
-    // 드래그 스크롤
     const track = document.querySelector('.features-track');
-    let isDown = false, startX, scrollLeft;
-    track.addEventListener('mousedown', e => {
-      isDown = true;
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-    });
-    track.addEventListener('mouseleave', () => isDown = false);
-    track.addEventListener('mouseup', () => isDown = false);
-    track.addEventListener('mousemove', e => {
-      if (!isDown) return;
-      e.preventDefault();
-      track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX);
-    });
+    track.innerHTML += track.innerHTML;
+    
   </script>
 </body>
 </html>
