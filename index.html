@@ -264,7 +264,16 @@
       color: var(--color-text-sub);
       line-height: 1.7;
     }
-
+    
+  /* 중앙에 위치했을 때 추가될 강조 스타일 */
+    .feature-card.highlight {
+      transform: scale(1.15) !important;
+      box-shadow: 0 16px 40px rgba(253,224,71,0.6);
+      border-color: #fde047;
+      z-index: 10;
+      position: relative;
+      background-color: #fffdf0;
+    }
 
     /* ═══════════════════════════════
        반응형
@@ -462,9 +471,40 @@
   <script>
     
 
+    <script>
     const track = document.querySelector('.features-track');
     track.innerHTML += track.innerHTML;
-    
+
+    const cards = document.querySelectorAll('.feature-card');
+
+    function highlightCenterCard() {
+      const windowCenter = window.innerWidth / 2;
+      let closestCard = null;
+      let minDistance = Infinity;
+
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + (rect.width / 2);
+        const distance = Math.abs(windowCenter - cardCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestCard = card;
+        }
+      });
+
+      cards.forEach(card => {
+        if (card === closestCard) {
+          card.classList.add('highlight');
+        } else {
+          card.classList.remove('highlight');
+        }
+      });
+
+      requestAnimationFrame(highlightCenterCard);
+    }
+
+    highlightCenterCard();
   </script>
 </body>
 </html>
