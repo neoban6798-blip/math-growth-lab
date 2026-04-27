@@ -35,7 +35,8 @@
 
       <div class="logo">
         <a href="${base}index.html">
-          <span class="logo-main">생각의힘</span>
+          <img src="${base}assets/image/content/brain-logic.jpg.png" style="height:28px; width:28px; border-radius:50%; object-fit:cover; margin-right:8px; vertical-align:middle;">
+<span class="logo-main" style="color:#e53e3e;">생각의힘</span>
           <span class="logo-sub">수학학원</span>
         </a>
       </div>
