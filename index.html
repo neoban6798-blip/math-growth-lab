@@ -29,7 +29,6 @@
       background: url('assets/image/content/creativity-2375170_1280.jpg') center/cover no-repeat;
     }
 
-    /* 이미지 → 파스텔 노랑으로 페이드 */
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -91,7 +90,6 @@
       margin: 0 auto;
     }
 
-    /* 회전하는 점선 궤도 */
     .orbit-ring {
       position: absolute;
       width: 300px;
@@ -109,7 +107,6 @@
       to   { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
-    /* 중앙 로고 원형 */
     .value-center {
       position: absolute;
       width: 140px;
@@ -130,8 +127,7 @@
       object-fit: cover;
     }
 
-    /* 4개 노드 공통 */
-     .value-node {
+    .value-node {
       position: absolute;
       width: 140px;
       height: 140px;
@@ -158,42 +154,39 @@
       line-height: 1.7;
     }
 
-
     .value-node .vn-icon {
       font-size: 22px;
       margin-bottom: 8px;
     }
+
     .vn-top    .vn-icon { color: #f97316; }
     .vn-right  .vn-icon { color: #22c55e; }
     .vn-bottom .vn-icon { color: #3b82f6; }
     .vn-left   .vn-icon { color: #a855f7; }
 
-    /* 위치: 상/우/하/좌 */
-    
     .vn-top    { top: 10px;  left: 50%; transform: translateX(-50%);
-             background: #fff7ed; border: 2px solid #fed7aa; }
-.vn-right  { right: 10px; top: 50%; transform: translateY(-50%);
-             background: #f0fdf4; border: 2px solid #bbf7d0; }
-.vn-bottom { bottom: 10px; left: 50%; transform: translateX(-50%);
-             background: #eff6ff; border: 2px solid #bfdbfe; }
-.vn-left   { left: 10px; top: 50%; transform: translateY(-50%);
-             background: #fdf4ff; border: 2px solid #e9d5ff; }
+                 background: #fff7ed; border: 2px solid #fed7aa; }
+    .vn-right  { right: 10px; top: 50%; transform: translateY(-50%);
+                 background: #f0fdf4; border: 2px solid #bbf7d0; }
+    .vn-bottom { bottom: 10px; left: 50%; transform: translateX(-50%);
+                 background: #eff6ff; border: 2px solid #bfdbfe; }
+    .vn-left   { left: 10px; top: 50%; transform: translateY(-50%);
+                 background: #fdf4ff; border: 2px solid #e9d5ff; }
 
-    /* 순차 팝 애니메이션 (시계 방향: 상→우→하→좌) */
     @keyframes popTop {
-      0%,100% { transform: translateX(-50%) scale(1);        box-shadow: none; }
+      0%,100% { transform: translateX(-50%) scale(1); box-shadow: none; }
       50%      { transform: translateX(-50%) translateY(-8px) scale(1.06); box-shadow: 0 12px 28px rgba(253,224,71,0.45); }
     }
     @keyframes popRight {
-      0%,100% { transform: translateY(-50%) scale(1);        box-shadow: none; }
+      0%,100% { transform: translateY(-50%) scale(1); box-shadow: none; }
       50%      { transform: translateY(-50%) translateX(8px) scale(1.06); box-shadow: 0 8px 28px rgba(253,224,71,0.45); }
     }
     @keyframes popBottom {
-      0%,100% { transform: translateX(-50%) scale(1);        box-shadow: none; }
+      0%,100% { transform: translateX(-50%) scale(1); box-shadow: none; }
       50%      { transform: translateX(-50%) translateY(8px) scale(1.06); box-shadow: 0 -4px 28px rgba(253,224,71,0.45); }
     }
     @keyframes popLeft {
-      0%,100% { transform: translateY(-50%) scale(1);        box-shadow: none; }
+      0%,100% { transform: translateY(-50%) scale(1); box-shadow: none; }
       50%      { transform: translateY(-50%) translateX(-8px) scale(1.06); box-shadow: 0 8px 28px rgba(253,224,71,0.45); }
     }
 
@@ -204,14 +197,6 @@
 
 
     /* ═══════════════════════════════
-       LOCATION — 폭 축소
-    ═══════════════════════════════ */
-    #location {
-      padding: 48px 24px;
-      background: var(--color-bg-white);
-    }
-
-  /* ═══════════════════════════════
        FEATURES — 핵심 강점 카드
     ═══════════════════════════════ */
     #features {
@@ -226,6 +211,11 @@
       overflow-x: auto;
       padding-bottom: 12px;
       scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .features-track:active {
+      cursor: grabbing;
     }
 
     .features-track::-webkit-scrollbar {
@@ -253,7 +243,7 @@
 
     .feature-card:hover {
       box-shadow: 0 12px 32px rgba(253,224,71,0.4);
-      transform: translateY(-6px);
+      transform: translateY(-6px) !important;
       border-color: #fde047;
     }
 
@@ -277,6 +267,8 @@
       color: var(--color-text-sub);
       line-height: 1.7;
     }
+
+
     /* ═══════════════════════════════
        반응형
     ═══════════════════════════════ */
@@ -358,7 +350,50 @@
 
 
   <!-- VALUES: 원형 순환 -->
-<!-- FEATURES: 핵심 강점 -->
+  <section id="values">
+    <div class="section-inner">
+
+      <h2 class="section-title">생각의힘이 다른 이유</h2>
+
+      <div class="values-orbit-wrap">
+
+        <div class="orbit-ring"></div>
+
+        <div class="value-center">
+          <img src="assets/image/content/brain-logic.jpg.png"
+               alt="생각의힘 수학학원 로고">
+        </div>
+
+        <div class="value-node vn-top">
+          <div class="vn-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <h3>원장직강</h3>
+          <p>모든 수업을 원장이 직접 진행합니다</p>
+        </div>
+
+        <div class="value-node vn-right">
+          <div class="vn-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>소수정예</h3>
+          <p>한 명 한 명에게 집중하는 운영</p>
+        </div>
+
+        <div class="value-node vn-bottom">
+          <div class="vn-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>10년 경력</h3>
+          <p>신봉동 지역 밀착형 교육 노하우</p>
+        </div>
+
+        <div class="value-node vn-left">
+          <div class="vn-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>강사=필드코치</h3>
+          <p>직접 하는 학습으로 자기효능감 형성</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FEATURES: 핵심 강점 -->
   <section id="features">
     <div class="section-inner">
 
@@ -423,60 +458,12 @@
       </div>
     </div>
   </section>
-  <!-- LOCATION: 폭 축소 -->
-  <section id="values">
-    <div class="section-inner">
-
-      <h2 class="section-title">생각의힘이 다른 이유</h2>
-
-      <div class="values-orbit-wrap">
-
-        <!-- 회전 궤도 -->
-        <div class="orbit-ring"></div>
-
-        <!-- 중앙 로고 -->
-        <div class="value-center">
-          <img src="assets/image/content/brain-logic.jpg.png"
-               alt="생각의힘 수학학원 로고">
-        </div>
-
-        <!-- 상: 원장직강 -->
-        <div class="value-node vn-top">
-          <div class="vn-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <h3>원장직강</h3>
-          <p>모든 수업을 원장이 직접 진행합니다</p>
-        </div>
-
-        <!-- 우: 소수정예 -->
-        <div class="value-node vn-right">
-          <div class="vn-icon"><i class="fa-solid fa-users"></i></div>
-          <h3>소수정예</h3>
-          <p>한 명 한 명에게 집중하는 운영</p>
-        </div>
-
-        <!-- 하: 10년 경력 -->
-        <div class="value-node vn-bottom">
-          <div class="vn-icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <h3>10년 경력</h3>
-          <p>신봉동 지역 밀착형 교육 노하우</p>
-        </div>
-
-        <!-- 좌: 필드코칭 -->
-        <div class="value-node vn-left">
-          <div class="vn-icon"><i class="fa-solid fa-bullseye"></i></div>
-          <h3>강사=필드코치</h3>
-          <p>직접 하는 학습으로 자기효능감 형성</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
 
-  
   <div id="site-footer"></div>
   <script src="assets/js/components.js"></script>
   <script>
+    // 페이드인 애니메이션
     const cards = document.querySelectorAll('.feature-card');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -488,6 +475,22 @@
       });
     }, { threshold: 0.1 });
     cards.forEach(card => observer.observe(card));
+
+    // 드래그 스크롤
+    const track = document.querySelector('.features-track');
+    let isDown = false, startX, scrollLeft;
+    track.addEventListener('mousedown', e => {
+      isDown = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+    track.addEventListener('mouseleave', () => isDown = false);
+    track.addEventListener('mouseup', () => isDown = false);
+    track.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX);
+    });
   </script>
 </body>
 </html>
