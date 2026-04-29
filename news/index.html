@@ -267,7 +267,7 @@
       });
 
     // 신봉지역 학교소식 불러오기
-    fetch('../school-news/school_news.json')
+    fetch('../school_news/school_news.json')
       .then(res => res.json())
       .then(posts => renderNews('school-news-container', posts, '../school-news'))
       .catch(() => {
