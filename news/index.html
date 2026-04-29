@@ -161,6 +161,37 @@
       font-size: 15px;
     }
 
+    /* ── 이중 게시판 레이아웃 ── */
+.dual-board {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-padding);
+}
+
+.news-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.news-column-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #fde047;
+  color: var(--color-text-main);
+}
+
+@media (max-width: 768px) {
+  .dual-board {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+    
   </style>
 </head>
 
@@ -179,11 +210,24 @@
     </section>
 
     <!-- 소식 목록 -->
-    <section id="news-list">
-      <div class="news-container" id="news-container">
-        <p class="news-loading">소식을 불러오는 중입니다...</p>
-      </div>
-    </section>
+    <!-- 기존 단일 게시판 영역을 아래처럼 변경 -->
+<section class="dual-board">
+  <!-- 왼쪽: 학원소식 -->
+  <div class="news-column">
+    <h2 class="news-column-title">학원소식</h2>
+    <div class="news-container" id="academy-news-container">
+      <p class="news-loading">소식을 불러오는 중입니다...</p>
+    </div>
+  </div>
+
+  <!-- 오른쪽: 신봉지역 학교소식 -->
+  <div class="news-column">
+    <h2 class="news-column-title">신봉지역 학교소식</h2>
+    <div class="news-container" id="school-news-container">
+      <p class="news-loading">소식을 불러오는 중입니다...</p>
+    </div>
+  </div>
+</section>
 
   </main>
 
