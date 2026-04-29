@@ -29,7 +29,6 @@
       left: 0; top: 0;
       width: 62%;
       height: 100%;
-      /* 👇 학원소식 페이지에 쓸 이미지 파일 이름으로 수정해 주세요 👇 */
       background: url('../assets/image/content/time.jpg') center/cover no-repeat;
     }
 
@@ -75,12 +74,7 @@
       line-height: 1.8;
     }
 
-    /* ── 소식 목록 ── */
-    #news-list {
-      padding: var(--section-padding);
-      background: var(--color-bg-white);
-    }
-
+    /* ── 소식 목록 (공통) ── */
     .news-container {
       max-width: 760px;
       margin: 0 auto;
@@ -162,36 +156,35 @@
     }
 
     /* ── 이중 게시판 레이아웃 ── */
-.dual-board {
-  display: flex;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--section-padding);
-}
+    .dual-board {
+      display: flex;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--section-padding);
+    }
 
-.news-column {
-  flex: 1;
-  min-width: 0;
-}
+    .news-column {
+      flex: 1;
+      min-width: 0;
+    }
 
-.news-column-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #fde047;
-  color: var(--color-text-main);
-}
+    .news-column-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #fde047;
+      color: var(--color-text-main);
+    }
 
-@media (max-width: 768px) {
-  .dual-board {
-    flex-direction: column;
-    gap: 48px;
-  }
-}
+    @media (max-width: 768px) {
+      .dual-board {
+        flex-direction: column;
+        gap: 48px;
+      }
+    }
 
-    
   </style>
 </head>
 
@@ -209,25 +202,24 @@
       </div>
     </section>
 
-    <!-- 소식 목록 -->
-    <!-- 기존 단일 게시판 영역을 아래처럼 변경 -->
-<section class="dual-board">
-  <!-- 왼쪽: 학원소식 -->
-  <div class="news-column">
-    <h2 class="news-column-title">학원소식</h2>
-    <div class="news-container" id="academy-news-container">
-      <p class="news-loading">소식을 불러오는 중입니다...</p>
-    </div>
-  </div>
+    <!-- 이중 게시판 -->
+    <section class="dual-board">
+      <!-- 왼쪽: 학원소식 -->
+      <div class="news-column">
+        <h2 class="news-column-title">학원소식</h2>
+        <div class="news-container" id="academy-news-container">
+          <p class="news-loading">소식을 불러오는 중입니다...</p>
+        </div>
+      </div>
 
-  <!-- 오른쪽: 신봉지역 학교소식 -->
-  <div class="news-column">
-    <h2 class="news-column-title">신봉지역 학교소식</h2>
-    <div class="news-container" id="school-news-container">
-      <p class="news-loading">소식을 불러오는 중입니다...</p>
-    </div>
-  </div>
-</section>
+      <!-- 오른쪽: 신봉지역 학교소식 -->
+      <div class="news-column">
+        <h2 class="news-column-title">신봉지역 학교소식</h2>
+        <div class="news-container" id="school-news-container">
+          <p class="news-loading">소식을 불러오는 중입니다...</p>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -235,42 +227,53 @@
   <script src="../assets/js/components.js"></script>
 
   <script>
-    // posts.json을 읽어서 목록 자동 생성
-    fetch('../news/posts.json')
-      .then(res => res.json())
-      .then(posts => {
-        const container = document.getElementById('news-container');
+    // 공통 렌더 함수
+    function renderNews(containerId, posts, linkPrefix) {
+      const container = document.getElementById(containerId);
 
-        if (!posts || posts.length === 0) {
-          container.innerHTML = '<p class="news-empty">등록된 소식이 없습니다.</p>';
-          return;
-        }
+      if (!posts || posts.length === 0) {
+        container.innerHTML = '<p class="news-empty">등록된 소식이 없습니다.</p>';
+        return;
+      }
 
-        // 날짜 내림차순 정렬
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        container.innerHTML = posts.map(post => `
-          <div class="news-item">
-            <div class="news-item-left">
-              <p class="news-item-date">${formatDate(post.date)}</p>
-              <p class="news-item-title">${post.title}</p>
-              <p class="news-item-summary">${post.summary}</p>
-            </div>
-            <a href="${post.date}.html" class="news-item-btn">
-              자세히 보기 <i class="fa-solid fa-arrow-right"></i>
-            </a>
+      container.innerHTML = posts.map(post => `
+        <div class="news-item">
+          <div class="news-item-left">
+            <p class="news-item-date">${formatDate(post.date)}</p>
+            <p class="news-item-title">${post.title}</p>
+            <p class="news-item-summary">${post.summary}</p>
           </div>
-        `).join('');
-      })
-      .catch(() => {
-        document.getElementById('news-container').innerHTML =
-          '<p class="news-empty">소식을 불러오지 못했습니다.</p>';
-      });
+          <a href="${linkPrefix}/${post.date}.html" class="news-item-btn">
+            자세히 보기 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      `).join('');
+    }
 
     function formatDate(dateStr) {
       const d = new Date(dateStr);
       return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
     }
+
+    // 학원소식 불러오기
+    fetch('../news/news.json')
+      .then(res => res.json())
+      .then(posts => renderNews('academy-news-container', posts, '../news'))
+      .catch(() => {
+        document.getElementById('academy-news-container').innerHTML =
+          '<p class="news-empty">소식을 불러오지 못했습니다.</p>';
+      });
+
+    // 신봉지역 학교소식 불러오기
+    fetch('../school-news/school_news.json')
+      .then(res => res.json())
+      .then(posts => renderNews('school-news-container', posts, '../school-news'))
+      .catch(() => {
+        document.getElementById('school-news-container').innerHTML =
+          '<p class="news-empty">소식을 불러오지 못했습니다.</p>';
+      });
   </script>
 
 </body>
