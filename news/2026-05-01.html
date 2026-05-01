@@ -1,1 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>중간고사가 끝난 지금이 가장 중요한 타이밍입니다 — 기말대비반 6월 초 마감 | 생각의힘 수학학원</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
 
+  <style>
+    .post-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .post-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-light);
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+
+    .post-back:hover {
+      color: var(--color-text-main);
+    }
+
+    .post-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: #b08800;
+      margin-bottom: 12px;
+    }
+
+    .post-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.4;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .post-body {
+      font-size: 16px;
+      color: var(--color-text-sub);
+      line-height: 2;
+    }
+
+    .post-body p {
+      margin-bottom: 20px;
+    }
+
+    .post-body strong {
+      color: var(--color-text-main);
+    }
+
+    .post-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin: 52px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    /* 학교별 예측 카드 */
+    .school-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 24px 0 32px;
+    }
+
+    .school-card {
+      border-radius: 8px;
+      padding: 16px 18px;
+      border: 1px solid;
+    }
+
+    .school-card.danger {
+      background: #FAECE7;
+      border-color: #F0B8A0;
+    }
+
+    .school-card.mid {
+      background: #EAF3DE;
+      border-color: #9FD078;
+    }
+
+    .school-card.warn {
+      background: #FAEEDA;
+      border-color: #F0C870;
+    }
+
+    .school-card .sc-name {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .school-card.danger .sc-name { color: #993C1D; }
+    .school-card.mid .sc-name { color: #27500A; }
+    .school-card.warn .sc-name { color: #854F0B; }
+
+    .school-card .sc-pred {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .school-card.danger .sc-pred { background: #F5B8A0; color: #7A3520; }
+    .school-card.mid .sc-pred { background: #9FD078; color: #27500A; }
+    .school-card.warn .sc-pred { background: #FAC775; color: #633806; }
+
+    .school-card p {
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .school-card.danger p { color: #7A3520; }
+    .school-card.mid p { color: #3B6D11; }
+    .school-card.warn p { color: #633806; }
+
+    /* 강조 박스 */
+    .highlight-box {
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-soft, #f7f5f0);
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0;
+      color: var(--color-text-sub);
+    }
+
+    /* 경고 박스 */
+    .warn-box {
+      background: #FAECE7;
+      border: 1px solid #F0B8A0;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .warn-box p {
+      font-size: 15px;
+      color: #7A3520;
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    /* 시스템 카드 */
+    .system-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0 32px;
+    }
+
+    .system-card {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      border-left: 4px solid #b08800;
+    }
+
+    .system-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+
+    .system-card p {
+      font-size: 14.5px;
+      color: var(--color-text-sub);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    /* 모집 안내 박스 */
+    .recruit-box {
+      background: #1c1a17;
+      border-radius: 10px;
+      padding: 32px 28px;
+      margin: 36px 0;
+    }
+
+    .recruit-box .rb-tag {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #FAC775;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .recruit-box .rb-ttl {
+      font-size: 20px;
+      font-weight: 700;
+      color: #FAF8F3;
+      line-height: 1.45;
+      margin: 0 0 20px;
+    }
+
+    .recruit-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .ri {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .ri-dot {
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #FAC775;
+      margin-top: 9px;
+    }
+
+    .ri p {
+      font-size: 14.5px;
+      color: rgba(250,248,243,0.75);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .ri p strong {
+      color: #FAF8F3;
+    }
+
+    .rb-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 20px 0;
+    }
+
+    .rb-closing {
+      font-size: 17px;
+      font-weight: 700;
+      color: #FAF8F3;
+      margin: 0 0 4px;
+    }
+
+    .rb-closing-sub {
+      font-size: 13px;
+      color: rgba(250,248,243,0.45);
+      margin: 0 0 20px;
+    }
+
+    .rb-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .rb-info-item .rl {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(250,248,243,0.4);
+      margin-bottom: 2px;
+    }
+
+    .rb-info-item .rv {
+      font-size: 14px;
+      font-weight: 600;
+      color: #FAF8F3;
+    }
+
+    .rb-divider-v {
+      width: 1px;
+      height: 26px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* 해시태그 */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .tag--school {
+      background: #e8f0fb;
+      color: #1a5abf;
+      border: 1px solid #c0d4f5;
+    }
+
+    .tag--type {
+      background: #fdf5e0;
+      color: #8a6200;
+      border: 1px solid #f0d878;
+    }
+
+    @media(max-width: 500px) {
+      .school-grid { grid-template-columns: 1fr; }
+      .recruit-box { padding: 24px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 05월 00일</p>
+
+      <h1 class="post-title">중간고사가 끝난 지금이<br>가장 중요한 타이밍입니다<br><span style="font-size:20px;color:#b08800;">기말대비반 6월 초 마감</span></h1>
+
+      <div class="post-body">
+
+        <p>신봉중·성복중·홍천중 중간고사가 끝났습니다. 지난 몇 주간 세 학교 시험지를 직접 분석해서 포스팅을 올렸습니다. 많은 분들이 읽어주셨습니다. 오늘은 그 연장선에서 드리는 이야기입니다.</p>
+
+        <h2>기말고사, 각 학교가 어떻게 나올지 예측합니다</h2>
+
+        <p>중간고사 결과와 절대평가 등급 구조를 함께 보면 기말 출제 방향이 보입니다.</p>
+
+        <div class="school-grid">
+          <div class="school-card danger">
+            <div class="sc-name">홍천중</div>
+            <div class="sc-pred">기조 유지 가능성</div>
+            <p>3학년 고등 수준 6문항(28점), 2학년 5점 문항 8개(40점). 등급 분포가 낮아진 만큼 일부 조정 가능성은 있으나 변별 중심 기조는 유지될 것으로 예측됩니다.</p>
+          </div>
+          <div class="school-card mid">
+            <div class="sc-name">성복중</div>
+            <div class="sc-pred">동일 기조 유지</div>
+            <p>균형 잡힌 난이도로 등급 분포가 적절히 형성됐다면 기말도 같은 기조로 출제될 가능성이 가장 높습니다. 변별 문항 대응 능력이 등급을 결정합니다.</p>
+          </div>
+          <div class="school-card warn">
+            <div class="sc-name">신봉중</div>
+            <div class="sc-pred">난이도 상승 예측</div>
+            <p>중간이 쉬워 등급이 상향 평준화됐다면 기말에서 변별력을 높이는 방향으로 조정될 가능성이 높습니다. 지금 안도하면 기말에서 무너집니다.</p>
+          </div>
+        </div>
+
+        <div class="warn-box">
+          <p>세 학교 모두 <strong>기말 전 논술형 수행평가가 남아있습니다.</strong> 기말 지필과 수행평가를 동시에 준비해야 하는 시간이 지금 이 순간에도 줄어들고 있습니다.</p>
+        </div>
+
+        <h2>기말대비반에서 실제로 하는 것</h2>
+
+        <div class="system-cards">
+          <div class="system-card">
+            <h3>실전보다 120% 가혹한 압박 모의고사</h3>
+            <p>실제 시험보다 문항 수는 늘리고 시간은 줄입니다. B4 시험지에 풀이 과정을 전부 기술해야 합니다. 답만 쓰면 인정하지 않습니다. 시간은 분 단위로 체크합니다. 이 압박 환경에서 훈련한 학생은 실제 시험장에서 오히려 여유가 생깁니다.</p>
+          </div>
+          <div class="system-card">
+            <h3>필드코치 약점 추적 — 틀린 이유를 그 자리에서 찾습니다</h3>
+            <p>모의고사가 끝나면 점수가 아니라 풀이 과정을 들여다봅니다. 어느 문항에서 시간을 얼마나 썼는지, 어떤 전략으로 접근했는지, 어디서 방향이 틀렸는지를 정확히 짚습니다. 계산 실수인지, 개념 혼동인지, 전략 부재인지를 구분하고 그 자리에서 수정합니다.</p>
+          </div>
+          <div class="system-card">
+            <h3>중간고사 오답 추적 → 기말 로드맵</h3>
+            <p>기말 준비는 중간고사 시험지 분석에서 시작합니다. 어떤 유형에서 왜 틀렸는지를 파악해야 같은 실수가 기말에서 반복되지 않습니다. 상담 시 시험지를 함께 들여다보는 것이 첫 단계입니다.</p>
+          </div>
+          <div class="system-card">
+            <h3>취약 유형 집중 제거 — 오답 사이클 반복</h3>
+            <p>매일 테스트로 취약 유형을 파악하고, 오답노트에 직접 풀이 과정을 서술하고, 유사 문제로 재확인하는 사이클을 반복합니다. 한 번 이 사이클이 돌기 시작하면 오답률이 눈에 띄게 줄어듭니다.</p>
+          </div>
+          <div class="system-card">
+            <h3>수행평가 논술형 — 평소 수업이 곧 대비</h3>
+            <p>저희 수업에서는 모든 문제를 수학 전용 연습장에 풀이 과정까지 손으로 씁니다. 이 훈련이 쌓인 학생은 수행평가 논술형에서 별도 적응이 필요 없습니다. 수업이 그 자체로 수행평가 대비입니다.</p>
+          </div>
+        </div>
+
+        <div class="recruit-box">
+          <div class="rb-tag">모집 안내 · 수시 모집</div>
+          <div class="rb-ttl">기말고사 날짜는<br>이미 정해져 있습니다</div>
+
+          <div class="recruit-items">
+            <div class="ri">
+              <div class="ri-dot"></div>
+              <p>기말 범위 완성, 수행평가 논술형, 오답 정리. 세 가지를 동시에 준비해야 하는 시간이 지금 이 순간에도 줄어들고 있습니다.</p>
+            </div>
+            <div class="ri">
+              <div class="ri-dot"></div>
+              <p>저희는 10년째 <strong>원장이 직접 모든 수업을 담당하는 방식</strong>을 유지합니다. 학생 수가 늘면 이 구조를 지킬 수 없어 항상 소수만 받습니다. 이 글을 읽고 연락을 주저하다 자리가 없어지는 경우가 생기곤 합니다.</p>
+            </div>
+            <div class="ri">
+              <div class="ri-dot"></div>
+              <p><strong>수시 모집 · 6월 초 마감.</strong> 그 이후 합류는 실질적인 효과를 기대하기 어렵습니다.</p>
+            </div>
+            <div class="ri">
+              <div class="ri-dot"></div>
+              <p><strong>무료 진단평가</strong>는 언제든 가능합니다. 아이의 현재 상태를 확인하고 기말까지 어떻게 준비할지 방향을 잡는 것만으로도 충분히 의미가 있습니다. 결정은 그 다음의 일입니다.</p>
+            </div>
+          </div>
+
+          <div class="rb-divider"></div>
+
+          <div class="rb-closing">시험지 한 장 들고 오세요.</div>
+          <div class="rb-closing-sub">나머지는 저희가 보여드리겠습니다</div>
+
+          <div class="rb-info">
+            <div class="rb-info-item"><div class="rl">위치</div><div class="rv">수지 신봉종합상가 4층</div></div>
+            <div class="rb-divider-v"></div>
+            <div class="rb-info-item"><div class="rl">전화</div><div class="rv">031-272-8209</div></div>
+            <div class="rb-divider-v"></div>
+            <div class="rb-info-item"><div class="rl">대상</div><div class="rv">초5 — 고2</div></div>
+          </div>
+        </div>
+
+        <div class="post-tags">
+          <span class="tag tag--school">#신봉중</span>
+          <span class="tag tag--school">#성복중</span>
+          <span class="tag tag--school">#홍천중</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#기말고사대비</span>
+          <span class="tag tag--type">#수행평가</span>
+          <span class="tag tag--type">#원장직강</span>
+          <span class="tag tag--type">#소수정예</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
