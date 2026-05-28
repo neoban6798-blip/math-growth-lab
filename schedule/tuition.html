@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="생각의힘 수학학원 교습비 안내 페이지입니다.">
+  <title>교습비 안내 | 생각의힘 수학학원</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ── 교습비 안내 섹션 (최대한 단순하고 평범한 스타일) ── */
+    #tuition-main {
+      padding: var(--section-padding, 80px 0);
+      background: var(--color-bg-white, #ffffff);
+      min-height: 500px;
+    }
+
+    .tuition-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .tuition-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main, #333333);
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .tuition-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 40px;
+    }
+
+    .tuition-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .tuition-table th {
+      font-weight: 600;
+      padding: 12px;
+      background: #f9f9f9;
+      border-top: 1px solid #333333;
+      border-bottom: 1px solid #dddddd;
+      color: #555555;
+    }
+
+    .tuition-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #eeeeee;
+      color: #666666;
+    }
+
+    .tuition-table tr:last-child td {
+      border-bottom: 1px solid #333333;
+    }
+
+    .tuition-table .text-bold {
+      font-weight: 700;
+      color: #222222;
+    }
+
+    /* 모바일 반응형 조절 */
+    @media (max-width: 768px) {
+      .tuition-title { font-size: 18px; }
+      .tuition-table { font-size: 13px; }
+      .tuition-table th, .tuition-table td { padding: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 기존 공통 헤더 컴포넌트 구조 유지 -->
+  <div id="site-header"></div>
+
+  <main>
+    <section id="tuition-main">
+      <div class="tuition-container">
+        
+        <h1 class="tuition-title">교습비 안내</h1>
+
+        <div class="tuition-table-wrapper">
+          <table class="tuition-table">
+            <thead>
+              <tr>
+                <th scope="col">구분</th>
+                <th scope="col">교습대상</th>
+                <th scope="col">1개월 총 교습시간</th>
+                <th scope="col">분당 단가</th>
+                <th scope="col">교습비(월)</th>
+                <th scope="col">기타경비</th>
+                <th scope="col">합계</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>일반보습 I</td>
+                <td>중등부</td>
+                <td>1,548분</td>
+                <td>222원</td>
+                <td>320,000원</td>
+                <td>없음</td>
+                <td class="text-bold">320,000원</td>
+              </tr>
+              <tr>
+                <td>일반보습 II</td>
+                <td>중등부</td>
+                <td>2,322분</td>
+                <td>222원</td>
+                <td>380,000원</td>
+                <td>없음</td>
+                <td class="text-bold">380,000원</td>
+              </tr>
+              <tr>
+                <td>일반보습 III</td>
+                <td>고등부</td>
+                <td>2,322분</td>
+                <td>240원</td>
+                <td>450,000원</td>
+                <td>없음</td>
+                <td class="text-bold">450,000원</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- 기존 공통 푸터 컴포넌트 구조 유지 -->
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
