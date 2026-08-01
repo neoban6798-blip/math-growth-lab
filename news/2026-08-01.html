@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="상담 때 가장 많이 듣는 질문, 이제 성적표로 직접 확인해보세요. 생각의힘 수학학원이 학부모님께 안내드리는 AI 스터디플래너.">
+  <title>"우리 애 이 성적이면 어디까지 갈까요" — 이 질문에 답해줄 도구를 찾았습니다 | 생각의힘 수학학원</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .post-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .post-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-light);
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+
+    .post-back:hover {
+      color: var(--color-text-main);
+    }
+
+    .post-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: #b08800;
+      margin-bottom: 12px;
+    }
+
+    .post-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.4;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .post-body {
+      font-size: 16px;
+      color: var(--color-text-sub);
+      line-height: 2;
+    }
+
+    .post-body p {
+      margin-bottom: 20px;
+    }
+
+    .post-body strong {
+      color: var(--color-text-main);
+    }
+
+    .post-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin: 52px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    /* 상담실 질문 인용 */
+    .quote-ask {
+      background: #fffde7;
+      border: 1px solid #fde047;
+      border-radius: 8px;
+      padding: 24px 26px;
+      margin: 28px 0;
+      text-align: center;
+    }
+
+    .quote-ask p {
+      font-size: 18px;
+      font-weight: 700;
+      color: #713f12;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* 역할 분담 2단 */
+    .role-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 28px 0 32px;
+    }
+
+    .role-col {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      background: #fff;
+    }
+
+    .role-col.ours { border-top: 4px solid #b08800; }
+    .role-col.gap  { border-top: 4px solid #b8bcc4; }
+
+    .role-col h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--color-text-main);
+    }
+
+    .role-col ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .role-col li {
+      font-size: 14.5px;
+      color: var(--color-text-sub);
+      line-height: 1.9;
+    }
+
+    /* 강조 박스 */
+    .highlight-box {
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-soft, #f7f5f0);
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0;
+      color: var(--color-text-sub);
+    }
+
+    /* 분석 화면 캡처 */
+    .shot {
+      margin: 26px 0 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .shot-cap {
+      font-size: 13px;
+      color: var(--color-text-light);
+      text-align: center;
+      margin: 0 0 30px;
+      line-height: 1.7;
+    }
+
+    /* AI 제안 인용 */
+    .ai-quote {
+      border-left: 4px solid #b08800;
+      background: #fdfbf4;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 22px 0;
+    }
+
+    .ai-quote p {
+      font-size: 15px;
+      color: #5c4a1a;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .ai-quote p + p { margin-top: 14px; }
+
+    .ai-quote strong { color: #7a5f10; }
+
+    /* 데이터 축적 */
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 26px 0 32px;
+    }
+
+    .stack-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      background: #fff;
+    }
+
+    .stack-bar {
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #f0d878, #b08800);
+      flex-shrink: 0;
+    }
+
+    .stack-text { flex: 1; }
+
+    .stack-text .st {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    .stack-text .sd {
+      font-size: 13px;
+      color: var(--color-text-light);
+      margin-top: 2px;
+      line-height: 1.6;
+    }
+
+    /* 안내 박스 */
+    .notice-box {
+      background: #1c1a17;
+      border-radius: 10px;
+      padding: 32px 28px;
+      margin: 40px 0 20px;
+    }
+
+    .notice-box .nb-tag {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #FAC775;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .notice-box .nb-ttl {
+      font-size: 20px;
+      font-weight: 700;
+      color: #FAF8F3;
+      line-height: 1.45;
+      margin: 0 0 20px;
+    }
+
+    .nb-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .nbi {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .nbi-dot {
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #FAC775;
+      margin-top: 9px;
+    }
+
+    .nbi p {
+      font-size: 14.5px;
+      color: rgba(250,248,243,0.75);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .nbi p strong { color: #FAF8F3; }
+
+    .nb-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 20px 0;
+    }
+
+    .nb-link {
+      font-size: 14px;
+      color: #FAC775;
+      word-break: break-all;
+      line-height: 1.8;
+    }
+
+    .nb-link span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: rgba(250,248,243,0.4);
+      margin-bottom: 4px;
+    }
+
+    /* 해시태그 */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .tag--school {
+      background: #e8f0fb;
+      color: #1a5abf;
+      border: 1px solid #c0d4f5;
+    }
+
+    .tag--type {
+      background: #fdf5e0;
+      color: #8a6200;
+      border: 1px solid #f0d878;
+    }
+
+    @media(max-width: 500px) {
+      .role-split { grid-template-columns: 1fr; }
+      .notice-box { padding: 24px 18px; }
+      .post-title { font-size: 23px; }
+      .quote-ask p { font-size: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 08월 01일</p>
+
+      <h1 class="post-title">"우리 애 이 성적이면<br>어디까지 갈까요"<br><span style="font-size:20px;color:#b08800;">이 질문에 답해줄 도구를 찾았습니다</span></h1>
+
+      <div class="post-body">
+
+        <p>학부모님들과 상담을 하다 보면 거의 빠지지 않고 나오는 질문이 있습니다.</p>
+
+        <div class="quote-ask">
+          <p>"선생님, 우리 애 이 성적이면<br>어디까지 갈 수 있을까요?"</p>
+        </div>
+
+        <p>솔직히 말씀드리면, 이 질문에 자신 있게 답하기가 늘 조심스러웠습니다.</p>
+
+        <p>수학 성적이야 저희가 매일 보고 있으니 압니다. 어떤 단원이 약한지, 시험에서 왜 실수가 나오는지, 요즘 집중력이 어떤지도 알고요. <strong>그런데 그 질문은 수학 하나만 놓고 답할 수 있는 게 아닙니다.</strong></p>
+
+        <p>전 과목 성적이 어떻게 맞물리는지, 생기부는 어떤 방향으로 채워지고 있는지를 다 놓고 봐야 나오는 얘기입니다. 그런데 저희가 학부모님 댁의 생기부를 매번 들여다볼 수도 없고, 그렇다고 "그건 입시 컨설팅에서 물어보세요"라고 넘기기에는 그 말이 얼마나 무책임하게 들릴지도 알고 있었습니다.</p>
+
+        <h2>학원이 챙기는 것, 그리고 손이 닿지 않던 자리</h2>
+
+        <div class="role-split">
+          <div class="role-col ours">
+            <h3>저희가 책임지는 영역</h3>
+            <ul>
+              <li>수학 실력 자체를 끌어올리는 일</li>
+              <li>내신 대비와 시험 성적 관리</li>
+              <li>학교별 출제 경향 분석</li>
+              <li>수업 태도와 학습 습관 지도</li>
+            </ul>
+          </div>
+          <div class="role-col gap">
+            <h3>학원 밖에 있던 질문들</h3>
+            <ul>
+              <li>이 성적으로 어느 대학까지 가능한가</li>
+              <li>생기부 세특을 어떤 방향으로 채울까</li>
+              <li>전 과목을 합치면 어떤 상태인가</li>
+              <li>지금 무엇을 보완해야 하는가</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p>수학은 저희가 책임집니다. 그건 변함없습니다. <strong>다만 그 옆의 질문들도 학부모님이 함께 보실 수 있으면 좋겠다</strong>고 계속 생각해왔습니다.</p>
+        </div>
+
+        <p>그래서 요즘 나온 도구 하나를 안내드리려고 합니다. 성적표와 생활기록부 정보를 넣어두면 AI가 그것을 읽고 분석해주는 서비스입니다.</p>
+
+        <h2>지금 이 성적이 어느 위치인지 보여줍니다</h2>
+
+        <div class="shot">
+          <img src="https://square.layer-hub.com/wp-content/uploads/2026/08/%ED%99%94%EB%A9%B4-%EC%BA%A1%EC%B2%98-2026-07-28-015519.jpg" alt="AI 분석 화면 - 학생부종합전형 지원 가능 대학 범위와 합격 변수 안내">
+        </div>
+        <p class="shot-cap">실제 분석 화면 — 지원 가능 범위와 합격을 좌우하는 변수</p>
+
+        <p>주요 과목 평균 <strong>2.8~3.0 등급대</strong>라는 진단이 먼저 나옵니다. 그리고 인서울 주요 15개 대학은 현재 성적만으로는 도전적이지만 생기부 세특이 우수하면 가능성이 열린다고 보고, 서울 중위권과 수도권 주요 대학은 성적과 생기부 활동이 조화를 이루면 충분히 합격권으로 잡습니다.</p>
+
+        <p>제가 눈여겨본 건 등급을 매기는 방식이 아니었습니다. <strong>"학종은 성적이 아니라 성적을 만들어가는 과정을 보는 전형"</strong>이라는 관점에서 합격을 가르는 변수를 짚어준다는 점이었어요. 세특의 깊이, 성적의 추이, 전공 적합성. 저희가 상담 때 늘 강조하던 것과 같은 얘기입니다.</p>
+
+        <h2>더 유용한 건 그다음입니다</h2>
+
+        <div class="shot">
+          <img src="https://square.layer-hub.com/wp-content/uploads/2026/08/%ED%99%94%EB%A9%B4-%EC%BA%A1%EC%B2%98-2026-07-28-015446.jpg" alt="AI 분석 화면 - 강점 영역과 보완 영역별 생활기록부 전략 제언">
+        </div>
+        <p class="shot-cap">강점과 보완점을 나누고, 각각 무엇을 하면 되는지까지 제안</p>
+
+        <p>이 학생의 경우 일본어와 문학이 강점으로 잡히는데, 거기서 그치지 않습니다.</p>
+
+        <div class="ai-quote">
+          <p>이 과목들과 관련된 생기부 세특에는 단순히 수업 내용을 나열하기보다, <strong>'일본어 문학 작품 비교 분석'</strong>이나 <strong>'언어와 문화의 상관관계'</strong>에 대한 탐구 보고서를 작성하는 것을 추천합니다.</p>
+        </div>
+
+        <p>반대로 화학과 생명과학은 기초 학력이 부족하다고 짚으면서, 이공계열을 희망한다면 지금 점수는 위험하다고 명확히 말합니다. 그러면서 오답 노트나 개념 정리 활동을 세특에 녹여 <strong>"부족한 부분을 어떻게 극복했는지"를 스토리로 만들라</strong>고 제안합니다.</p>
+
+        <div class="highlight-box">
+          <p>이 부분이 학부모님께 도움이 되겠다고 생각한 이유가 있습니다. 저희가 상담에서 "수학 이 단원이 약하니 이렇게 보완합시다"라고 말씀드릴 수는 있어도, <strong>그것을 생기부에 어떻게 녹일지까지는 함께 봐드리기 어려웠거든요.</strong> 그 공백을 메워주는 도구라고 보시면 됩니다.</p>
+        </div>
+
+        <h2>기록이 쌓일수록 더 정확해집니다</h2>
+
+        <div class="stack">
+          <div class="stack-row">
+            <span class="stack-bar" style="width:70px;"></span>
+            <span class="stack-text">
+              <span class="st">성적표</span>
+              <span class="sd">지금 어디쯤 있는지 기본 위치 확인</span>
+            </span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-bar" style="width:145px;"></span>
+            <span class="stack-text">
+              <span class="st">+ 생기부 기록</span>
+              <span class="sd">세특 · 동아리 · 진로 활동까지 반영</span>
+            </span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-bar" style="width:230px;"></span>
+            <span class="stack-text">
+              <span class="st">+ 공부 기록</span>
+              <span class="sd">공부한 내용과 시간, 학습 습관까지 분석</span>
+            </span>
+          </div>
+        </div>
+
+        <p>한 번 보고 끝나는 것이 아닙니다. 데이터가 더해질수록 분석이 계속 정교해지는 구조라, <strong>아이가 3년 동안 변해가는 과정을 따라가면서 방향을 다시 잡을 수 있습니다.</strong></p>
+
+        <p>특히 아직 진로가 뚜렷하지 않은 아이라면, 방향이 바뀔 때마다 다시 확인해볼 수 있다는 점이 도움이 될 것 같습니다.</p>
+
+        <div class="notice-box">
+          <div class="nb-tag">학부모님 안내</div>
+          <div class="nb-ttl">궁금하시면<br>상담 오실 때 편하게 물어보세요</div>
+
+          <div class="nb-items">
+            <div class="nbi">
+              <div class="nbi-dot"></div>
+              <p>비용은 자녀 한 명 기준 <strong>하루 99원, 한 달 3,000원 수준</strong>입니다. 부담 없이 시작해보실 수 있는 정도라 안내드립니다.</p>
+            </div>
+            <div class="nbi">
+              <div class="nbi-dot"></div>
+              <p>저희도 직접 써보면서 파악한 부분이 있어서, <strong>어떻게 쓰면 좋을지 설명드릴 수 있습니다.</strong> 성적표만 있으면 바로 확인해보실 수 있습니다.</p>
+            </div>
+            <div class="nbi">
+              <div class="nbi-dot"></div>
+              <p>이 안내가 수업이나 상담을 대신하는 것은 아닙니다. <strong>수학은 저희가 계속 책임지고 봅니다.</strong> 그 옆을 함께 보실 수 있는 도구로 참고해주시면 됩니다.</p>
+            </div>
+          </div>
+
+          <div class="nb-divider"></div>
+
+          <div class="nb-link">
+            <span>서비스 안내</span>
+            <a href="https://square.layer-hub.com/ai-studyplaner/" target="_blank" rel="noopener">square.layer-hub.com/ai-studyplaner/</a>
+          </div>
+        </div>
+
+        <div class="post-tags">
+          <span class="tag tag--school">#신봉중</span>
+          <span class="tag tag--school">#성복중</span>
+          <span class="tag tag--school">#홍천중</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#생기부관리</span>
+          <span class="tag tag--type">#학생부종합전형</span>
+          <span class="tag tag--type">#입시전략</span>
+          <span class="tag tag--type">#세특</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
