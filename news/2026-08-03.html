@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="생각의힘 수학학원 개인정보처리방침 제정 안내. 학생 정보를 어떻게 관리하는지, 어디까지 쓰이는지 투명하게 공개합니다.">
+  <title>학생 정보를 어떻게 다루는지 공개합니다 — 개인정보처리방침 안내 | 생각의힘 수학학원</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .post-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .post-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-light);
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+
+    .post-back:hover {
+      color: var(--color-text-main);
+    }
+
+    .post-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: #b08800;
+      margin-bottom: 12px;
+    }
+
+    .post-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.4;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .post-body {
+      font-size: 16px;
+      color: var(--color-text-sub);
+      line-height: 2;
+    }
+
+    .post-body p {
+      margin-bottom: 20px;
+    }
+
+    .post-body strong {
+      color: var(--color-text-main);
+    }
+
+    .post-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin: 52px 0 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    /* 요약 카드 */
+    .summary-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0 32px;
+    }
+
+    .summary-card {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      border-left: 4px solid #b08800;
+    }
+
+    .summary-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+
+    .summary-card p {
+      font-size: 14.5px;
+      color: var(--color-text-sub);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    /* 안심 박스 */
+    .safe-box {
+      background: #EAF3DE;
+      border: 1px solid #9FD078;
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+
+    .safe-box p {
+      font-size: 15px;
+      color: #27500A;
+      line-height: 1.9;
+      margin: 0 0 12px;
+    }
+
+    .safe-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .safe-box strong {
+      color: #1c3a06;
+    }
+
+    /* 강조 박스 */
+    .highlight-box {
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-soft, #f7f5f0);
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0;
+      color: var(--color-text-sub);
+    }
+
+    /* 링크 버튼 */
+    .policy-link-box {
+      background: #1c1a17;
+      border-radius: 10px;
+      padding: 32px 28px;
+      margin: 36px 0;
+      text-align: center;
+    }
+
+    .policy-link-box .pl-tag {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #FAC775;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .policy-link-box .pl-ttl {
+      font-size: 20px;
+      font-weight: 700;
+      color: #FAF8F3;
+      line-height: 1.45;
+      margin: 0 0 8px;
+    }
+
+    .policy-link-box .pl-sub {
+      font-size: 14px;
+      color: rgba(250,248,243,0.55);
+      margin: 0 0 24px;
+      line-height: 1.8;
+    }
+
+    .policy-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FAC775;
+      color: #3d2a00;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .policy-link-btn:hover {
+      background: #f5b843;
+    }
+
+    /* 문의 정보 */
+    .contact-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .contact-item .cl {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(250,248,243,0.4);
+      margin-bottom: 2px;
+    }
+
+    .contact-item .cv {
+      font-size: 14px;
+      font-weight: 600;
+      color: #FAF8F3;
+    }
+
+    .contact-divider {
+      width: 1px;
+      height: 26px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* 해시태그 */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .tag--type {
+      background: #fdf5e0;
+      color: #8a6200;
+      border: 1px solid #f0d878;
+    }
+
+    @media(max-width: 500px) {
+      .policy-link-box { padding: 24px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 08월 03일</p>
+
+      <h1 class="post-title">학생 정보를 어떻게 다루는지<br>공개합니다<br><span style="font-size:20px;color:#b08800;">개인정보처리방침 제정 안내</span></h1>
+
+      <div class="post-body">
+
+        <p>저희는 아이의 출결, 숙제, 시험 점수, 상담 내용을 기록하고 그 데이터로 학습 방향을 잡습니다. 기록이 쌓일수록 분석이 정확해지지만, 그만큼 <strong>학부모님이 맡기신 정보의 무게도 커집니다.</strong></p>
+
+        <p>그래서 학원이 어떤 정보를 받아서, 어디에 쓰고, 얼마나 보관하는지를 정리해 홈페이지에 공개했습니다. 법이 요구하는 형식적인 절차이기 이전에, 맡기신 분들이 언제든 확인하실 수 있어야 한다고 생각했습니다.</p>
+
+        <h2>핵심만 먼저 말씀드리면</h2>
+
+        <div class="summary-cards">
+          <div class="summary-card">
+            <h3>받는 것은 수업에 필요한 최소한입니다</h3>
+            <p>이름, 학교, 학년, 연락처, 그리고 출결·숙제·시험 점수·상담 기록입니다. <strong>주민등록번호와 생년월일은 받지 않습니다.</strong> 학원 안에 CCTV도 없습니다.</p>
+          </div>
+          <div class="summary-card">
+            <h3>AI 분석 프로그램을 씁니다</h3>
+            <p>학습 기록을 정리하고 분석하는 데 레이어미디어의 AI 관리 프로그램을 사용합니다. 이 과정에서 데이터가 해외 AI 서비스로 전송됩니다. 어떤 회사에 무엇이 전달되는지 방침에 표로 전부 적었습니다.</p>
+          </div>
+          <div class="summary-card">
+            <h3>퇴원하면 3개월 뒤 지웁니다</h3>
+            <p>재등록하시는 경우가 있어 3개월은 보관하고, 그 이후에는 지체 없이 파기합니다. 그 전에라도 삭제를 요청하시면 처리해 드립니다.</p>
+          </div>
+          <div class="summary-card">
+            <h3>다른 곳에 넘기지 않습니다</h3>
+            <p>학생과 학부모님의 정보를 제3자에게 제공하지 않습니다. 학습 관리 목적 외의 용도로 쓰지도 않습니다.</p>
+          </div>
+        </div>
+
+        <h2>원하지 않으시면 빼드립니다</h2>
+
+        <div class="safe-box">
+          <p>AI 프로그램에 아이 정보가 들어가는 것이 마음에 걸리신다면 <strong>말씀만 해주십시오.</strong> 해당 학생은 프로그램에 넣지 않고 기존 방식으로 따로 관리하겠습니다.</p>
+          <p>이 경우 AI 기반 학습 분석은 받아보실 수 없지만, <strong>수업이나 관리에서 어떤 불이익도 없습니다.</strong> 원장이 직접 보는 것은 프로그램이 있든 없든 똑같습니다.</p>
+        </div>
+
+        <h2>초등 고학년 학부모님께</h2>
+
+        <p>만 14세 미만 아이의 정보를 다룰 때는 보호자 동의를 받도록 법에 정해져 있습니다. 지금까지는 별도로 받지 않았으나, 앞으로는 등록 시에 함께 받고 재원 중인 학생들께도 순차적으로 안내드릴 예정입니다.</p>
+
+        <div class="highlight-box">
+          <p>번거롭게 해드려 죄송합니다. 다만 아이 정보를 다루는 일이라 절차를 제대로 갖추는 편이 맞다고 판단했습니다. 연락드리면 확인만 해주시면 됩니다.</p>
+        </div>
+
+        <div class="policy-link-box">
+          <div class="pl-tag">전문 보기</div>
+          <div class="pl-ttl">개인정보처리방침</div>
+          <p class="pl-sub">수집 항목부터 해외 전송 내역까지<br>전부 확인하실 수 있습니다</p>
+
+          <a href="../privacy.html" class="policy-link-btn">
+            방침 전문 보기 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <div class="contact-line">
+            <div class="contact-item"><div class="cl">문의</div><div class="cv">031-272-8209</div></div>
+            <div class="contact-divider"></div>
+            <div class="contact-item"><div class="cl">시행일</div><div class="cv">2026년 8월 2일</div></div>
+          </div>
+        </div>
+
+        <p>궁금하신 점이나 마음에 걸리시는 부분이 있으면 언제든 전화 주십시오. 문서로 설명드리기 어려운 부분은 직접 말씀드리겠습니다.</p>
+
+        <div class="post-tags">
+          <span class="tag tag--type">#개인정보처리방침</span>
+          <span class="tag tag--type">#학부모안내</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
