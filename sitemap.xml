@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  2026-08-04 정리
+  제외: admission/point.html, admission/assessment.html,
+        schedule/three-days.html, schedule/two-days.html
+        내용이 비어 있는 미완성 페이지라 색인 요청 대상이 아니다.
+        네 파일에는 noindex 를 넣어두었으니, 내용을 채운 뒤
+        noindex 를 지우고 여기에 다시 등록할 것.
+  추가: schedule/tuition.html (교습비 안내. 사이트맵에서 누락되어 있었다)
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thinkmath.kr/</loc>
@@ -26,16 +35,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkmath.kr/admission/assessment.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://thinkmath.kr/admission/point.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://thinkmath.kr/curriculum/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -56,14 +55,9 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thinkmath.kr/schedule/three-days.html</loc>
+    <loc>https://thinkmath.kr/schedule/tuition.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://thinkmath.kr/schedule/two-days.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thinkmath.kr/news/</loc>
