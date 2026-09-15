@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="생각의힘 수학학원 학습 리포트에 4주, 8주, 12주, 16주 기간별 조회 기능이 추가되었습니다. 왜 장기 데이터가 학습로드맵에 필요한지 정리해 안내드립니다.">
+  <title>4주, 8주, 12주, 16주 — 원하는 기간만큼 골라보는 학습 데이터 | 생각의힘 수학학원</title>
+  <link rel="canonical" href="https://thinkmath.kr/news/2026-09-15.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .post-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    .post-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-light); margin-bottom: 40px; transition: color 0.2s; }
+    .post-back:hover { color: var(--color-text-main); }
+    .post-date { font-size: 13px; font-weight: 600; color: #b08800; margin-bottom: 12px; }
+    .post-title { font-size: 28px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--color-border); }
+    .post-body { font-size: 16px; color: var(--color-text-sub); line-height: 2; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body strong { color: var(--color-text-main); }
+    .post-body h2 { font-size: 20px; font-weight: 700; color: var(--color-text-main); margin: 52px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--color-border); }
+
+    /* 기간 선택 카드 */
+    .period-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0 32px; }
+    .period-card { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 8px; padding: 18px 12px; text-align: center; }
+    .period-card.is-default { background: #fffde7; border-color: #fde047; }
+    .period-card .pc-label { font-size: 15px; font-weight: 700; color: var(--color-text-main); margin-bottom: 6px; }
+    .period-card .pc-desc { font-size: 12.5px; color: var(--color-text-sub); line-height: 1.6; }
+    .period-card .pc-tag { display: inline-block; font-size: 10.5px; font-weight: 700; color: #8a6200; background: #fdf5e0; border-radius: 10px; padding: 1px 8px; margin-bottom: 6px; }
+
+    /* 단원 연쇄 흐름 */
+    .chain-flow { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 24px 0 12px; flex-wrap: wrap; }
+    .chain-node { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 14px 18px; text-align: center; min-width: 120px; }
+    .chain-node .cn-title { font-size: 14.5px; font-weight: 700; color: var(--color-text-main); margin-bottom: 4px; }
+    .chain-node .cn-sub { font-size: 12px; color: var(--color-text-sub); }
+    .chain-arrow { color: #b08800; font-size: 16px; }
+    .chain-caption { display: flex; justify-content: space-between; max-width: 460px; margin: 0 auto 32px; font-size: 12.5px; color: var(--color-text-light); }
+
+    .highlight-box { border: 1px solid var(--color-border); background: var(--color-bg-soft, #f7f5f0); border-radius: 8px; padding: 22px 26px; margin: 24px 0; }
+    .highlight-box p { font-size: 15px; line-height: 1.9; margin: 0; color: var(--color-text-sub); }
+
+    .use-case-list { display: flex; flex-direction: column; gap: 14px; margin: 20px 0 32px; }
+    .use-case { border-left: 4px solid #b08800; background: #fff; border: 1px solid var(--color-border); border-radius: 0 8px 8px 0; padding: 16px 20px; }
+    .use-case p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0; }
+
+    .post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--color-border); }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .tag--school { background: #e8f0fb; color: #1a5abf; border: 1px solid #c0d4f5; }
+    .tag--type { background: #fdf5e0; color: #8a6200; border: 1px solid #f0d878; }
+
+    @media(max-width: 500px) {
+      .post-title { font-size: 23px; }
+      .period-grid { grid-template-columns: repeat(2, 1fr); }
+      .chain-flow { gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 09월 15일</p>
+
+      <h1 class="post-title">4주, 8주, 12주, 16주<br><span style="font-size:20px;color:#b08800;">원하는 기간만큼 골라보는 학습 데이터</span></h1>
+
+      <div class="post-body">
+
+        <p>생각의힘 수학학원의 학습 리포트는 자녀의 출결, 숙제완료율, 수업참여도, 시험 점수를 4주부터 16주까지 원하는 기간으로 조회할 수 있습니다. 기본 화면은 8주지만, 드롭다운으로 기간을 바꿔서 볼 수 있습니다.</p>
+
+        <div class="period-grid">
+          <div class="period-card">
+            <div class="pc-label">4주</div>
+            <div class="pc-desc">급변 확인</div>
+          </div>
+          <div class="period-card is-default">
+            <div class="pc-tag">기본값</div>
+            <div class="pc-label">8주</div>
+            <div class="pc-desc">중간 흐름</div>
+          </div>
+          <div class="period-card">
+            <div class="pc-label">12주</div>
+            <div class="pc-desc">학기 흐름</div>
+          </div>
+          <div class="period-card">
+            <div class="pc-label">16주</div>
+            <div class="pc-desc">장기 추세</div>
+          </div>
+        </div>
+
+        <h2>왜 한 시점의 숫자로는 판단할 수 없을까요?</h2>
+
+        <p>아이의 학습은 매주 똑같은 속도로 움직이지 않습니다. 이번 주 숙제를 안 했다고 학습 태도가 무너진 건 아닐 수 있고, 이번 주 시험 점수가 올랐다고 실력이 정말 는 것인지 그 시험이 유독 쉬웠던 것인지는 한 번의 숫자로 구분이 안 됩니다.</p>
+
+        <p>이걸 노이즈와 추세의 문제라고 합니다. 한두 번의 등락은 노이즈, 몇 주에 걸쳐 같은 방향으로 계속 움직이는 건 추세입니다. 노이즈와 추세를 구분하려면 최소한 몇 주 치 데이터가 함께 있어야 하는데, 성적표 한 장이나 문자 한 줄로는 지금 보는 숫자가 노이즈인지 추세인지 판단할 근거 자체가 없습니다.</p>
+
+        <h2>왜 12주, 16주 같은 장기 데이터가 학습로드맵에 필요할까요?</h2>
+
+        <p>중학교 수학은 단원이 독립적으로 존재하지 않습니다. 제곱근에서 흔들리면 인수분해에서 티가 나고, 인수분해가 약하면 이차방정식에서 막힙니다. 한 단원의 문제는 보통 그 단원 시험에서 바로 드러나지 않고, 두세 단원 뒤에서 누적된 형태로 나타납니다.</p>
+
+        <div class="chain-flow">
+          <div class="chain-node">
+            <div class="cn-title">제곱근</div>
+            <div class="cn-sub">기초 개념</div>
+          </div>
+          <i class="fa-solid fa-arrow-right chain-arrow"></i>
+          <div class="chain-node">
+            <div class="cn-title">인수분해</div>
+            <div class="cn-sub">제곱근 기반</div>
+          </div>
+          <i class="fa-solid fa-arrow-right chain-arrow"></i>
+          <div class="chain-node">
+            <div class="cn-title">이차방정식</div>
+            <div class="cn-sub">인수분해 기반</div>
+          </div>
+        </div>
+        <div class="chain-caption">
+          <span>약점이 시작되는 지점</span>
+          <span>보통 여기서 발견됨</span>
+        </div>
+
+        <p>그래서 한 시점의 데이터만 보면 "왜 갑자기 이 단원에서 막히지"라는 질문에 답할 수 없습니다. 12주에서 16주 치 데이터를 이어서 보면, 지금의 부진이 이번 단원 문제인지 몇 단원 전부터 쌓여온 문제인지 구분됩니다. 이 구분이 되어야 로드맵을 제대로 짤 수 있습니다. 지금 단원만 보강할지, 몇 주 전으로 돌아가서 기초부터 다시 다질지는 완전히 다른 결정이기 때문입니다.</p>
+
+        <h2>실제로 어떻게 쓰이나요</h2>
+
+        <div class="use-case-list">
+          <div class="use-case">
+            <p>숙제완료율이 8주 화면에서는 평범해 보이지만 16주로 늘려보니 특정 시점부터 계속 완만하게 떨어지고 있었다면, 그 시점에 진도가 바뀌었는지 확인하고 그 지점부터 복습을 잡을 근거가 생깁니다.</p>
+          </div>
+          <div class="use-case">
+            <p>시험 점수를 회차별로 이어서 12주 이상 보면, 한 번 오르고 내리는 걸 넘어서 실력이 실제로 상승 곡선을 그리고 있는지 정체 구간에 들어섰는지 보입니다.</p>
+          </div>
+          <div class="use-case">
+            <p>수업참여도 분석에서 특정 구간부터 흐름이 바뀌었다면, 그 시점에 아이에게 무슨 일이 있었는지 먼저 대화를 시작할 근거가 생깁니다.</p>
+          </div>
+        </div>
+
+        <h2>다른 학원과 무엇이 다른가요?</h2>
+
+        <p>대부분의 학원에서 학부모님이 받는 정보는 시험 직후 성적표, 또는 필요할 때 걸려오는 상담 전화입니다. 두 정보 모두 그 순간의 스냅샷이고, 기간을 조정해서 다시 볼 수 있는 구조가 아닙니다.</p>
+
+        <div class="highlight-box">
+          <p>생각의힘은 그 데이터를 그대로 학부모님께 보여드립니다. 저희가 판단해서 요약해드리는 것을 넘어서, <strong>학부모님이 직접 기간을 바꿔가며 노이즈인지 추세인지 스스로 판단하실 수 있게 하는 것</strong>이 핵심입니다.</p>
+        </div>
+
+        <div class="post-tags">
+          <span class="tag tag--school">#신봉중</span>
+          <span class="tag tag--school">#성복중</span>
+          <span class="tag tag--school">#홍천중</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#학습관리</span>
+          <span class="tag tag--type">#데이터기반관리</span>
+          <span class="tag tag--type">#레이어미디어</span>
+          <span class="tag tag--type">#학원나침반</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
