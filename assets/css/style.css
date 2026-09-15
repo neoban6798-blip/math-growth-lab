@@ -139,8 +139,10 @@ img {
    4. HEADER - 상단 고정 헤더
    ===================================================== */
 #main-header {
-  position: sticky;       /* 스크롤해도 상단에 고정 */
+  position: fixed;        /* 스크롤해도 항상 화면 상단에 고정 */
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;           /* 다른 요소 위에 표시 */
   display: flex;
   align-items: center;
