@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="홍천중학교 3학년 2학기 1차 정기시험 분석. 통계·삼각비 출제 구성과 기말 원의 성질 대비, 고등 과정 전환 전략을 생각의힘 수학학원이 정리했습니다.">
+  <title>2026년 2학기 1차 정기시험 분석 — 홍천중 3학년 수학 | 생각의힘 수학학원</title>
+  <link rel="canonical" href="https://thinkmath.kr/school_news/2026-09-29-2.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .post-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    .post-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-light); margin-bottom: 40px; transition: color 0.2s; }
+    .post-back:hover { color: var(--color-text-main); }
+    .post-date { font-size: 13px; font-weight: 600; color: #b08800; margin-bottom: 12px; }
+    .post-title { font-size: 28px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--color-border); }
+    .post-body { font-size: 16px; color: var(--color-text-sub); line-height: 2; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body strong { color: var(--color-text-main); }
+    .post-body h2 { font-size: 20px; font-weight: 700; color: var(--color-text-main); margin: 52px 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--color-border); }
+
+    .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 36px; }
+    .ov-card { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 8px; padding: 16px; text-align: center; }
+    .ov-card .ov-label { font-size: 11px; color: var(--color-text-light); margin-bottom: 6px; }
+    .ov-card .ov-value { font-size: 15px; font-weight: 700; color: var(--color-text-main); }
+
+    /* 범위 → 기말 흐름 */
+    .scope-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 14px; }
+    .scope-card { background: #EAF3DE; border: 1px solid #97C459; border-radius: 8px; padding: 16px 20px; }
+    .scope-card .sc-title { font-size: 15px; font-weight: 700; color: #27500A; margin-bottom: 4px; }
+    .scope-card .sc-sub { font-size: 12.5px; color: #3B6D11; margin-bottom: 8px; }
+    .scope-card .sc-score { font-size: 14px; font-weight: 700; color: #27500A; }
+    .scope-arrow { text-align: center; color: #b08800; font-size: 18px; margin: 6px 0; }
+    .final-scope { background: #FAECE7; border: 1px solid #F0997B; border-radius: 8px; padding: 18px 22px; text-align: center; margin-bottom: 32px; }
+    .final-scope .fs-label { font-size: 11px; letter-spacing: 0.08em; color: #993C1D; margin-bottom: 6px; }
+    .final-scope .fs-title { font-size: 17px; font-weight: 700; color: #993C1D; margin-bottom: 4px; }
+    .final-scope .fs-sub { font-size: 13px; color: #993C1D; }
+
+    .data-table { width: 100%; border-collapse: collapse; margin: 4px 0 32px; font-size: 13.5px; }
+    .data-table th, .data-table td { border: 1px solid var(--color-border); padding: 10px 12px; text-align: left; }
+    .data-table th { background: var(--color-bg-soft, #f7f5f0); font-weight: 700; color: var(--color-text-main); font-size: 12.5px; }
+    .data-table td { color: var(--color-text-sub); }
+
+    .killer-cards { display: flex; flex-direction: column; gap: 14px; margin: 20px 0 32px; }
+    .kcard { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; }
+    .kcard-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .kbadge { flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 6px; background: #FAEEDA; color: #854F0B; }
+    .kbadge.b8 { background: #FAECE7; color: #993C1D; }
+    .ktitle { font-size: 15px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; }
+    .concept-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .concept-badge { background: #fff; border: 1px solid #f0d878; color: #8a6200; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
+    .kcard p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0; }
+
+    /* 타임라인 */
+    .timeline { margin: 24px 0 32px; }
+    .tl-track { display: flex; align-items: center; gap: 0; margin-bottom: 14px; }
+    .tl-node { flex-shrink: 0; width: 11px; height: 11px; border-radius: 50%; background: #b08800; }
+    .tl-line { flex: 1; height: 2px; background: var(--color-border); }
+    .tl-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--color-text-light); margin-bottom: 14px; }
+    .tl-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .tl-card { border: 1px solid var(--color-border); border-radius: 8px; padding: 16px 18px; background: var(--color-bg-soft, #f7f5f0); }
+    .tl-card.accent { background: #FAECE7; border-color: #F0997B; }
+    .tl-card .tc-title { font-size: 14.5px; font-weight: 700; color: var(--color-text-main); margin-bottom: 6px; }
+    .tl-card.accent .tc-title { color: #993C1D; }
+    .tl-card p { font-size: 12.5px; color: var(--color-text-sub); line-height: 1.7; margin: 0; }
+    .tl-card.accent p { color: #993C1D; }
+
+    .notice-box { background: #FAEEDA; border: 1px solid #FAC775; border-radius: 8px; padding: 18px 22px; margin: 16px 0 28px; }
+    .notice-box p { font-size: 14.5px; color: #633806; line-height: 1.85; margin: 0; }
+
+    .strategy { display: flex; flex-direction: column; gap: 14px; margin: 20px 0 28px; }
+    .sitem { display: flex; gap: 14px; align-items: flex-start; }
+    .snum { flex-shrink: 0; width: 28px; height: 28px; background: var(--color-text-main, #1c1a17); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 2px; }
+    .sitem-body .stitle { font-size: 15px; font-weight: 700; color: var(--color-text-main); margin-bottom: 4px; }
+    .sitem-body p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0; }
+
+    .cta-box { border: 1px solid var(--color-border); border-radius: 10px; padding: 32px 28px; margin: 48px 0 32px; text-align: center; }
+    .cta-box p { font-size: 15px; color: var(--color-text-sub); margin-bottom: 20px; }
+    .cta-info { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-info-item .label { font-size: 11px; letter-spacing: 0.08em; color: var(--color-text-light); margin-bottom: 4px; }
+    .cta-info-item .value { font-size: 15px; font-weight: 600; color: var(--color-text-main); }
+    .cta-divider { width: 1px; height: 30px; background: var(--color-border); }
+
+    .post-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--color-border); }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .tag--school { background: #e8f0fb; color: #1a5abf; border: 1px solid #c0d4f5; }
+    .tag--type { background: #fdf5e0; color: #8a6200; border: 1px solid #f0d878; }
+
+    @media (max-width: 500px) {
+      .post-title { font-size: 22px; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .scope-pair { grid-template-columns: 1fr; }
+      .tl-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="../news/index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 09월 29일</p>
+
+      <h1 class="post-title">2026년 2학기 1차 정기시험 분석<br>홍천중학교 3학년 수학</h1>
+
+      <div class="post-body">
+
+        <p>중3 2학기 중간고사는 단순한 내신 시험 하나가 아닙니다. 중학교 과정에서 남은 시험이 기말 하나뿐이고, 그 이후로는 고등학교 과정이 시작되기 때문입니다. 이번 시험 결과를 어떻게 읽고 다음을 어떻게 준비할지 짚어보겠습니다.</p>
+
+        <h2>시험 개요</h2>
+
+        <div class="overview-grid">
+          <div class="ov-card">
+            <div class="ov-label">선다형</div>
+            <div class="ov-value">20문항 · 85점</div>
+          </div>
+          <div class="ov-card">
+            <div class="ov-label">논술형</div>
+            <div class="ov-value">2문항 · 15점</div>
+          </div>
+          <div class="ov-card">
+            <div class="ov-label">난이도</div>
+            <div class="ov-value">중상</div>
+          </div>
+        </div>
+
+        <div class="scope-pair">
+          <div class="scope-card">
+            <div class="sc-title">통계</div>
+            <div class="sc-sub">대푯값 · 산포도 · 산점도</div>
+            <div class="sc-score">10문항 · 42점</div>
+          </div>
+          <div class="scope-card">
+            <div class="sc-title">삼각비</div>
+            <div class="sc-sub">삼각비 값 · 활용 · 공간도형</div>
+            <div class="sc-score">12문항 · 58점</div>
+          </div>
+        </div>
+        <div class="scope-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+        <div class="final-scope">
+          <div class="fs-label">중3 2학기 세 단원 중 두 단원이 이미 출제됨</div>
+          <div class="fs-title">기말 범위 — 원의 성질 단독</div>
+          <div class="fs-sub">범위가 좁은 만큼 깊게 출제될 수 있습니다</div>
+        </div>
+
+        <h2>난이도 분석 — 중상 수준</h2>
+
+        <p>전체적으로 중상 정도의 난이도입니다. 극단적으로 어려운 문항은 없었지만, 기본 문항으로 쉽게 채울 수 있는 구간이 얇습니다.</p>
+
+        <table class="data-table">
+          <tr><th>난이도</th><th>문항 번호</th><th>문항수</th><th>배점 합계</th></tr>
+          <tr><td>기본</td><td>1, 2, 11, 12, 14</td><td>5문항</td><td>17점</td></tr>
+          <tr><td>응용</td><td>3, 4, 6, 13, 15, 16, 18</td><td>7문항</td><td>29점</td></tr>
+          <tr><td>심화</td><td>5, 7, 8, 9, 10, 17, 19, 20</td><td>8문항</td><td>39점</td></tr>
+        </table>
+
+        <p>기본 구간이 17점밖에 되지 않습니다. 기본기만으로 안정적으로 확보할 수 있는 점수가 제한적이라는 뜻이고, 응용 구간에서 얼마나 정확했는지가 결과를 갈랐을 가능성이 높습니다.</p>
+
+        <h2>통계에 심화가 몰렸습니다</h2>
+
+        <p>주목할 부분은 통계 단원입니다. 통계 10문항 중 절반인 5문항이 심화 구간에 들어갑니다.</p>
+
+        <p>통계는 개념이 단순해 보여서 가볍게 보는 경우가 많은데, 이번 시험은 반대였습니다. 평균과 분산의 공식을 외운 수준으로는 접근하기 어려운 문항들이 배치됐습니다. <strong>분산의 정의 자체를 식으로 다룰 수 있어야 하고</strong>, 산점도에서는 조건을 만족하는 점을 정확히 세야 했습니다.</p>
+
+        <h2>변별 문항 세 가지</h2>
+
+        <p>각 문항이 요구한 것이 서로 다릅니다.</p>
+
+        <div class="killer-cards">
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge">5점 · 통계</span>
+              <span class="ktitle">10번 — 공식 암기로는 풀 수 없다</span>
+            </div>
+            <div class="concept-badges">
+              <span class="concept-badge">분산의 정의</span>
+              <span class="concept-badge">식 세우기</span>
+            </div>
+            <p>편차제곱의 총합이 어떻게 변하는지를 직접 식으로 세워야 합니다. 분산 공식을 외운 것만으로는 접근할 수 없고, 분산이 무엇을 재는 값인지 이해하고 있어야 풀립니다.</p>
+          </div>
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge">5점 · 통계</span>
+              <span class="ktitle">8번 — 조건 한 줄이 열쇠다</span>
+            </div>
+            <div class="concept-badges">
+              <span class="concept-badge">조건 해석</span>
+              <span class="concept-badge">가중평균</span>
+            </div>
+            <p>"다섯 학교의 평균이 모두 같다"는 조건이 핵심입니다. 그 조건이 왜 주어졌는지 읽어내지 못하면 시작조차 할 수 없습니다. 문제 안에 풀이의 열쇠가 들어 있는 전형적인 유형입니다.</p>
+          </div>
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge">5점 · 삼각비</span>
+              <span class="ktitle">20번 — 이번 시험에서 단계가 가장 길다</span>
+            </div>
+            <div class="concept-badges">
+              <span class="concept-badge">직각이등변삼각형</span>
+              <span class="concept-badge">정삼각형</span>
+              <span class="concept-badge">삼각비</span>
+            </div>
+            <p>정삼각형 조건에서 길이를 끌어내고, 그것을 다시 삼각비로 연결해야 합니다. 중간에 한 단계만 끊겨도 답에 도달하지 못합니다.</p>
+          </div>
+        </div>
+
+        <p>여기에 더해 17번(직육면체 공간도형의 삼각비)과 논술형 1번(8점)도 무게가 있는 문항이었습니다. 특히 논술형 1번은 "변의 길이와 끼인각을 사용하여 나타낼 것"이라는 서술 조건이 지정되어 있었습니다. 같은 날 치른 2학년 시험에서도 동일한 방식이 나타나, 이 학교의 출제 성향으로 보입니다.</p>
+
+        <h2>이 시험에서 읽어야 할 것</h2>
+
+        <p>이번 시험이 요구한 건 계산력보다 <strong>조건을 해석해서 식을 세우는 능력</strong>입니다. "평균이 모두 같다", "분산이 5/4배가 되었다", "조건 세 가지를 모두 만족하는 학생" — 문제에 주어진 조건이 왜 주어졌는지 읽어내야 풀리는 문항들이 심화 구간을 채우고 있습니다.</p>
+
+        <div class="notice-box">
+          <p>이 능력은 고등학교 수학에서 요구하는 것과 정확히 같은 종류입니다. 그래서 이번 결과는 내신 점수보다 <strong>고등 과정에 대한 준비 상태를 보여주는 지표</strong>로 읽는 것이 맞습니다.</p>
+        </div>
+
+        <h2>중3의 남은 시간은 생각보다 짧습니다</h2>
+
+        <p>이 시기 학습 계획에서 가장 많이 놓치는 부분이 시간 배분입니다.</p>
+
+        <div class="timeline">
+          <div class="tl-track">
+            <div class="tl-node"></div>
+            <div class="tl-line"></div>
+            <div class="tl-node"></div>
+            <div class="tl-line"></div>
+            <div class="tl-node"></div>
+            <div class="tl-line"></div>
+            <div class="tl-node"></div>
+          </div>
+          <div class="tl-labels">
+            <span>지금</span>
+            <span>기말고사</span>
+            <span>겨울방학</span>
+            <span>고1</span>
+          </div>
+          <div class="tl-cards">
+            <div class="tl-card">
+              <div class="tc-title">원의 성질 집중</div>
+              <p>중학교 마지막 시험. 범위가 좁은 만큼 집중해서 빠르게</p>
+            </div>
+            <div class="tl-card">
+              <div class="tc-title">중등 과정 총정리</div>
+              <p>고등에서 곧바로 쓰이는 개념 중심으로 빠르게 점검</p>
+            </div>
+            <div class="tl-card accent">
+              <div class="tc-title">고등 학습법 훈련</div>
+              <p>진도가 아니라 공부하는 방식 자체를 바꾸는 시기</p>
+            </div>
+          </div>
+        </div>
+
+        <p>중학교 과정에서 남은 정기시험은 기말 하나뿐입니다. 기말이 끝나는 순간부터는 고등 과정이 기준이 됩니다.</p>
+
+        <h2>기말 범위는 원의 성질 하나입니다</h2>
+
+        <p>중3 2학기 과정은 삼각비, 원의 성질, 통계 세 단원입니다. 이번 중간고사에서 통계와 삼각비를 이미 냈으므로 기말 범위는 원의 성질 단독입니다.</p>
+
+        <p>범위가 좁다는 건 유리한 조건이지만, 동시에 <strong>깊게 출제될 수 있다는 뜻</strong>이기도 합니다. 넓은 범위를 얕게 훑는 시험과, 좁은 범위를 깊게 파는 시험은 준비 방식이 다릅니다. 원주각과 중심각, 원과 직선, 접선의 성질, 원에 내접하는 사각형까지 각 성질을 정확히 구분해서 쓸 수 있어야 합니다.</p>
+
+        <p>그리고 범위가 좁은 만큼 기말 준비에 드는 시간도 줄일 수 있습니다. <strong>그 시간을 어디에 쓸지가 이 시기의 핵심 판단입니다.</strong></p>
+
+        <h2>앞으로의 대응</h2>
+
+        <div class="strategy">
+          <div class="sitem">
+            <div class="snum">1</div>
+            <div class="sitem-body">
+              <div class="stitle">기말은 집중해서 빠르게 정리해야 합니다</div>
+              <p>원의 성질 한 단원이므로 준비 기간을 길게 잡을 이유가 없습니다. 오히려 효율적으로 마무리하고 남은 시간을 다음 단계에 쓰는 편이 낫습니다. 다만 범위가 좁으면 문항이 깊어지므로, 문제 양보다 각 성질의 조건을 정확히 구분하는 쪽에 무게를 둬야 합니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">2</div>
+            <div class="sitem-body">
+              <div class="stitle">중등 과정 복습은 고등에서 쓰이는 것 중심으로</div>
+              <p>중학교 3년 과정을 처음부터 다시 훑는 방식은 시간 대비 효율이 떨어집니다. 인수분해, 이차함수, 이차방정식, 삼각비처럼 고등 과정에서 곧바로 이어지는 개념을 중심으로 빠르게 점검하는 것이 맞습니다. 이번 시험에서 다룬 삼각비는 고1 과정에서 바로 확장되는 단원이라 특히 중요합니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">3</div>
+            <div class="sitem-body">
+              <div class="stitle">지금부터 겨울방학까지는 고등 학습법 훈련 시기입니다</div>
+              <p>고등학교에서 무너지는 학생들의 공통점은 실력 부족이 아니라 중학교식 학습 방식을 그대로 가져가는 것입니다. 고등에서는 학습량이 늘고 조건 여러 개가 결합된 문항이 기본이 됩니다. 시험 2주 전 몰아치기, 유형 암기, 답만 확인하고 넘어가는 습관은 그 시점에서 한계를 드러냅니다. 이번 시험의 심화 문항들이 요구한 능력이 정확히 고등에서 필요한 능력입니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">4</div>
+            <div class="sitem-body">
+              <div class="stitle">선행보다 방식이 먼저입니다</div>
+              <p>겨울방학에 고1 과정을 얼마나 나갔는지가 관심사가 되기 쉽습니다. 하지만 방식이 바뀌지 않은 상태에서 진도만 나가면, 고등에 올라가서 같은 문제를 더 큰 규모로 겪게 됩니다. 개념을 자기 언어로 정리하고, 풀이 과정을 끝까지 쓰고, 틀린 이유를 추적하는 습관이 자리 잡은 뒤에 진도를 나가는 것이 순서입니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <p>궁금하신 점은 편하게 문의해 주세요.</p>
+          <div class="cta-info">
+            <div class="cta-info-item">
+              <div class="label">위치</div>
+              <div class="value">수지 신봉종합상가 4층</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">전화</div>
+              <div class="value">031-272-8209</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">대상</div>
+              <div class="value">초5 — 고2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-tags">
+          <span class="tag tag--school">#홍천중</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#중학교3학년</span>
+          <span class="tag tag--type">#중간고사분석</span>
+          <span class="tag tag--type">#기말고사대비</span>
+          <span class="tag tag--type">#고등수학대비</span>
+          <span class="tag tag--type">#겨울방학</span>
+          <span class="tag tag--type">#원장직강</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
