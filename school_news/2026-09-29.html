@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="홍천중학교 2학년 2학기 1차 정기시험 분석. 보기형 9문항 구조와 기말고사 대비 전략을 생각의힘 수학학원이 정리했습니다.">
+  <title>2026년 2학기 1차 정기시험 분석 — 홍천중 2학년 수학 | 생각의힘 수학학원</title>
+  <link rel="canonical" href="https://thinkmath.kr/school_news/2026-09-29.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .post-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    .post-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-light); margin-bottom: 40px; transition: color 0.2s; }
+    .post-back:hover { color: var(--color-text-main); }
+    .post-date { font-size: 13px; font-weight: 600; color: #b08800; margin-bottom: 12px; }
+    .post-title { font-size: 28px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--color-border); }
+    .post-body { font-size: 16px; color: var(--color-text-sub); line-height: 2; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body strong { color: var(--color-text-main); }
+    .post-body h2 { font-size: 20px; font-weight: 700; color: var(--color-text-main); margin: 52px 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--color-border); }
+
+    .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 36px; }
+    .ov-card { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 8px; padding: 16px; text-align: center; }
+    .ov-card .ov-label { font-size: 11px; color: var(--color-text-light); margin-bottom: 6px; }
+    .ov-card .ov-value { font-size: 15px; font-weight: 700; color: var(--color-text-main); }
+
+    /* 범위 블록 */
+    .scope-bars { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 32px; }
+    .scope-bar { display: flex; align-items: center; gap: 14px; border: 1px solid var(--color-border); border-radius: 8px; padding: 14px 18px; }
+    .scope-bar.major { background: #EAF3DE; border-color: #97C459; }
+    .scope-bar.minor { background: var(--color-bg-soft, #f7f5f0); }
+    .scope-bar .sb-body { flex: 1; }
+    .scope-bar .sb-title { font-size: 14.5px; font-weight: 700; color: var(--color-text-main); margin-bottom: 3px; }
+    .scope-bar .sb-items { font-size: 12.5px; color: var(--color-text-sub); }
+    .scope-bar .sb-count { flex-shrink: 0; font-size: 14px; font-weight: 700; color: var(--color-text-main); }
+
+    .data-table { width: 100%; border-collapse: collapse; margin: 4px 0 32px; font-size: 13.5px; }
+    .data-table th, .data-table td { border: 1px solid var(--color-border); padding: 10px 12px; text-align: left; }
+    .data-table th { background: var(--color-bg-soft, #f7f5f0); font-weight: 700; color: var(--color-text-main); font-size: 12.5px; }
+    .data-table td { color: var(--color-text-sub); }
+
+    /* 보기형 구조도 */
+    .boggi-flow { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 24px 0 12px; }
+    .boggi-items { display: flex; flex-direction: column; gap: 8px; }
+    .boggi-item { border-radius: 6px; padding: 10px 18px; font-size: 14px; font-weight: 600; text-align: center; min-width: 190px; }
+    .boggi-item.ok { background: #E1F5EE; color: #0F6E56; border: 1px solid #5DCAA5; }
+    .boggi-item.bad { background: #FAECE7; color: #993C1D; border: 1px solid #F0997B; }
+    .boggi-arrow { color: #b08800; font-size: 18px; }
+    .boggi-result { background: #FAECE7; border: 1px solid #F0997B; border-radius: 8px; padding: 16px 22px; text-align: center; }
+    .boggi-result .br-title { font-size: 15px; font-weight: 700; color: #993C1D; margin-bottom: 4px; }
+    .boggi-result .br-sub { font-size: 12.5px; color: #993C1D; }
+    .boggi-caption { font-size: 13px; color: var(--color-text-light); text-align: center; margin: 0 0 32px; line-height: 1.8; }
+
+    /* 변별 문항 카드 */
+    .killer-cards { display: flex; flex-direction: column; gap: 14px; margin: 20px 0 32px; }
+    .kcard { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; }
+    .kcard-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .kbadge { flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 6px; }
+    .kbadge.b5 { background: #FAEEDA; color: #854F0B; }
+    .kbadge.b7 { background: #FAECE7; color: #993C1D; }
+    .ktitle { font-size: 15px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; }
+    .concept-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .concept-badge { background: #fff; border: 1px solid #f0d878; color: #8a6200; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
+    .kcard p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0 0 10px; }
+    .kapproach { padding: 10px 14px; background: rgba(255,255,255,0.7); border-radius: 6px; border: 1px solid var(--color-border); font-size: 14px; color: var(--color-text-main); line-height: 1.75; }
+    .kapproach::before { content: "접근 포인트 — "; font-weight: 700; }
+
+    /* 중간 vs 기말 비교 */
+    .compare-rows { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 16px; }
+    .compare-row { display: grid; grid-template-columns: 1fr 32px 1fr; align-items: center; gap: 10px; }
+    .cbox { border-radius: 8px; padding: 14px 16px; text-align: center; }
+    .cbox.mid { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); }
+    .cbox.fin { background: #FAECE7; border: 1px solid #F0997B; }
+    .cbox .cb-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+    .cbox .cb-sub { font-size: 12px; }
+    .cbox.mid .cb-title { color: var(--color-text-main); }
+    .cbox.mid .cb-sub { color: var(--color-text-sub); }
+    .cbox.fin .cb-title { color: #993C1D; }
+    .cbox.fin .cb-sub { color: #993C1D; }
+    .compare-arrow { text-align: center; color: #b08800; font-size: 16px; }
+    .compare-head { display: grid; grid-template-columns: 1fr 32px 1fr; gap: 10px; margin-bottom: 10px; }
+    .compare-head div { text-align: center; font-size: 13px; font-weight: 700; color: var(--color-text-main); }
+
+    .notice-box { background: #FAEEDA; border: 1px solid #FAC775; border-radius: 8px; padding: 18px 22px; margin: 16px 0 28px; }
+    .notice-box p { font-size: 14.5px; color: #633806; line-height: 1.85; margin: 0; }
+
+    .strategy { display: flex; flex-direction: column; gap: 14px; margin: 20px 0 28px; }
+    .sitem { display: flex; gap: 14px; align-items: flex-start; }
+    .snum { flex-shrink: 0; width: 28px; height: 28px; background: var(--color-text-main, #1c1a17); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 2px; }
+    .sitem-body .stitle { font-size: 15px; font-weight: 700; color: var(--color-text-main); margin-bottom: 4px; }
+    .sitem-body p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0; }
+
+    .cta-box { border: 1px solid var(--color-border); border-radius: 10px; padding: 32px 28px; margin: 48px 0 32px; text-align: center; }
+    .cta-box p { font-size: 15px; color: var(--color-text-sub); margin-bottom: 20px; }
+    .cta-info { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-info-item .label { font-size: 11px; letter-spacing: 0.08em; color: var(--color-text-light); margin-bottom: 4px; }
+    .cta-info-item .value { font-size: 15px; font-weight: 600; color: var(--color-text-main); }
+    .cta-divider { width: 1px; height: 30px; background: var(--color-border); }
+
+    .post-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--color-border); }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .tag--school { background: #e8f0fb; color: #1a5abf; border: 1px solid #c0d4f5; }
+    .tag--type { background: #fdf5e0; color: #8a6200; border: 1px solid #f0d878; }
+
+    @media (max-width: 500px) {
+      .post-title { font-size: 22px; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .compare-row, .compare-head { grid-template-columns: 1fr; }
+      .compare-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="../news/index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 09월 29일</p>
+
+      <h1 class="post-title">2026년 2학기 1차 정기시험 분석<br>홍천중학교 2학년 수학</h1>
+
+      <div class="post-body">
+
+        <p>시험은 평이하게 출제됐습니다. 그런데 평이한 시험이라고 해서 점수가 잘 나오는 건 아닙니다. 이번 시험은 특히 <strong>문제를 급하게 푸는 학생, 개념 정리가 명확하지 않은 학생이 실수할 여지가 큰 구조</strong>였습니다. 그리고 더 중요한 건, 이번 결과가 좋았더라도 기말은 전혀 다른 시험이 된다는 점입니다.</p>
+
+        <h2>시험 개요</h2>
+
+        <div class="overview-grid">
+          <div class="ov-card">
+            <div class="ov-label">선다형</div>
+            <div class="ov-value">21문항 · 85점</div>
+          </div>
+          <div class="ov-card">
+            <div class="ov-label">논술형</div>
+            <div class="ov-value">2문항 · 15점</div>
+          </div>
+          <div class="ov-card">
+            <div class="ov-label">기말 논술형</div>
+            <div class="ov-value">출제 없음</div>
+          </div>
+        </div>
+
+        <p>홍천중은 <strong>논술형을 중간고사에만 배치하고 기말고사에는 출제하지 않습니다.</strong> 이번 시험에서 논술형 15점을 이미 치렀고, 기말은 전 문항 선다형으로 치르게 됩니다.</p>
+
+        <div class="scope-bars">
+          <div class="scope-bar major">
+            <div class="sb-body">
+              <div class="sb-title">사각형의 성질 · 판정 · 닮음</div>
+              <div class="sb-items">7, 10~21, 논술형2</div>
+            </div>
+            <div class="sb-count">14문항</div>
+          </div>
+          <div class="scope-bar minor">
+            <div class="sb-body">
+              <div class="sb-title">삼각형의 내심 · 외심</div>
+              <div class="sb-items">2, 6, 8, 9, 논술형1</div>
+            </div>
+            <div class="sb-count">5문항</div>
+          </div>
+          <div class="scope-bar minor">
+            <div class="sb-body">
+              <div class="sb-title">이등변삼각형 · 직각삼각형 합동</div>
+              <div class="sb-items">1, 3, 4, 5</div>
+            </div>
+            <div class="sb-count">4문항</div>
+          </div>
+        </div>
+
+        <h2>난이도 분석 — 평이한데 왜 어려웠을까</h2>
+
+        <table class="data-table">
+          <tr><th>난이도</th><th>문항 번호</th><th>문항수</th><th>배점 합계</th></tr>
+          <tr><td>기본</td><td>1, 2, 10, 14, 15, 17, 20</td><td>7문항</td><td>25점</td></tr>
+          <tr><td>응용</td><td>3, 4, 5, 6, 16, 18, 19</td><td>7문항</td><td>27점</td></tr>
+          <tr><td>심화</td><td>7, 8, 9, 11, 12, 13, 21</td><td>7문항</td><td>33점</td></tr>
+        </table>
+
+        <p>개별 문항의 난이도만 보면 무난합니다. 문제는 출제 형태였습니다.</p>
+
+        <h2>〈보기〉형 9문항 — 이번 시험의 진짜 변수</h2>
+
+        <p>전체 21문항 중 9문항이 〈보기〉에서 옳은 것을 모두 고르는 형태였습니다. 이 유형에는 부분점수가 없습니다.</p>
+
+        <div class="boggi-flow">
+          <div class="boggi-items">
+            <div class="boggi-item ok">ㄱ 정확히 판정</div>
+            <div class="boggi-item ok">ㄴ 정확히 판정</div>
+            <div class="boggi-item bad">ㄷ 개념이 흐릿함</div>
+          </div>
+          <i class="fa-solid fa-arrow-right boggi-arrow"></i>
+          <div class="boggi-result">
+            <div class="br-title">문항 전체 0점</div>
+            <div class="br-sub">부분점수 없음</div>
+          </div>
+        </div>
+        <p class="boggi-caption">
+          계산 실수가 아니라 개념 하나가 흐릿한 것만으로 5점이 통째로 사라집니다<br>
+          해당 문항 — 5, 7, 13, 14, 15, 16, 19, 20, 21번
+        </p>
+
+        <p>특히 14번, 15번, 19번은 사각형의 성질과 판정조건을 묻는 문항입니다. "두 대각선이 서로 수직이면 마름모인가", "직사각형에서 이웃한 두 변이 같으면 마름모인가", "대각선의 길이가 같은 사각형은 직사각형과 정사각형뿐인가" — 이런 명제들은 한 글자 차이로 참과 거짓이 갈립니다. 대충 외운 상태로는 절반쯤 맞고 절반쯤 틀립니다.</p>
+
+        <p>이번 시험이 측정한 건 문제 해결력보다 개념의 정확성에 가깝습니다. 문제를 빨리 푸는 능력이나 복잡한 계산력은 상대적으로 덜 요구됐습니다.</p>
+
+        <h2>변별 문항 세 가지</h2>
+
+        <div class="killer-cards">
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge b7">8점</span>
+              <span class="ktitle">논술형 2번 — 최대 배점에 서술 방식까지 지정됐다</span>
+            </div>
+            <div class="concept-badges">
+              <span class="concept-badge">도형 판정</span>
+              <span class="concept-badge">증명 서술</span>
+              <span class="concept-badge">넓이 계산</span>
+            </div>
+            <p>사각형 ABCD가 어떤 도형인지 증명하고, △FDC의 넓이를 구하는 2단 문항입니다.</p>
+            <div class="kapproach">조건란에 "증명 과정에 평행선과 각의 성질을 2번 이용할 것"이 명시되어 있습니다. 결론이 맞아도 지정된 방식대로 서술하지 않으면 감점됩니다. 논술형에서 조건란은 채점 기준표입니다. 조건란을 먼저 확인하고, 그 조건을 답안에 어떻게 드러낼지 계획한 뒤 쓰기 시작해야 합니다.</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge b7">7점</span>
+              <span class="ktitle">논술형 1번 — 주어지지 않은 값을 스스로 만들어야 한다</span>
+            </div>
+            <div class="concept-badges">
+              <span class="concept-badge">내접원</span>
+              <span class="concept-badge">넓이 방정식</span>
+              <span class="concept-badge">접선의 성질</span>
+            </div>
+            <p>세 변이 13, 12, 5인 직각삼각형의 내접원에서 사각형 ADIF의 넓이를 구하는 문항입니다.</p>
+            <div class="kapproach">내접원의 반지름이 문제에 주어져 있지 않습니다. 삼각형의 넓이를 두 가지 방식으로 표현해 방정식을 세워야 반지름을 구할 수 있습니다. 주어진 정보만으로 부족할 때, 필요한 값을 스스로 만들어내는 단계가 있다는 걸 알아채야 하는 문항입니다.</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge b5">5점</span>
+              <span class="ktitle">13번 — 선다형 중 가장 긴 추적</span>
+            </div>
+            <div class="concept-badges">
+              <span class="concept-badge">직사각형</span>
+              <span class="concept-badge">각의 이등분선</span>
+              <span class="concept-badge">합동</span>
+            </div>
+            <p>수선의 발, 각의 이등분선, 수직 조건이 겹쳐 있고 〈보기〉 세 개를 각각 판정해야 합니다.</p>
+            <div class="kapproach">특히 "정삼각형인가"를 판정하려면 각을 끝까지 계산해야 합니다. 그림만 보고 정삼각형처럼 보인다고 판단하면 틀립니다. 도형 문제에서 눈으로 보이는 것과 증명되는 것은 다릅니다.</div>
+          </div>
+        </div>
+
+        <h2>기말고사는 완전히 다른 시험이 됩니다</h2>
+
+        <p>여기서부터가 이번 분석에서 가장 중요한 부분입니다. 이번 결과가 어떻게 나왔든, 기말은 세 가지 조건이 동시에 바뀝니다.</p>
+
+        <div class="compare-head">
+          <div>이번 중간고사</div>
+          <div></div>
+          <div>기말고사</div>
+        </div>
+        <div class="compare-rows">
+          <div class="compare-row">
+            <div class="cbox mid">
+              <div class="cb-title">논술형 2문항 15점</div>
+              <div class="cb-sub">부분점수 있음</div>
+            </div>
+            <div class="compare-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cbox fin">
+              <div class="cb-title">전 문항 선다형</div>
+              <div class="cb-sub">부분점수 없음</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <div class="cbox mid">
+              <div class="cb-title">평이한 난이도</div>
+              <div class="cb-sub">평균 상승 예상</div>
+            </div>
+            <div class="compare-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cbox fin">
+              <div class="cb-title">체감 난이도 상승</div>
+              <div class="cb-sub">변별 문항 비중 증가</div>
+            </div>
+          </div>
+          <div class="compare-row">
+            <div class="cbox mid">
+              <div class="cb-title">삼각형 · 사각형의 성질</div>
+              <div class="cb-sub">암기로 버틸 여지 있음</div>
+            </div>
+            <div class="compare-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cbox fin">
+              <div class="cb-title">닮음 활용 · 경우의 수 · 확률</div>
+              <div class="cb-sub">학생 간 격차가 큰 단원</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice-box">
+          <p>세 가지가 동시에 바뀌므로, 중간과 같은 방식의 준비로는 결과가 달라집니다.</p>
+        </div>
+
+        <p><strong>닮음의 활용</strong>은 이번 시험에 나온 닮음비 계산에서 한 단계 더 나아갑니다. 평행선과 선분의 길이의 비, 삼각형의 무게중심, 실생활 활용까지 이어지는데, 도형을 보고 어디가 닮음 관계인지 스스로 찾아내야 합니다. 조건이 친절하게 주어지지 않습니다.</p>
+
+        <p><strong>경우의 수와 확률</strong>은 성격이 아예 다릅니다. 앞 단원들처럼 정리와 공식을 적용하는 방식이 통하지 않습니다. 상황을 읽고 어떤 방식으로 세어야 하는지 스스로 판단해야 하고, 그 판단이 틀리면 계산은 전부 무의미해집니다. 공식을 외운 학생과 상황을 해석할 줄 아는 학생 사이에서 점수가 크게 갈리는 단원입니다.</p>
+
+        <h2>앞으로의 대응</h2>
+
+        <div class="strategy">
+          <div class="sitem">
+            <div class="snum">1</div>
+            <div class="sitem-body">
+              <div class="stitle">기말 대비는 중간보다 더 꼼꼼하고 철저해야 합니다</div>
+              <p>논술형이 사라져 부분점수를 받을 기회가 없어지고, 난이도는 올라갈 가능성이 높으며, 범위는 학생들이 가장 어려워하는 단원입니다. 세 조건이 한꺼번에 불리해집니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">2</div>
+            <div class="sitem-body">
+              <div class="stitle">개념은 "아는 것"이 아니라 "구분할 수 있는 것"이어야 합니다</div>
+              <p>이번 〈보기〉형에서 점수를 잃었다면 그 원인은 기말에도 그대로 이어집니다. 개념노트에 조건들을 나란히 정리하고, 서로 어떻게 다른지를 자기 언어로 써보는 훈련이 필요합니다. 외운 것을 다시 쓰는 게 아니라 차이를 설명하는 방식으로 써야 합니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">3</div>
+            <div class="sitem-body">
+              <div class="stitle">경우의 수와 확률은 미리 시작해야 합니다</div>
+              <p>이 단원은 문제 양을 늘리는 방식으로 극복되지 않습니다. 상황을 읽고 구조를 파악하는 연습이 필요하고, 그 연습은 시간이 걸립니다. 기말 직전에 시작하면 늦습니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">4</div>
+            <div class="sitem-body">
+              <div class="stitle">〈보기〉형은 하나씩 독립적으로 판정해야 합니다</div>
+              <p>ㄱ이 맞으니까 ㄴ도 맞겠지, 라는 추측이 가장 위험합니다. 각 〈보기〉를 별개의 참·거짓 문제로 다루고, 틀렸다면 반례를 하나 떠올릴 수 있어야 합니다. 기말은 전 문항 선다형이라 이 유형의 비중이 더 커질 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <p>궁금하신 점은 편하게 문의해 주세요.</p>
+          <div class="cta-info">
+            <div class="cta-info-item">
+              <div class="label">위치</div>
+              <div class="value">수지 신봉종합상가 4층</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">전화</div>
+              <div class="value">031-272-8209</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">대상</div>
+              <div class="value">초5 — 고2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-tags">
+          <span class="tag tag--school">#홍천중</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#중학교2학년</span>
+          <span class="tag tag--type">#중간고사분석</span>
+          <span class="tag tag--type">#기말고사대비</span>
+          <span class="tag tag--type">#경우의수</span>
+          <span class="tag tag--type">#확률</span>
+          <span class="tag tag--type">#원장직강</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
