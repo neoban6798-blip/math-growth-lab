@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="신봉중학교 1학년 2학기 1차 정기시험 분석. 중학교 첫 시험의 난이도 분포와 논술형 대비 전략을 생각의힘 수학학원이 정리했습니다.">
+  <title>2026년 2학기 1차 정기시험 분석 — 신봉중 1학년 수학 | 생각의힘 수학학원</title>
+  <link rel="canonical" href="https://thinkmath.kr/school_news/2026-09-23.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .post-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    .post-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-light); margin-bottom: 40px; transition: color 0.2s; }
+    .post-back:hover { color: var(--color-text-main); }
+    .post-date { font-size: 13px; font-weight: 600; color: #b08800; margin-bottom: 12px; }
+    .post-title { font-size: 28px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--color-border); }
+    .post-body { font-size: 16px; color: var(--color-text-sub); line-height: 2; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body strong { color: var(--color-text-main); }
+    .post-body h2 { font-size: 20px; font-weight: 700; color: var(--color-text-main); margin: 52px 0 18px; padding-bottom: 12px; border-bottom: 2px solid var(--color-border); }
+
+    .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 36px; }
+    .ov-card { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 8px; padding: 16px; text-align: center; }
+    .ov-card .ov-label { font-size: 11px; color: var(--color-text-light); margin-bottom: 6px; }
+    .ov-card .ov-value { font-size: 15px; font-weight: 700; color: var(--color-text-main); }
+
+    /* 범위 블록 */
+    .scope-bars { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 32px; }
+    .scope-bar { display: flex; align-items: center; gap: 14px; border: 1px solid var(--color-border); border-radius: 8px; padding: 14px 18px; background: var(--color-bg-soft, #f7f5f0); }
+    .scope-bar .sb-body { flex: 1; }
+    .scope-bar .sb-title { font-size: 14.5px; font-weight: 700; color: var(--color-text-main); margin-bottom: 3px; }
+    .scope-bar .sb-items { font-size: 12.5px; color: var(--color-text-sub); }
+    .scope-bar .sb-count { flex-shrink: 0; font-size: 14px; font-weight: 700; color: var(--color-text-main); }
+
+    .data-table { width: 100%; border-collapse: collapse; margin: 4px 0 32px; font-size: 13.5px; }
+    .data-table th, .data-table td { border: 1px solid var(--color-border); padding: 10px 12px; text-align: left; }
+    .data-table th { background: var(--color-bg-soft, #f7f5f0); font-weight: 700; color: var(--color-text-main); font-size: 12.5px; }
+    .data-table td { color: var(--color-text-sub); }
+
+    /* 첫 시험 변수 카드 */
+    .firsttest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0 28px; }
+    .ft-card { background: #E6F1FB; border: 1px solid #378ADD; border-radius: 8px; padding: 16px 18px; }
+    .ft-card .ft-title { font-size: 14px; font-weight: 700; color: #185FA5; margin-bottom: 5px; }
+    .ft-card p { font-size: 13px; color: #0C447C; line-height: 1.7; margin: 0; }
+
+    /* 함정 구조 */
+    .trap-flow { display: flex; flex-direction: column; gap: 8px; margin: 20px 0 10px; }
+    .trap-step { display: flex; align-items: center; gap: 12px; border-radius: 8px; padding: 12px 18px; }
+    .trap-step.ok { background: #EAF3DE; border: 1px solid #97C459; }
+    .trap-step.bad { background: #FAECE7; border: 1px solid #F0997B; }
+    .trap-step .ts-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+    .trap-step.ok .ts-num { background: #3B6D11; color: #fff; }
+    .trap-step.bad .ts-num { background: #993C1D; color: #fff; }
+    .trap-step .ts-text { font-size: 14px; }
+    .trap-step.ok .ts-text { color: #27500A; }
+    .trap-step.bad .ts-text { color: #993C1D; }
+    .trap-caption { font-size: 13px; color: var(--color-text-light); text-align: center; margin: 0 0 32px; }
+
+    .killer-cards { display: flex; flex-direction: column; gap: 14px; margin: 20px 0 32px; }
+    .kcard { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; }
+    .kcard-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .kbadge { flex-shrink: 0; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 6px; background: #FAEEDA; color: #854F0B; }
+    .ktitle { font-size: 15px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; }
+    .kcard p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0 0 10px; }
+    .kapproach { padding: 10px 14px; background: rgba(255,255,255,0.7); border-radius: 6px; border: 1px solid var(--color-border); font-size: 14px; color: var(--color-text-main); line-height: 1.75; }
+    .kapproach::before { content: "접근 포인트 — "; font-weight: 700; }
+
+    .notice-box { background: #FAEEDA; border: 1px solid #FAC775; border-radius: 8px; padding: 18px 22px; margin: 16px 0 28px; }
+    .notice-box p { font-size: 14.5px; color: #633806; line-height: 1.85; margin: 0; }
+
+    .strategy { display: flex; flex-direction: column; gap: 14px; margin: 20px 0 28px; }
+    .sitem { display: flex; gap: 14px; align-items: flex-start; }
+    .snum { flex-shrink: 0; width: 28px; height: 28px; background: var(--color-text-main, #1c1a17); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 2px; }
+    .sitem-body .stitle { font-size: 15px; font-weight: 700; color: var(--color-text-main); margin-bottom: 4px; }
+    .sitem-body p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0; }
+
+    .cta-box { border: 1px solid var(--color-border); border-radius: 10px; padding: 32px 28px; margin: 48px 0 32px; text-align: center; }
+    .cta-box p { font-size: 15px; color: var(--color-text-sub); margin-bottom: 20px; }
+    .cta-info { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-info-item .label { font-size: 11px; letter-spacing: 0.08em; color: var(--color-text-light); margin-bottom: 4px; }
+    .cta-info-item .value { font-size: 15px; font-weight: 600; color: var(--color-text-main); }
+    .cta-divider { width: 1px; height: 30px; background: var(--color-border); }
+
+    .post-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--color-border); }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .tag--school { background: #e8f0fb; color: #1a5abf; border: 1px solid #c0d4f5; }
+    .tag--type { background: #fdf5e0; color: #8a6200; border: 1px solid #f0d878; }
+
+    @media (max-width: 500px) {
+      .post-title { font-size: 22px; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .firsttest-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="../news/index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 09월 23일</p>
+
+      <h1 class="post-title">2026년 2학기 1차 정기시험 분석<br>신봉중학교 1학년 수학</h1>
+
+      <div class="post-body">
+
+        <p>중학교에 들어와 처음 치르는 정기시험이 끝났습니다. 시험 자체는 무난하게 출제됐지만, 그렇기 때문에 오히려 결과는 학생마다 크게 갈렸을 가능성이 높습니다. 어디서 차이가 났는지, 기말을 위해 무엇을 챙겨야 하는지 짚어보겠습니다.</p>
+
+        <h2>시험 개요</h2>
+
+        <div class="overview-grid">
+          <div class="ov-card">
+            <div class="ov-label">선택형</div>
+            <div class="ov-value">19문항 · 80점</div>
+          </div>
+          <div class="ov-card">
+            <div class="ov-label">논술형</div>
+            <div class="ov-value">4문항 · 20점</div>
+          </div>
+          <div class="ov-card">
+            <div class="ov-label">출제 범위</div>
+            <div class="ov-value">정비례 · 도형</div>
+          </div>
+        </div>
+
+        <div class="scope-bars">
+          <div class="scope-bar">
+            <div class="sb-body">
+              <div class="sb-title">정비례 · 반비례와 그래프</div>
+              <div class="sb-items">1, 4, 5, 6, 9, 10, 15, 논술형2</div>
+            </div>
+            <div class="sb-count">8문항</div>
+          </div>
+          <div class="scope-bar">
+            <div class="sb-body">
+              <div class="sb-title">기본도형 · 위치관계</div>
+              <div class="sb-items">2, 3, 11, 12, 16, 논술형3</div>
+            </div>
+            <div class="sb-count">6문항</div>
+          </div>
+          <div class="scope-bar">
+            <div class="sb-body">
+              <div class="sb-title">삼각형의 합동과 도형의 성질</div>
+              <div class="sb-items">17, 18, 19, 논술형1, 논술형4</div>
+            </div>
+            <div class="sb-count">5문항</div>
+          </div>
+          <div class="scope-bar">
+            <div class="sb-body">
+              <div class="sb-title">각과 평행선</div>
+              <div class="sb-items">7, 8, 13, 14</div>
+            </div>
+            <div class="sb-count">4문항</div>
+          </div>
+        </div>
+
+        <h2>논술형이 이미 중간고사에 들어왔습니다</h2>
+
+        <p>신봉중 1학년은 2학기 1차 정기시험에 <strong>논술형 4문항 20점</strong>을 배치했습니다. 참고로 같은 시기 성복중 2학년은 전 문항 선택형이었고 서술형은 기말에 배치했습니다. 같은 지역 학생이라도 서술형을 처음 만나는 시점이 학교마다 다릅니다.</p>
+
+        <p>신봉중 1학년은 이미 겪었다는 뜻이고, 동시에 <strong>기말에는 비중이 더 늘어날 가능성을 염두에 둬야 한다</strong>는 뜻이기도 합니다.</p>
+
+        <h2>난이도 분석 — 무난했기 때문에 갈렸습니다</h2>
+
+        <p>전체적으로 무난하게 출제됐습니다. 교과서 개념을 정확히 알고 기본 유형을 충분히 연습한 학생이라면 안정적으로 점수가 나왔을 시험입니다. 반대로 말하면, 기대한 점수가 나오지 않았다면 그 원인은 문제가 어려웠기 때문이 아니라 <strong>기본기가 아직 자리 잡지 않았기 때문</strong>일 가능성이 큽니다.</p>
+
+        <table class="data-table">
+          <tr><th>난이도</th><th>문항 번호</th><th>문항수</th><th>배점 합계</th></tr>
+          <tr><td>기본</td><td>1, 2, 3, 4, 5, 11, 12</td><td>7문항</td><td>25점</td></tr>
+          <tr><td>응용</td><td>6, 7, 10, 14, 16, 17</td><td>6문항</td><td>27점</td></tr>
+          <tr><td>심화</td><td>8, 9, 13, 15, 18, 19</td><td>6문항</td><td>28점</td></tr>
+        </table>
+
+        <p>무난한 시험에서 점수가 갈리는 이유는 분명합니다. 어려운 시험은 상위권 안에서 순위가 갈리지만, <strong>무난한 시험은 기본기가 있는 학생과 없는 학생 사이에서 갈립니다.</strong> 중간이 없습니다.</p>
+
+        <h2>첫 시험이라는 변수</h2>
+
+        <p>한 가지 더 짚어야 할 것이 있습니다. 1학년에게는 이번이 중학교 첫 정기시험이었습니다. 실력과 별개로 시험이라는 상황 자체에 적응이 필요합니다.</p>
+
+        <div class="firsttest-grid">
+          <div class="ft-card">
+            <div class="ft-title">시간 배분</div>
+            <p>정해진 시간 안에 23문항을 배분하는 감각은 평소 문제집 풀이로는 생기지 않습니다.</p>
+          </div>
+          <div class="ft-card">
+            <div class="ft-title">OMR 표기</div>
+            <p>답안지에 옮겨 적는 시간을 따로 확보해야 한다는 것을 첫 시험에서는 놓치기 쉽습니다.</p>
+          </div>
+          <div class="ft-card">
+            <div class="ft-title">논술형 답안 수정</div>
+            <p>수정테이프 사용, 정자로 작성 등 논술형 답안 작성 규정에 익숙해질 시간이 필요합니다.</p>
+          </div>
+          <div class="ft-card">
+            <div class="ft-title">넘어가고 돌아오기</div>
+            <p>모르는 문제를 붙잡고 있을지 넘길지 판단하는 것도 훈련이 필요한 영역입니다.</p>
+          </div>
+        </div>
+
+        <p>모의고사 형태로 실전 상황을 미리 겪어본 학생과 그렇지 않은 학생 사이에는, 같은 실력이라도 점수 차이가 납니다. 이번 시험에서 실력에 비해 아쉬운 결과가 나왔다면 이 요인부터 점검해보시기 바랍니다. <strong>이건 기말에서 비교적 빠르게 개선할 수 있는 영역입니다.</strong></p>
+
+        <h2>변별 문항 세 가지</h2>
+
+        <div class="killer-cards">
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge">5점</span>
+              <span class="ktitle">18번 — 이등변삼각형이 연쇄로 걸린다</span>
+            </div>
+            <p>여러 변의 길이가 같다는 등식이 겹겹이 주어지고, 주어진 한 각에서 출발해 구하려는 각까지 계속 옮겨가야 하는 문항입니다. 이번 시험에서 가장 긴 추적이 필요합니다.</p>
+            <div class="kapproach">주어진 등식을 하나도 빠뜨리지 않고 순서대로 적용해야 합니다. 중간에 한 단계만 어긋나면 최종 답이 완전히 달라집니다. 암산으로 넘어가지 않고 각 단계의 각을 그림에 직접 표시하며 진행해야 하는 유형입니다.</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge">4점</span>
+              <span class="ktitle">논술형 1번 — 식도 계산도 맞았는데 답이 틀릴 수 있다</span>
+            </div>
+            <p>마름모에서 관계식을 세우고, 넓이가 주어졌을 때 대각선의 길이를 구하는 문항입니다.</p>
+            <div class="kapproach">관계식을 세우고 미지수를 구했다면 계산은 다 끝난 겁니다. 그런데 문제가 요구한 건 그 미지수가 아니라 대각선 전체의 길이입니다. 한 단계가 더 남아 있습니다. 문제가 최종적으로 무엇을 묻는지 다시 확인하지 않으면, 모든 과정을 맞게 하고도 감점됩니다.</div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-header">
+              <span class="kbadge">4점</span>
+              <span class="ktitle">8번 — 하나의 답이 아니라 범위를 다룬다</span>
+            </div>
+            <p>한 각의 크기가 범위로 주어지고, 다른 각의 최댓값과 최솟값의 합을 묻는 문항입니다.</p>
+            <div class="kapproach">각 하나를 구하는 문제가 아닙니다. 주어진 범위의 양 끝에서 각각 값을 구한 뒤 더해야 합니다. 조건이 범위로 주어졌을 때 그 범위 전체를 다뤄야 한다는 판단이 필요한 문항입니다.</div>
+          </div>
+        </div>
+
+        <h2>공통점 하나가 보입니다</h2>
+
+        <p>이 세 문항은 계산이 복잡해서 어려운 게 아닙니다. <strong>조건을 끝까지 추적하고, 문제가 요구하는 것을 정확히 확인해야 하는 문항들</strong>입니다.</p>
+
+        <div class="trap-flow">
+          <div class="trap-step ok">
+            <div class="ts-num">1</div>
+            <div class="ts-text">관계식을 정확히 세웠다</div>
+          </div>
+          <div class="trap-step ok">
+            <div class="ts-num">2</div>
+            <div class="ts-text">계산도 틀리지 않았다</div>
+          </div>
+          <div class="trap-step bad">
+            <div class="ts-num">3</div>
+            <div class="ts-text">문제가 요구한 최종 값을 다시 확인하지 않았다 → 감점</div>
+          </div>
+        </div>
+        <p class="trap-caption">실력 부족이 아니라 습관의 문제입니다</p>
+
+        <p>논술형 3번도 같은 성격입니다. 위치관계를 세 가지 쓰는 문항인데, 조건란에 "평면에서 한 가지 이상", "공간에서 한 가지 이상", "점·직선·평면이 한 번 이상 서술되어야 함"이 명시되어 있었습니다. 내용이 맞아도 조건 배분을 맞추지 못하면 감점됩니다.</p>
+
+        <h2>앞으로의 대응</h2>
+
+        <div class="strategy">
+          <div class="sitem">
+            <div class="snum">1</div>
+            <div class="sitem-body">
+              <div class="stitle">무난한 시험일수록 기본기가 그대로 드러납니다</div>
+              <p>이번에 아쉬운 결과가 나왔다면, 어려운 문제를 더 푸는 것이 아니라 기본 개념부터 다시 정리하는 것이 순서입니다. 정비례·반비례의 정의, 위치관계 용어, 각의 성질, 합동조건 — 이 개념들을 스스로 설명할 수 있는지부터 확인해야 합니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">2</div>
+            <div class="sitem-body">
+              <div class="stitle">실전 적응은 별도의 준비가 필요합니다</div>
+              <p>문제를 푸는 능력과 시험을 치르는 능력은 다릅니다. 기말 전에 실제 시험과 같은 시간·형식으로 연습해두면, 같은 실력으로 더 나은 결과를 낼 수 있습니다. 첫 시험의 경험이 있으니 두 번째는 훨씬 수월합니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">3</div>
+            <div class="sitem-body">
+              <div class="stitle">기말 대비의 핵심은 논술형입니다</div>
+              <p>이번 시험에서 논술형은 20점이었고, 기말에는 비중이 더 커질 수 있습니다. 논술형은 답이 맞아도 과정이 없으면 감점되고, 답이 틀려도 과정이 올바르면 부분점수를 받습니다. 그리고 이 능력은 시험 직전에 만들어지지 않습니다. 평소에 풀이 과정을 손으로 쓰는 훈련이 쌓여 있어야 합니다.</p>
+            </div>
+          </div>
+          <div class="sitem">
+            <div class="snum">4</div>
+            <div class="sitem-body">
+              <div class="stitle">문제를 끝까지 읽는 훈련이 필요합니다</div>
+              <p>모든 계산을 맞게 하고도 마지막 요구를 놓쳐 틀리는 경우, 조건의 범위를 다 다루지 못하는 경우는 실력 부족이 아니라 습관의 문제입니다. 문제를 다시 읽고, 무엇을 묻는지 확인하고, 주어진 조건이 왜 주어졌는지 생각하는 습관이 1학년 때 자리 잡아야 합니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>1학년 시험 결과는 성적표보다 방향을 읽는 자료입니다</h2>
+
+        <div class="notice-box">
+          <p>1학년 첫 시험은 그 자체로 내신에 결정적이지 않습니다. 중요한 건 이번 결과가 무엇을 알려주는가입니다. 개념이 부족한 것인지, 실전 적응이 부족한 것인지, 문제를 읽는 습관이 부족한 것인지 — 원인에 따라 해야 할 일이 완전히 다릅니다.</p>
+        </div>
+
+        <p>그리고 이 시기에 잡은 공부 방식은 2학년, 3학년을 지나 고등학교까지 이어집니다. 지금이 방향을 점검하기에 가장 좋은 시점입니다.</p>
+
+        <div class="cta-box">
+          <p>궁금하신 점은 편하게 문의해 주세요.</p>
+          <div class="cta-info">
+            <div class="cta-info-item">
+              <div class="label">위치</div>
+              <div class="value">수지 신봉종합상가 4층</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">전화</div>
+              <div class="value">031-272-8209</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">대상</div>
+              <div class="value">초5 — 고2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-tags">
+          <span class="tag tag--school">#신봉중</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#중학교1학년</span>
+          <span class="tag tag--type">#중간고사분석</span>
+          <span class="tag tag--type">#기말고사대비</span>
+          <span class="tag tag--type">#논술형</span>
+          <span class="tag tag--type">#원장직강</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
