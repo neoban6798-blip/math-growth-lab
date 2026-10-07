@@ -228,6 +228,18 @@
   <script src="../assets/js/components.js"></script>
 
   <script>
+    // "2026-10-07" 또는 "2026-10-07-2"(같은 날 두 번째 글) 형식에서 날짜 부분만 추출
+    function baseDate(dateStr) {
+      const m = String(dateStr).match(/^(\d{4}-\d{2}-\d{2})/);
+      return m ? m[1] : dateStr;
+    }
+
+    // 같은 날짜면 뒤에 붙은 번호가 큰 쪽(나중에 쓴 글)이 위로
+    function sortKey(dateStr) {
+      const m = String(dateStr).match(/-(\d+)$/);
+      return m ? parseInt(m[1], 10) : 0;
+    }
+
     // 공통 렌더 함수
     function renderNews(containerId, posts, linkPrefix) {
       const container = document.getElementById(containerId);
@@ -237,7 +249,10 @@
         return;
       }
 
-      posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      posts.sort((a, b) => {
+        const diff = new Date(baseDate(b.date)) - new Date(baseDate(a.date));
+        return diff !== 0 ? diff : sortKey(b.date) - sortKey(a.date);
+      });
 
       container.innerHTML = posts.map(post => `
         <div class="news-item">
@@ -254,7 +269,8 @@
     }
 
     function formatDate(dateStr) {
-      const d = new Date(dateStr);
+      const d = new Date(baseDate(dateStr));
+      if (isNaN(d)) return dateStr;
       return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
     }
 
