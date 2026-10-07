@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="신봉중 1학년 첫 정기시험에 논술형 4문항 20점이 출제됐습니다. 초등 6학년이 지금 점검해야 할 세 가지 학습 습관을 안내합니다.">
+  <title>중학교 첫 시험부터 논술형 20점입니다 — 초6 학부모님께 | 생각의힘 수학학원</title>
+  <link rel="canonical" href="https://thinkmath.kr/news/2026-10-07.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    .post-wrap { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    .post-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-light); margin-bottom: 40px; transition: color 0.2s; }
+    .post-back:hover { color: var(--color-text-main); }
+    .post-date { font-size: 13px; font-weight: 600; color: #b08800; margin-bottom: 12px; }
+    .post-title { font-size: 28px; font-weight: 700; color: var(--color-text-main); line-height: 1.4; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--color-border); }
+    .post-body { font-size: 16px; color: var(--color-text-sub); line-height: 2; }
+    .post-body p { margin-bottom: 20px; }
+    .post-body strong { color: var(--color-text-main); }
+    .post-body h2 { font-size: 20px; font-weight: 700; color: var(--color-text-main); margin: 52px 0 20px; padding-bottom: 12px; border-bottom: 2px solid var(--color-border); }
+
+    /* 채점 방식 대비 */
+    .grade-compare { margin: 24px 0 14px; }
+    .gc-head { display: grid; grid-template-columns: 1fr 36px 1fr; gap: 10px; margin-bottom: 10px; }
+    .gc-head div { text-align: center; font-size: 13px; font-weight: 700; color: var(--color-text-main); }
+    .gc-row { display: grid; grid-template-columns: 1fr 36px 1fr; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .gc-box { border-radius: 8px; padding: 14px 16px; text-align: center; }
+    .gc-box.elem { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); }
+    .gc-box.mid-bad { background: #FAECE7; border: 1px solid #F0997B; }
+    .gc-box.mid-good { background: #EAF3DE; border: 1px solid #97C459; }
+    .gc-box .gcb-cond { font-size: 12.5px; margin-bottom: 6px; }
+    .gc-box .gcb-result { font-size: 16px; font-weight: 700; }
+    .gc-box.elem .gcb-cond { color: var(--color-text-sub); }
+    .gc-box.elem .gcb-result { color: var(--color-text-main); }
+    .gc-box.mid-bad .gcb-cond, .gc-box.mid-bad .gcb-result { color: #993C1D; }
+    .gc-box.mid-good .gcb-cond, .gc-box.mid-good .gcb-result { color: #27500A; }
+    .gc-arrow { text-align: center; color: #b08800; font-size: 15px; }
+    .mini-caption { text-align: center; font-size: 13.5px; color: var(--color-text-light); margin: 0 0 32px; }
+
+    /* 점검 3가지 */
+    .check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0 32px; }
+    .check-card { background: var(--color-bg-soft, #f7f5f0); border: 1px solid var(--color-border); border-radius: 10px; padding: 16px 18px; }
+    .check-card .cc-label { font-size: 14px; font-weight: 700; color: var(--color-text-main); margin-bottom: 12px; }
+    .check-opt { border-radius: 6px; padding: 9px 12px; font-size: 13px; line-height: 1.5; margin-bottom: 8px; }
+    .check-opt:last-child { margin-bottom: 0; }
+    .check-opt.yes { background: #EAF3DE; color: #27500A; }
+    .check-opt.no { background: #FAECE7; color: #993C1D; }
+
+    /* 타임라인 */
+    .timeline { margin: 24px 0 14px; }
+    .tl-track { display: flex; align-items: center; margin-bottom: 12px; }
+    .tl-node { flex-shrink: 0; width: 11px; height: 11px; border-radius: 50%; background: #b08800; }
+    .tl-line { flex: 1; height: 2px; background: var(--color-border); }
+    .tl-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--color-text-light); margin-bottom: 14px; }
+    .tl-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tl-card { border-radius: 8px; padding: 16px 18px; text-align: center; }
+    .tl-card.now { background: #EAF3DE; border: 1px solid #97C459; }
+    .tl-card.later { background: #FAECE7; border: 1px solid #F0997B; }
+    .tl-card .tc-title { font-size: 14.5px; font-weight: 700; margin-bottom: 5px; }
+    .tl-card p { font-size: 12.5px; line-height: 1.6; margin: 0; }
+    .tl-card.now .tc-title, .tl-card.now p { color: #27500A; }
+    .tl-card.later .tc-title, .tl-card.later p { color: #993C1D; }
+
+    .system-cards { display: flex; flex-direction: column; gap: 14px; margin: 24px 0 32px; }
+    .system-card { border: 1px solid var(--color-border); border-radius: 8px; padding: 20px 24px; border-left: 4px solid #b08800; }
+    .system-card h3 { font-size: 15px; font-weight: 700; color: var(--color-text-main); margin-bottom: 8px; }
+    .system-card p { font-size: 14.5px; color: var(--color-text-sub); line-height: 1.85; margin: 0; }
+
+    .notice-box { background: #FAEEDA; border: 1px solid #FAC775; border-radius: 8px; padding: 18px 22px; margin: 16px 0 28px; }
+    .notice-box p { font-size: 14.5px; color: #633806; line-height: 1.85; margin: 0; }
+
+    .cta-box { border: 1px solid var(--color-border); border-radius: 10px; padding: 32px 28px; margin: 48px 0 32px; text-align: center; }
+    .cta-box p { font-size: 15px; color: var(--color-text-sub); margin-bottom: 20px; }
+    .cta-info { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .cta-info-item .label { font-size: 11px; letter-spacing: 0.08em; color: var(--color-text-light); margin-bottom: 4px; }
+    .cta-info-item .value { font-size: 15px; font-weight: 600; color: var(--color-text-main); }
+    .cta-divider { width: 1px; height: 30px; background: var(--color-border); }
+
+    .post-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--color-border); }
+    .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .tag--school { background: #e8f0fb; color: #1a5abf; border: 1px solid #c0d4f5; }
+    .tag--type { background: #fdf5e0; color: #8a6200; border: 1px solid #f0d878; }
+
+    @media (max-width: 500px) {
+      .post-title { font-size: 22px; }
+      .gc-head, .gc-row { grid-template-columns: 1fr; }
+      .gc-arrow { transform: rotate(90deg); }
+      .check-grid { grid-template-columns: 1fr; }
+      .tl-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <div class="post-wrap">
+
+      <a href="index.html" class="post-back">
+        <i class="fa-solid fa-arrow-left"></i> 학원소식으로 돌아가기
+      </a>
+
+      <p class="post-date">2026년 10월 07일</p>
+
+      <h1 class="post-title">중학교 첫 시험부터 논술형 20점입니다<br><span style="font-size:20px;color:#b08800;">초6 학부모님께 드리는 안내</span></h1>
+
+      <div class="post-body">
+
+        <p>지난 9월 신봉중학교 1학년 2학기 첫 정기시험에 <strong>논술형 4문항 20점</strong>이 출제됐습니다. 중학교에 들어가서 치르는 거의 첫 시험부터 풀이 과정을 글로 써야 하는 문항이 전체의 5분의 1을 차지했다는 뜻입니다. 초등 6학년 지금이, 답만 쓰던 습관을 과정을 쓰는 습관으로 바꿀 수 있는 마지막 여유 시기입니다.</p>
+
+        <h2>초등과 중등 사이에서 실제로 달라지는 것</h2>
+
+        <p>초등 수학에서는 답이 맞으면 맞은 것입니다. 과정을 어떻게 썼는지, 머릿속으로 계산했는지는 거의 문제가 되지 않습니다. 중학교 논술형은 채점 방식이 반대입니다.</p>
+
+        <div class="grade-compare">
+          <div class="gc-head">
+            <div>초등 수학</div>
+            <div></div>
+            <div>중등 논술형</div>
+          </div>
+          <div class="gc-row">
+            <div class="gc-box elem">
+              <div class="gcb-cond">답 맞음 · 과정 없음</div>
+              <div class="gcb-result">정답</div>
+            </div>
+            <div class="gc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="gc-box mid-bad">
+              <div class="gcb-cond">답 맞음 · 과정 없음</div>
+              <div class="gcb-result">감점</div>
+            </div>
+          </div>
+          <div class="gc-row">
+            <div class="gc-box elem">
+              <div class="gcb-cond">답 틀림 · 과정 올바름</div>
+              <div class="gcb-result">오답</div>
+            </div>
+            <div class="gc-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="gc-box mid-good">
+              <div class="gcb-cond">답 틀림 · 과정 올바름</div>
+              <div class="gcb-result">부분점수</div>
+            </div>
+          </div>
+        </div>
+        <p class="mini-caption">아는 것을 논리적인 순서로 쓸 수 있는가가 점수를 결정합니다</p>
+
+        <p>그리고 이 능력은 시험 직전에 만들어지지 않습니다. 평소에 풀이 과정을 손으로 쓰는 훈련이 반복되어야 합니다. 답만 확인하고 넘어가는 습관, 머릿속으로만 계산하는 습관이 몸에 배어 있으면 시험장에서 갑자기 바뀌지 않습니다.</p>
+
+        <h2>조건을 끝까지 읽는 문제</h2>
+
+        <p>이번 신봉중 1학년 시험에서 눈에 띈 지점이 하나 더 있습니다.</p>
+
+        <p>논술형 한 문항은 관계식을 세우고 미지수를 구하면 계산이 끝나는 구조였는데, 정작 문제가 요구한 건 그 미지수가 아니라 거기서 한 단계 더 간 값이었습니다. <strong>식도 맞고 계산도 맞았는데 마지막 한 줄에서 감점되는 구조</strong>입니다. 또 다른 문항은 조건이 범위로 주어져서, 범위 전체를 다뤄야 답이 나왔습니다.</p>
+
+        <p>둘 다 계산이 어려워서가 아니라 문제를 끝까지 읽지 않으면 틀리는 문항입니다. 초등에서는 이런 유형을 만날 일이 거의 없습니다.</p>
+
+        <h2>초6에게 지금 필요한 것</h2>
+
+        <p>선행 진도를 얼마나 나갔는지보다 먼저 확인하실 것이 있습니다.</p>
+
+        <div class="check-grid">
+          <div class="check-card">
+            <div class="cc-label">문제를 풀 때</div>
+            <div class="check-opt yes">연습장에 과정을 쓴다</div>
+            <div class="check-opt no">머릿속으로 계산하고 답만 적는다</div>
+          </div>
+          <div class="check-card">
+            <div class="cc-label">틀린 문제를 만났을 때</div>
+            <div class="check-opt yes">왜 틀렸는지 찾아본다</div>
+            <div class="check-opt no">답지를 보고 넘어간다</div>
+          </div>
+          <div class="check-card">
+            <div class="cc-label">배운 개념에 대해</div>
+            <div class="check-opt yes">자기 말로 설명할 수 있다</div>
+            <div class="check-opt no">문제 유형만 기억하고 있다</div>
+          </div>
+        </div>
+
+        <p>이 세 가지가 중학교에서 점수로 드러납니다. 그리고 바꾸는 데 시간이 걸립니다.</p>
+
+        <div class="timeline">
+          <div class="tl-track">
+            <div class="tl-node"></div>
+            <div class="tl-line"></div>
+            <div class="tl-node"></div>
+            <div class="tl-line"></div>
+            <div class="tl-node"></div>
+          </div>
+          <div class="tl-labels">
+            <span>지금 (초6)</span>
+            <span>중1 입학</span>
+            <span>첫 정기시험</span>
+          </div>
+          <div class="tl-cards">
+            <div class="tl-card now">
+              <div class="tc-title">습관을 만들 시기</div>
+              <p>시험 부담 없이 훈련 가능</p>
+            </div>
+            <div class="tl-card later">
+              <div class="tc-title">습관이 결과로 드러남</div>
+              <p>논술형 20점 포함</p>
+            </div>
+          </div>
+        </div>
+        <p class="mini-caption">습관은 바꾸는 데 시간이 걸립니다. 첫 시험을 앞두고 시작하면 늦습니다.</p>
+
+        <h2>생각의힘이 하는 것</h2>
+
+        <p>저희는 원장직강 소수정예로 10년째 운영하고 있습니다. 초등 5학년부터 받는 이유가 여기에 있습니다. 중학교에 올라가서 고치는 것보다, 습관이 자리 잡기 전에 만드는 편이 훨씬 수월하기 때문입니다.</p>
+
+        <div class="system-cards">
+          <div class="system-card">
+            <h3>개념노트</h3>
+            <p>배운 개념을 자기 언어로 직접 씁니다. 선생님 설명을 듣는 것과 스스로 재구성하는 것은 완전히 다른 수준의 이해입니다. 이 과정이 논술형에서 개념을 설명하거나 근거를 쓰는 능력으로 연결됩니다.</p>
+          </div>
+          <div class="system-card">
+            <h3>수학 전용 연습장</h3>
+            <p>모든 문제는 과정까지 손으로 씁니다. 답만 쓰는 것은 허용하지 않습니다. 어디서 막히는지가 과정에서 드러나고, 그것이 가장 정확한 진단 자료가 됩니다.</p>
+          </div>
+          <div class="system-card">
+            <h3>오답 추적</h3>
+            <p>틀린 문제를 확인하고 넘어가는 것과, 왜 틀렸는지를 추적하는 것은 다릅니다. 같은 유형에서 반복해서 틀리는 학생은 대부분 오답을 확인만 하고 이해했다고 착각한 경우입니다.</p>
+          </div>
+        </div>
+
+        <h2>솔직하게 말씀드리겠습니다</h2>
+
+        <div class="notice-box">
+          <p>선행 중심의 학습을 원하시는 분께는 맞지 않을 수 있습니다. 초등 6학년에게 중2 과정까지 나가는 식의 운영은 하지 않습니다. 수업을 듣는 것 외에 스스로 쓰고 정리하는 과정을 부담스러워하는 학생에게도 효과를 기대하기 어렵습니다.</p>
+        </div>
+
+        <p>반면 중학교 진학을 앞두고 지금 무엇을 준비해야 할지 판단이 서지 않으신다면, 한 번 이야기 나눠보시길 권합니다. 아이의 현재 상태를 말씀해 주시면 무엇이 필요한지 솔직하게 함께 생각해보겠습니다.</p>
+
+        <div class="cta-box">
+          <p>편하게 문의해 주세요</p>
+          <div class="cta-info">
+            <div class="cta-info-item">
+              <div class="label">위치</div>
+              <div class="value">수지 신봉종합상가 4층</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">전화</div>
+              <div class="value">031-272-8209</div>
+            </div>
+            <div class="cta-divider"></div>
+            <div class="cta-info-item">
+              <div class="label">대상</div>
+              <div class="value">초5 — 고2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-tags">
+          <span class="tag tag--school">#신봉중</span>
+          <span class="tag tag--type">#초6</span>
+          <span class="tag tag--type">#예비중1</span>
+          <span class="tag tag--type">#수지구수학학원</span>
+          <span class="tag tag--type">#신봉동수학학원</span>
+          <span class="tag tag--type">#중학교수학</span>
+          <span class="tag tag--type">#논술형</span>
+          <span class="tag tag--type">#원장직강</span>
+          <span class="tag tag--type">#소수정예</span>
+          <span class="tag tag--type">#생각의힘수학학원</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+</body>
+</html>
